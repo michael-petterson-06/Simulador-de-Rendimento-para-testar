@@ -150,6 +150,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$num
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/Button.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/Card.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/store/useSimuladorStore.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
@@ -157,9 +158,11 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+;
 function RendaFamiliar() {
     _s();
-    const { salarioMichael, salarioFernanda, outrasMichael, outrasFernanda, gastos, setSalarioMichael, setSalarioFernanda, setOutrasMichael, setOutrasFernanda, setGastos, resultadoRenda, setResultadoRenda } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSimuladorStore"])();
+    const { salarioMichael, salarioFernanda, outrasMichael, outrasFernanda, gastos, setSalarioMichael, setSalarioFernanda, setOutrasMichael, setOutrasFernanda, setGastos, resultadoRenda, setResultadoRenda, setAporteMensal } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSimuladorStore"])();
+    const [avisoCopiado, setAvisoCopiado] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const formatarReal = (valor)=>new Intl.NumberFormat('pt-BR', {
             style: 'currency',
             currency: 'BRL'
@@ -206,7 +209,7 @@ function RendaFamiliar() {
                         children: "Renda Familiar"
                     }, void 0, false, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 61,
+                        lineNumber: 65,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -224,7 +227,7 @@ function RendaFamiliar() {
                                 className: "px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 64,
+                                lineNumber: 68,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$number$2d$format$2f$dist$2f$react$2d$number$2d$format$2e$es$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NumericFormat"], {
@@ -239,7 +242,7 @@ function RendaFamiliar() {
                                 className: "px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 76,
+                                lineNumber: 80,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$number$2d$format$2f$dist$2f$react$2d$number$2d$format$2e$es$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NumericFormat"], {
@@ -254,7 +257,7 @@ function RendaFamiliar() {
                                 className: "px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 88,
+                                lineNumber: 92,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$number$2d$format$2f$dist$2f$react$2d$number$2d$format$2e$es$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NumericFormat"], {
@@ -269,7 +272,7 @@ function RendaFamiliar() {
                                 className: "px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 100,
+                                lineNumber: 104,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$number$2d$format$2f$dist$2f$react$2d$number$2d$format$2e$es$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NumericFormat"], {
@@ -284,13 +287,13 @@ function RendaFamiliar() {
                                 className: "px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 md:col-span-2"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 112,
+                                lineNumber: 116,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 63,
+                        lineNumber: 67,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -302,7 +305,7 @@ function RendaFamiliar() {
                                 children: "Calcular"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 126,
+                                lineNumber: 130,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -311,13 +314,13 @@ function RendaFamiliar() {
                                 children: "Limpar"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 129,
+                                lineNumber: 133,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 125,
+                        lineNumber: 129,
                         columnNumber: 11
                     }, this),
                     resultadoRenda && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -333,18 +336,18 @@ function RendaFamiliar() {
                                             children: formatarReal(resultadoRenda.totalEntradas)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                            lineNumber: 141,
+                                            lineNumber: 145,
                                             columnNumber: 41
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                    lineNumber: 140,
+                                    lineNumber: 144,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 139,
+                                lineNumber: 143,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -357,44 +360,74 @@ function RendaFamiliar() {
                                             children: formatarReal(resultadoRenda.saldoFinal)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                            lineNumber: 146,
+                                            lineNumber: 150,
                                             columnNumber: 35
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                    lineNumber: 145,
+                                    lineNumber: 149,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 144,
+                                lineNumber: 148,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mt-4",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                        onClick: ()=>{
+                                            setAporteMensal(resultadoRenda.saldoFinal.toString());
+                                            setAvisoCopiado(true);
+                                            setTimeout(()=>setAvisoCopiado(false), 3000);
+                                        },
+                                        className: "bg-indigo-500 hover:bg-indigo-600 text-white",
+                                        children: "Usar Saldo Final como Aporte Mensal"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/renda-familiar/page.tsx",
+                                        lineNumber: 155,
+                                        columnNumber: 17
+                                    }, this),
+                                    avisoCopiado && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "mt-2 text-sm text-green-600 font-medium animate-fade-in-out",
+                                        children: "✅ Valor copiado para Aporte Mensal!"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/renda-familiar/page.tsx",
+                                        lineNumber: 167,
+                                        columnNumber: 19
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/renda-familiar/page.tsx",
+                                lineNumber: 154,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 138,
+                        lineNumber: 142,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                lineNumber: 60,
+                lineNumber: 64,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/app/renda-familiar/page.tsx",
-            lineNumber: 59,
+            lineNumber: 63,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/renda-familiar/page.tsx",
-        lineNumber: 58,
+        lineNumber: 62,
         columnNumber: 5
     }, this);
 }
-_s(RendaFamiliar, "VSvWEOg+2c2hDU2ewvFOYBPIXQY=", false, function() {
+_s(RendaFamiliar, "TMlAVNsvE8ETZc8vENPdl0YzWZw=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSimuladorStore"]
     ];

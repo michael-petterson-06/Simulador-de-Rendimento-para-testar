@@ -5,6 +5,8 @@ import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { useSimuladorStore } from '@/store/useSimuladorStore';
+import { useState } from 'react';
+
 
 export default function Home() {
   const {
@@ -19,6 +21,8 @@ export default function Home() {
     resultadoHome,
     setResultadoHome,
   } = useSimuladorStore();
+
+  const [avisoCopiado, setAvisoCopiado] = useState(false);
 
   const formatarReal = (valor: number | string) =>
     new Intl.NumberFormat('pt-BR', {
@@ -136,6 +140,25 @@ export default function Home() {
                 <p className="text-lg font-medium">
                   🏆 Valor Total: <strong>{formatarReal(resultadoHome.valorFinal)}</strong>
                 </p>
+              </div>
+
+              <div className="mt-4">
+              <Button
+                onClick={() => {
+                  setValorInicial(resultadoHome.valorFinal.toString());
+                  setAvisoCopiado(true);
+                  setTimeout(() => setAvisoCopiado(false), 3000);
+                }}
+                className="bg-indigo-500 hover:bg-indigo-600 text-white"
+              >
+                Usar Valor Total como Novo Valor Inicial
+              </Button>
+
+              {avisoCopiado && (
+                <p className="mt-2 text-sm text-green-600 font-medium animate-fade-in-out">
+                  ✅ Valor copiado para Valor Inicial!
+                </p>
+              )}
               </div>
             </div>
           )}
