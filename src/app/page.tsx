@@ -1,23 +1,24 @@
 'use client';
 
-import { useState } from 'react';
+import { NumericFormat } from 'react-number-format';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
-import { NumericFormat } from 'react-number-format';
-
+import { useSimuladorStore } from '@/store/useSimuladorStore';
 
 export default function Home() {
-  const [valorInicial, setValorInicial] = useState('');
-  const [aporteMensal, setAporteMensal] = useState('');
-  const [jurosAnual, setJurosAnual] = useState('');
-  const [anos, setAnos] = useState('');
-
-  const [resultado, setResultado] = useState<{
-    totalDepositado: number;
-    totalJuros: number;
-    valorFinal: number;
-  } | null>(null);
+  const {
+    valorInicial,
+    aporteMensal,
+    jurosAnual,
+    anos,
+    setValorInicial,
+    setAporteMensal,
+    setJurosAnual,
+    setAnos,
+    resultadoHome,
+    setResultadoHome,
+  } = useSimuladorStore();
 
   const formatarReal = (valor: number | string) =>
     new Intl.NumberFormat('pt-BR', {
@@ -51,7 +52,7 @@ export default function Home() {
     const valorFinal = montante;
     const totalJuros = valorFinal - totalDepositado;
 
-    setResultado({ totalDepositado, totalJuros, valorFinal });
+    setResultadoHome({ totalDepositado, totalJuros, valorFinal });
   };
 
   const limpar = () => {
@@ -59,9 +60,8 @@ export default function Home() {
     setAporteMensal('');
     setJurosAnual('');
     setAnos('');
-    setResultado(null);
+    setResultadoHome(null);
   };
-  
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-indigo-100 to-white p-4 flex items-center justify-center">
@@ -70,7 +70,7 @@ export default function Home() {
           <h1 className="text-3xl font-bold text-center mb-6">Simulador de Rendimento Mike</h1>
 
           <div className="grid gap-4 md:grid-cols-2">
-           <NumericFormat
+            <NumericFormat
               value={valorInicial}
               thousandSeparator="."
               decimalSeparator=","
@@ -112,27 +112,29 @@ export default function Home() {
             <Button onClick={calcular} className="w-full md:w-auto text-lg px-6 py-2">
               Calcular
             </Button>
-            <Button onClick={limpar} className="w-full md:w-auto text-lg px-6 py-2 bg-gray-300 text-gray-800 hover:bg-gray-400">
+            <Button
+              onClick={limpar}
+              className="w-full md:w-auto text-lg px-6 py-2 bg-gray-300 text-gray-800 hover:bg-gray-400"
+            >
               Limpar
             </Button>
           </div>
 
-
-          {resultado && (
+          {resultadoHome && (
             <div className="mt-8 space-y-4 text-center">
               <div className="bg-green-100 p-4 rounded-xl">
                 <p className="text-lg font-medium">
-                  💰 Valor Depositado: <strong>{formatarReal(resultado.totalDepositado)}</strong>
+                  💰 Valor Depositado: <strong>{formatarReal(resultadoHome.totalDepositado)}</strong>
                 </p>
               </div>
               <div className="bg-blue-100 p-4 rounded-xl">
                 <p className="text-lg font-medium">
-                  📈 Valor dos Juros: <strong>{formatarReal(resultado.totalJuros)}</strong>
+                  📈 Valor dos Juros: <strong>{formatarReal(resultadoHome.totalJuros)}</strong>
                 </p>
               </div>
               <div className="bg-yellow-100 p-4 rounded-xl">
                 <p className="text-lg font-medium">
-                  🏆 Valor Total: <strong>{formatarReal(resultado.valorFinal)}</strong>
+                  🏆 Valor Total: <strong>{formatarReal(resultadoHome.valorFinal)}</strong>
                 </p>
               </div>
             </div>
