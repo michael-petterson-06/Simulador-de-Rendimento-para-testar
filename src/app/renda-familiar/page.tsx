@@ -4,6 +4,7 @@ import { NumericFormat } from 'react-number-format';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { useSimuladorStore } from '@/store/useSimuladorStore';
+import { useState } from 'react';
 
 export default function RendaFamiliar() {
   const {
@@ -19,7 +20,10 @@ export default function RendaFamiliar() {
     setGastos,
     resultadoRenda,
     setResultadoRenda,
+    setAporteMensal,
   } = useSimuladorStore();
+
+  const [avisoCopiado, setAvisoCopiado] = useState(false);
 
   const formatarReal = (valor: number | string) =>
     new Intl.NumberFormat('pt-BR', {
@@ -146,8 +150,28 @@ export default function RendaFamiliar() {
                   🧾 Saldo Final: <strong>{formatarReal(resultadoRenda.saldoFinal)}</strong>
                 </p>
               </div>
+
+              <div className="mt-4">
+                <Button
+                  onClick={() => {
+                    setAporteMensal(resultadoRenda.saldoFinal.toString());
+                    setAvisoCopiado(true);
+                    setTimeout(() => setAvisoCopiado(false), 3000);
+                  }}
+                  className="bg-indigo-500 hover:bg-indigo-600 text-white"
+                >
+                  Usar Saldo Final como Aporte Mensal
+                </Button>
+
+                {avisoCopiado && (
+                  <p className="mt-2 text-sm text-green-600 font-medium animate-fade-in-out">
+                    ✅ Valor copiado para Aporte Mensal!
+                  </p>
+                )}
+              </div>
             </div>
           )}
+
         </Card>
       </div>
     </main>
