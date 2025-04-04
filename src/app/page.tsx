@@ -1,12 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import { NumericFormat } from 'react-number-format';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { useSimuladorStore } from '@/store/useSimuladorStore';
-import { useState } from 'react';
-
 
 export default function Home() {
   const {
@@ -23,6 +22,7 @@ export default function Home() {
   } = useSimuladorStore();
 
   const [avisoCopiado, setAvisoCopiado] = useState(false);
+  const [desconto, setDesconto] = useState('');
 
   const formatarReal = (valor: number | string) =>
     new Intl.NumberFormat('pt-BR', {
@@ -65,6 +65,25 @@ export default function Home() {
     setJurosAnual('');
     setAnos('');
     setResultadoHome(null);
+    setDesconto('');
+  };
+
+  const subtrairDoValorTotal = () => {
+    if (!resultadoHome) return;
+    const d = Number(desconto);
+    if (isNaN(d)) {
+      alert('Digite um valor válido para subtrair');
+      return;
+    }
+
+    const novoFinal = resultadoHome.valorFinal - d;
+
+    setResultadoHome({
+      ...resultadoHome,
+      valorFinal: novoFinal,
+    });
+
+    setDesconto('');
   };
 
   return (
@@ -143,22 +162,44 @@ export default function Home() {
               </div>
 
               <div className="mt-4">
-              <Button
-                onClick={() => {
-                  setValorInicial(resultadoHome.valorFinal.toString());
-                  setAvisoCopiado(true);
-                  setTimeout(() => setAvisoCopiado(false), 3000);
-                }}
-                className="bg-indigo-500 hover:bg-indigo-600 text-white"
-              >
-                Usar Valor Total como Novo Valor Inicial
-              </Button>
+                <Button
+                  onClick={() => {
+                    setValorInicial(resultadoHome.valorFinal.toString());
+                    setAvisoCopiado(true);
+                    setTimeout(() => setAvisoCopiado(false), 3000);
+                  }}
+                  className="bg-indigo-500 hover:bg-indigo-600 text-white"
+                >
+                  Usar Valor Total como Novo Valor Inicial
+                </Button>
 
-              {avisoCopiado && (
-                <p className="mt-2 text-sm text-green-600 font-medium animate-fade-in-out">
-                  ✅ Valor copiado para Valor Inicial!
-                </p>
-              )}
+                {avisoCopiado && (
+                  <p className="mt-2 text-sm text-green-600 font-medium animate-fade-in-out">
+                    ✅ Valor copiado para Valor Inicial!
+                  </p>
+                )}
+              </div>
+
+              {/* Novo input reduzido e separado */}
+              <div className="mt-10 flex flex-col items-center gap-4">
+                <NumericFormat
+                  value={desconto}
+                  thousandSeparator="."
+                  decimalSeparator=","
+                  prefix="R$ "
+                  decimalScale={2}
+                  fixedDecimalScale
+                  onValueChange={(values) => setDesconto(values.value)}
+                  placeholder="Subtrair valor"
+                  className="w-1/2 px-3 py-1.5 border-2 border-rose-400 focus:border-rose-600 focus:ring-2 focus:ring-rose-300 rounded-xl shadow-inner transition duration-300 outline-none text-center"
+                />
+
+                <Button
+                  onClick={subtrairDoValorTotal}
+                  className="bg-rose-500 hover:bg-rose-600 text-white"
+                >
+                  Subtrair do Valor Total
+                </Button>
               </div>
             </div>
           )}
