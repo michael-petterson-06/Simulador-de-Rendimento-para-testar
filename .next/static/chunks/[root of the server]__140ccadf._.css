@@ -456,6 +456,10 @@ img, video {
   justify-content: center;
 }
 
+.gap-2 {
+  gap: .5rem;
+}
+
 .gap-4 {
   gap: 1rem;
 }

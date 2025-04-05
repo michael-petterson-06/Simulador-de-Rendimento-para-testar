@@ -2,37 +2,39 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 type SimuladorState = {
-  // home
+  // Simulador de Rendimento
   valorInicial: string;
   aporteMensal: string;
-  jurosAnual: string;
   anos: string;
+  juros: string;
+  rendimentoTipo: 'mensal' | 'anual';
+  tempoPoupancaTipo: 'anos' | 'meses';
 
-  // resultado home
   resultadoHome: {
     totalDepositado: number;
     totalJuros: number;
     valorFinal: number;
   } | null;
 
-  // renda familiar
+  // Renda Familiar
   salarioMichael: string;
   salarioFernanda: string;
   outrasMichael: string;
   outrasFernanda: string;
   gastos: string;
 
-  // resultado renda
   resultadoRenda: {
     totalEntradas: number;
     saldoFinal: number;
   } | null;
 
-  // setters
+  // Setters
   setValorInicial: (v: string) => void;
   setAporteMensal: (v: string) => void;
-  setJurosAnual: (v: string) => void;
   setAnos: (v: string) => void;
+  setJuros: (v: string) => void;
+  setRendimentoTipo: (tipo: 'mensal' | 'anual') => void;
+  setTempoPoupancaTipo: (tipo: 'anos' | 'meses') => void;
   setResultadoHome: (r: SimuladorState['resultadoHome']) => void;
 
   setSalarioMichael: (v: string) => void;
@@ -48,14 +50,16 @@ type SimuladorState = {
 export const useSimuladorStore = create<SimuladorState>()(
   persist(
     (set) => ({
-      // valores home
+      // Simulador
       valorInicial: '',
       aporteMensal: '',
-      jurosAnual: '',
       anos: '',
+      juros: '',
+      rendimentoTipo: 'anual',
+      tempoPoupancaTipo: 'anos',
       resultadoHome: null,
 
-      // valores renda
+      // Renda Familiar
       salarioMichael: '',
       salarioFernanda: '',
       outrasMichael: '',
@@ -63,14 +67,15 @@ export const useSimuladorStore = create<SimuladorState>()(
       gastos: '',
       resultadoRenda: null,
 
-      // setters home
+      // Setters
       setValorInicial: (v) => set({ valorInicial: v }),
       setAporteMensal: (v) => set({ aporteMensal: v }),
-      setJurosAnual: (v) => set({ jurosAnual: v }),
       setAnos: (v) => set({ anos: v }),
+      setJuros: (v) => set({ juros: v }),
+      setRendimentoTipo: (tipo) => set({ rendimentoTipo: tipo }),
+      setTempoPoupancaTipo: (tipo) => set({ tempoPoupancaTipo: tipo }),
       setResultadoHome: (r) => set({ resultadoHome: r }),
 
-      // setters renda
       setSalarioMichael: (v) => set({ salarioMichael: v }),
       setSalarioFernanda: (v) => set({ salarioFernanda: v }),
       setOutrasMichael: (v) => set({ outrasMichael: v }),
@@ -78,13 +83,14 @@ export const useSimuladorStore = create<SimuladorState>()(
       setGastos: (v) => set({ gastos: v }),
       setResultadoRenda: (r) => set({ resultadoRenda: r }),
 
-      // reset tudo
       resetAll: () =>
         set({
           valorInicial: '',
           aporteMensal: '',
-          jurosAnual: '',
           anos: '',
+          juros: '',
+          rendimentoTipo: 'anual',
+          tempoPoupancaTipo: 'anos',
           resultadoHome: null,
           salarioMichael: '',
           salarioFernanda: '',
@@ -95,7 +101,7 @@ export const useSimuladorStore = create<SimuladorState>()(
         }),
     }),
     {
-      name: 'simulador-storage', // nome da key no localStorage
+      name: 'simulador-storage',
     }
   )
 );

@@ -56,36 +56,43 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$e
 ;
 ;
 const useSimuladorStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$react$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["create"])()((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$middleware$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["persist"])((set)=>({
-        // valores home
+        // Simulador
         valorInicial: '',
         aporteMensal: '',
-        jurosAnual: '',
         anos: '',
+        juros: '',
+        rendimentoTipo: 'anual',
+        tempoPoupancaTipo: 'anos',
         resultadoHome: null,
-        // valores renda
+        // Renda Familiar
         salarioMichael: '',
         salarioFernanda: '',
         outrasMichael: '',
         outrasFernanda: '',
         gastos: '',
         resultadoRenda: null,
-        // setters home
+        // Setters
         setValorInicial: (v)=>set({
                 valorInicial: v
             }),
         setAporteMensal: (v)=>set({
                 aporteMensal: v
             }),
-        setJurosAnual: (v)=>set({
-                jurosAnual: v
-            }),
         setAnos: (v)=>set({
                 anos: v
+            }),
+        setJuros: (v)=>set({
+                juros: v
+            }),
+        setRendimentoTipo: (tipo)=>set({
+                rendimentoTipo: tipo
+            }),
+        setTempoPoupancaTipo: (tipo)=>set({
+                tempoPoupancaTipo: tipo
             }),
         setResultadoHome: (r)=>set({
                 resultadoHome: r
             }),
-        // setters renda
         setSalarioMichael: (v)=>set({
                 salarioMichael: v
             }),
@@ -104,12 +111,13 @@ const useSimuladorStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$no
         setResultadoRenda: (r)=>set({
                 resultadoRenda: r
             }),
-        // reset tudo
         resetAll: ()=>set({
                 valorInicial: '',
                 aporteMensal: '',
-                jurosAnual: '',
                 anos: '',
+                juros: '',
+                rendimentoTipo: 'anual',
+                tempoPoupancaTipo: 'anos',
                 resultadoHome: null,
                 salarioMichael: '',
                 salarioFernanda: '',

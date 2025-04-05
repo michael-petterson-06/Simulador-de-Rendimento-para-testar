@@ -11,18 +11,20 @@ export default function Home() {
   const {
     valorInicial,
     aporteMensal,
-    jurosAnual,
     anos,
+    juros,
+    tempoPoupancaTipo,
     setValorInicial,
     setAporteMensal,
-    setJurosAnual,
     setAnos,
+    setJuros,
+    setTempoPoupancaTipo,
     resultadoHome,
     setResultadoHome,
   } = useSimuladorStore();
 
-  const [avisoCopiado, setAvisoCopiado] = useState(false);
   const [desconto, setDesconto] = useState('');
+  const [avisoCopiado, setAvisoCopiado] = useState(false);
 
   const formatarReal = (valor: number | string) =>
     new Intl.NumberFormat('pt-BR', {
@@ -33,16 +35,16 @@ export default function Home() {
   const calcular = () => {
     const vi = Number(valorInicial);
     const am = Number(aporteMensal);
-    const ja = Number(jurosAnual);
-    const a = Number(anos);
+    const j = Number(juros);
+    const t = Number(anos);
 
-    if (isNaN(vi) || isNaN(am) || isNaN(ja) || isNaN(a)) {
+    if (isNaN(vi) || isNaN(am) || isNaN(j) || isNaN(t)) {
       alert('Preencha todos os campos corretamente!');
       return;
     }
 
-    const meses = a * 12;
-    const jurosMensal = ja / 12 / 100;
+    const meses = tempoPoupancaTipo === 'anos' ? t * 12 : t;
+    const jurosMensal = j / 100;
 
     let montante = vi;
     let totalDepositado = vi;
@@ -62,7 +64,7 @@ export default function Home() {
   const limpar = () => {
     setValorInicial('');
     setAporteMensal('');
-    setJurosAnual('');
+    setJuros('');
     setAnos('');
     setResultadoHome(null);
     setDesconto('');
@@ -77,12 +79,7 @@ export default function Home() {
     }
 
     const novoFinal = resultadoHome.valorFinal - d;
-
-    setResultadoHome({
-      ...resultadoHome,
-      valorFinal: novoFinal,
-    });
-
+    setResultadoHome({ ...resultadoHome, valorFinal: novoFinal });
     setDesconto('');
   };
 
@@ -117,17 +114,31 @@ export default function Home() {
               className="px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
 
+            <div className="flex gap-2 items-center md:col-span-2">
+              <select
+                value={tempoPoupancaTipo}
+                onChange={(e) => setTempoPoupancaTipo(e.target.value as 'anos' | 'meses')}
+                className="border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              >
+                <option value="anos">Anos</option>
+                <option value="meses">Meses</option>
+              </select>
+
+              <Input
+                type="number"
+                placeholder={tempoPoupancaTipo === 'anos' ? 'Anos Poupando' : 'Meses Poupando'}
+                value={anos}
+                onChange={(e) => setAnos(e.target.value)}
+                className="w-full"
+              />
+            </div>
+
             <Input
               type="number"
-              placeholder="Juros Anual (%)"
-              value={jurosAnual}
-              onChange={(e) => setJurosAnual(e.target.value)}
-            />
-            <Input
-              type="number"
-              placeholder="Anos Poupando"
-              value={anos}
-              onChange={(e) => setAnos(e.target.value)}
+              placeholder="Rendimento Mensal (%)"
+              value={juros}
+              onChange={(e) => setJuros(e.target.value)}
+              className="w-full md:col-span-2"
             />
           </div>
 
@@ -180,7 +191,6 @@ export default function Home() {
                 )}
               </div>
 
-              {/* Novo input reduzido e separado */}
               <div className="mt-10 flex flex-col items-center gap-4">
                 <NumericFormat
                   value={desconto}
