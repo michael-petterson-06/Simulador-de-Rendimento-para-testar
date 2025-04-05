@@ -7,7 +7,6 @@ type SimuladorState = {
   aporteMensal: string;
   anos: string;
   juros: string;
-  rendimentoTipo: 'mensal' | 'anual';
   tempoPoupancaTipo: 'anos' | 'meses';
 
   resultadoHome: {
@@ -33,7 +32,6 @@ type SimuladorState = {
   setAporteMensal: (v: string) => void;
   setAnos: (v: string) => void;
   setJuros: (v: string) => void;
-  setRendimentoTipo: (tipo: 'mensal' | 'anual') => void;
   setTempoPoupancaTipo: (tipo: 'anos' | 'meses') => void;
   setResultadoHome: (r: SimuladorState['resultadoHome']) => void;
 
@@ -50,16 +48,13 @@ type SimuladorState = {
 export const useSimuladorStore = create<SimuladorState>()(
   persist(
     (set) => ({
-      // Simulador
       valorInicial: '',
       aporteMensal: '',
       anos: '',
       juros: '',
-      rendimentoTipo: 'anual',
       tempoPoupancaTipo: 'anos',
       resultadoHome: null,
 
-      // Renda Familiar
       salarioMichael: '',
       salarioFernanda: '',
       outrasMichael: '',
@@ -67,12 +62,10 @@ export const useSimuladorStore = create<SimuladorState>()(
       gastos: '',
       resultadoRenda: null,
 
-      // Setters
       setValorInicial: (v) => set({ valorInicial: v }),
       setAporteMensal: (v) => set({ aporteMensal: v }),
       setAnos: (v) => set({ anos: v }),
       setJuros: (v) => set({ juros: v }),
-      setRendimentoTipo: (tipo) => set({ rendimentoTipo: tipo }),
       setTempoPoupancaTipo: (tipo) => set({ tempoPoupancaTipo: tipo }),
       setResultadoHome: (r) => set({ resultadoHome: r }),
 
@@ -89,7 +82,6 @@ export const useSimuladorStore = create<SimuladorState>()(
           aporteMensal: '',
           anos: '',
           juros: '',
-          rendimentoTipo: 'anual',
           tempoPoupancaTipo: 'anos',
           resultadoHome: null,
           salarioMichael: '',
