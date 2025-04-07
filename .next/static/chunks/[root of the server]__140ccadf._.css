@@ -720,27 +720,6 @@ img, video {
   animation: 10s ease-in-out forwards fadeInOut;
 }
 
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-
-  10%, 90% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-}
-
-.animate-fade-in-out {
-  animation: 10s ease-in-out forwards fadeInOut;
-}
-
 .hover\:bg-gray-400:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(156 163 175 / var(--tw-bg-opacity, 1));
