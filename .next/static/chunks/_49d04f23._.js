@@ -1,5 +1,32 @@
-(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push(["static/chunks/_9a4d5423._.js", {
+(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push(["static/chunks/_49d04f23._.js", {
 
+"[project]/src/components/ui/Input.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "Input": (()=>Input)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+;
+const Input = ({ className = '', ...props })=>{
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+        ...props,
+        className: `px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 ${className}`
+    }, void 0, false, {
+        fileName: "[project]/src/components/ui/Input.tsx",
+        lineNumber: 5,
+        columnNumber: 5
+    }, this);
+};
+_c = Input;
+var _c;
+__turbopack_context__.k.register(_c, "Input");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
 "[project]/src/components/ui/Button.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
@@ -137,79 +164,135 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }
 }}),
-"[project]/src/components/ResultadoRenda.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"[project]/src/utils/formatarReal.ts [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
 var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "ResultadoRenda": (()=>ResultadoRenda)
+    "formatarReal": (()=>formatarReal)
+});
+const formatarReal = (valor)=>new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    }).format(Number(valor));
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/src/components/ResultadoHome.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "ResultadoHome": (()=>ResultadoHome)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/store/useSimuladorStore.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$number$2d$format$2f$dist$2f$react$2d$number$2d$format$2e$es$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-number-format/dist/react-number-format.es.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/Button.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$formatarReal$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/utils/formatarReal.ts [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
 ;
 ;
-const ResultadoRenda = ({ onCopiar, avisoCopiado })=>{
+;
+;
+;
+const ResultadoHome = ({ onCopiar, avisoCopiado })=>{
     _s();
-    const { resultadoRenda } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSimuladorStore"])();
-    const formatarReal = (valor)=>new Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-        }).format(Number(valor));
-    if (!resultadoRenda) return null;
+    const { resultadoHome, setResultadoHome } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSimuladorStore"])();
+    const [desconto, setDesconto] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
+    if (!resultadoHome) return null;
+    const subtrairDoValorTotal = ()=>{
+        const d = Number(desconto);
+        if (isNaN(d)) {
+            alert('Digite um valor válido para subtrair');
+            return;
+        }
+        const novoFinal = resultadoHome.valorFinal - d;
+        setResultadoHome({
+            ...resultadoHome,
+            valorFinal: novoFinal
+        });
+        setDesconto('');
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "mt-8 space-y-4 text-center",
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "bg-blue-100 p-4 rounded-xl",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                    className: "text-lg font-medium",
-                    children: [
-                        "📥 Total de Entradas: ",
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                            children: formatarReal(resultadoRenda.totalEntradas)
-                        }, void 0, false, {
-                            fileName: "[project]/src/components/ResultadoRenda.tsx",
-                            lineNumber: 26,
-                            columnNumber: 33
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/src/components/ResultadoRenda.tsx",
-                    lineNumber: 25,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/src/components/ResultadoRenda.tsx",
-                lineNumber: 24,
-                columnNumber: 7
-            }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "bg-green-100 p-4 rounded-xl",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: "text-lg font-medium",
                     children: [
-                        "🧾 Saldo Final: ",
+                        "💰 Valor Depositado: ",
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                            children: formatarReal(resultadoRenda.saldoFinal)
+                            children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$formatarReal$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["formatarReal"])(resultadoHome.totalDepositado)
                         }, void 0, false, {
-                            fileName: "[project]/src/components/ResultadoRenda.tsx",
-                            lineNumber: 31,
+                            fileName: "[project]/src/components/ResultadoHome.tsx",
+                            lineNumber: 37,
+                            columnNumber: 32
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/components/ResultadoHome.tsx",
+                    lineNumber: 36,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/components/ResultadoHome.tsx",
+                lineNumber: 35,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "bg-blue-100 p-4 rounded-xl",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    className: "text-lg font-medium",
+                    children: [
+                        "📈 Valor dos Juros: ",
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                            children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$formatarReal$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["formatarReal"])(resultadoHome.totalJuros)
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/ResultadoHome.tsx",
+                            lineNumber: 42,
+                            columnNumber: 31
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/components/ResultadoHome.tsx",
+                    lineNumber: 41,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/components/ResultadoHome.tsx",
+                lineNumber: 40,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "bg-yellow-100 p-4 rounded-xl",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    className: "text-lg font-medium",
+                    children: [
+                        "🏆 Valor Total: ",
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                            children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$formatarReal$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["formatarReal"])(resultadoHome.valorFinal)
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/ResultadoHome.tsx",
+                            lineNumber: 47,
                             columnNumber: 27
                         }, this)
                     ]
                 }, void 0, true, {
-                    fileName: "[project]/src/components/ResultadoRenda.tsx",
-                    lineNumber: 30,
+                    fileName: "[project]/src/components/ResultadoHome.tsx",
+                    lineNumber: 46,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
-                fileName: "[project]/src/components/ResultadoRenda.tsx",
-                lineNumber: 29,
+                fileName: "[project]/src/components/ResultadoHome.tsx",
+                lineNumber: 45,
                 columnNumber: 7
             }, this),
             onCopiar && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -218,60 +301,94 @@ const ResultadoRenda = ({ onCopiar, avisoCopiado })=>{
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                         onClick: onCopiar,
                         className: "bg-indigo-500 hover:bg-indigo-600 text-white",
-                        children: "Usar Saldo Final como Aporte Mensal"
+                        children: "Usar Valor Total como Novo Valor Inicial"
                     }, void 0, false, {
-                        fileName: "[project]/src/components/ResultadoRenda.tsx",
-                        lineNumber: 37,
+                        fileName: "[project]/src/components/ResultadoHome.tsx",
+                        lineNumber: 53,
                         columnNumber: 11
                     }, this),
                     avisoCopiado && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "mt-2 text-sm text-green-600 font-medium animate-fade-in-out",
-                        children: "✅ Valor copiado para Aporte Mensal!"
+                        children: "✅ Valor copiado para Valor Inicial!"
                     }, void 0, false, {
-                        fileName: "[project]/src/components/ResultadoRenda.tsx",
-                        lineNumber: 44,
+                        fileName: "[project]/src/components/ResultadoHome.tsx",
+                        lineNumber: 60,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
-                fileName: "[project]/src/components/ResultadoRenda.tsx",
-                lineNumber: 36,
+                fileName: "[project]/src/components/ResultadoHome.tsx",
+                lineNumber: 52,
                 columnNumber: 9
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "mt-10 flex flex-col items-center gap-4",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$number$2d$format$2f$dist$2f$react$2d$number$2d$format$2e$es$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NumericFormat"], {
+                        value: desconto,
+                        thousandSeparator: ".",
+                        decimalSeparator: ",",
+                        prefix: "R$ ",
+                        decimalScale: 2,
+                        fixedDecimalScale: true,
+                        onValueChange: (values)=>setDesconto(values.value),
+                        placeholder: "Subtrair valor",
+                        className: "w-1/2 px-3 py-1.5 border-2 border-rose-400 focus:border-rose-600 focus:ring-2 focus:ring-rose-300 rounded-xl shadow-inner transition duration-300 outline-none text-center"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/ResultadoHome.tsx",
+                        lineNumber: 68,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                        onClick: subtrairDoValorTotal,
+                        className: "bg-rose-500 hover:bg-rose-600 text-white",
+                        children: "Subtrair do Valor Total"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/ResultadoHome.tsx",
+                        lineNumber: 80,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/components/ResultadoHome.tsx",
+                lineNumber: 67,
+                columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
-        fileName: "[project]/src/components/ResultadoRenda.tsx",
-        lineNumber: 23,
+        fileName: "[project]/src/components/ResultadoHome.tsx",
+        lineNumber: 34,
         columnNumber: 5
     }, this);
 };
-_s(ResultadoRenda, "VVpQeAka4LLvqwZh/PQO/jkk+pA=", false, function() {
+_s(ResultadoHome, "0CnV01FUxr3XdAa7niAP2mJfWCg=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSimuladorStore"]
     ];
 });
-_c = ResultadoRenda;
+_c = ResultadoHome;
 var _c;
-__turbopack_context__.k.register(_c, "ResultadoRenda");
+__turbopack_context__.k.register(_c, "ResultadoHome");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }
 }}),
-"[project]/src/app/renda-familiar/page.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"[project]/src/app/page.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
 var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "default": (()=>RendaFamiliar)
+    "default": (()=>Home)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$number$2d$format$2f$dist$2f$react$2d$number$2d$format$2e$es$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-number-format/dist/react-number-format.es.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/Input.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/Button.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/Card.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/store/useSimuladorStore.ts [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ResultadoRenda$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ResultadoRenda.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ResultadoHome$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ResultadoHome.tsx [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
@@ -281,137 +398,153 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-function RendaFamiliar() {
+;
+function Home() {
     _s();
-    const { salarioMichael, salarioFernanda, outrasMichael, outrasFernanda, gastos, setSalarioMichael, setSalarioFernanda, setOutrasMichael, setOutrasFernanda, setGastos, resultadoRenda, setResultadoRenda, setAporteMensal } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSimuladorStore"])();
+    const { valorInicial, aporteMensal, anos, juros, tempoPoupancaTipo, setValorInicial, setAporteMensal, setAnos, setJuros, setTempoPoupancaTipo, resultadoHome, setResultadoHome } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSimuladorStore"])();
     const [avisoCopiado, setAvisoCopiado] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const calcular = ()=>{
-        const sm = Number(salarioMichael);
-        const sf = Number(salarioFernanda);
-        const om = Number(outrasMichael);
-        const of = Number(outrasFernanda);
-        const g = Number(gastos);
-        if ([
-            sm,
-            sf,
-            om,
-            of,
-            g
-        ].some((v)=>isNaN(v))) {
+        const vi = Number(valorInicial);
+        const am = Number(aporteMensal);
+        const j = Number(juros);
+        const t = Number(anos);
+        if (isNaN(vi) || isNaN(am) || isNaN(j) || isNaN(t)) {
             alert('Preencha todos os campos corretamente!');
             return;
         }
-        const totalEntradas = sm + sf + om + of;
-        const saldoFinal = totalEntradas - g;
-        setResultadoRenda({
-            totalEntradas,
-            saldoFinal
+        const meses = tempoPoupancaTipo === 'anos' ? t * 12 : t;
+        const jurosMensal = j / 100;
+        let montante = vi;
+        let totalDepositado = vi;
+        for(let i = 0; i < meses; i++){
+            montante *= 1 + jurosMensal;
+            montante += am;
+            totalDepositado += am;
+        }
+        const valorFinal = montante;
+        const totalJuros = valorFinal - totalDepositado;
+        setResultadoHome({
+            totalDepositado,
+            totalJuros,
+            valorFinal
         });
     };
     const limpar = ()=>{
-        setSalarioMichael('');
-        setSalarioFernanda('');
-        setOutrasMichael('');
-        setOutrasFernanda('');
-        setGastos('');
-        setResultadoRenda(null);
+        setValorInicial('');
+        setAporteMensal('');
+        setJuros('');
+        setAnos('');
+        setResultadoHome(null);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
-        className: "min-h-screen bg-gradient-to-br from-pink-100 to-white p-4 flex items-center justify-center",
+        className: "min-h-screen bg-gradient-to-br from-indigo-100 to-white p-4 flex items-center justify-center",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "w-full max-w-xl",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                         className: "text-3xl font-bold text-center mb-6",
-                        children: "Renda Familiar"
+                        children: "Simulador de Rendimento Mike"
                     }, void 0, false, {
-                        fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 61,
+                        fileName: "[project]/src/app/page.tsx",
+                        lineNumber: 70,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "grid gap-4 md:grid-cols-2",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$number$2d$format$2f$dist$2f$react$2d$number$2d$format$2e$es$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NumericFormat"], {
-                                value: salarioMichael,
+                                value: valorInicial,
                                 thousandSeparator: ".",
                                 decimalSeparator: ",",
                                 prefix: "R$ ",
                                 decimalScale: 2,
                                 fixedDecimalScale: true,
-                                onValueChange: (values)=>setSalarioMichael(values.value),
-                                placeholder: "Salário Michael",
+                                onValueChange: (values)=>setValorInicial(values.value),
+                                placeholder: "Valor Inicial (R$)",
                                 className: "px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
                             }, void 0, false, {
-                                fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 64,
+                                fileName: "[project]/src/app/page.tsx",
+                                lineNumber: 73,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$number$2d$format$2f$dist$2f$react$2d$number$2d$format$2e$es$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NumericFormat"], {
-                                value: salarioFernanda,
+                                value: aporteMensal,
                                 thousandSeparator: ".",
                                 decimalSeparator: ",",
                                 prefix: "R$ ",
                                 decimalScale: 2,
                                 fixedDecimalScale: true,
-                                onValueChange: (values)=>setSalarioFernanda(values.value),
-                                placeholder: "Salário Fernanda",
+                                onValueChange: (values)=>setAporteMensal(values.value),
+                                placeholder: "Aporte Mensal (R$)",
                                 className: "px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
                             }, void 0, false, {
-                                fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 76,
+                                fileName: "[project]/src/app/page.tsx",
+                                lineNumber: 85,
                                 columnNumber: 13
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$number$2d$format$2f$dist$2f$react$2d$number$2d$format$2e$es$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NumericFormat"], {
-                                value: outrasMichael,
-                                thousandSeparator: ".",
-                                decimalSeparator: ",",
-                                prefix: "R$ ",
-                                decimalScale: 2,
-                                fixedDecimalScale: true,
-                                onValueChange: (values)=>setOutrasMichael(values.value),
-                                placeholder: "Outras Entradas Michael",
-                                className: "px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 88,
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex gap-2 items-center md:col-span-2",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                        value: tempoPoupancaTipo,
+                                        onChange: (e)=>setTempoPoupancaTipo(e.target.value),
+                                        className: "border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "anos",
+                                                children: "Anos"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/page.tsx",
+                                                lineNumber: 103,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "meses",
+                                                children: "Meses"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/page.tsx",
+                                                lineNumber: 104,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/page.tsx",
+                                        lineNumber: 98,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                        type: "number",
+                                        placeholder: tempoPoupancaTipo === 'anos' ? 'Anos Poupando' : 'Meses Poupando',
+                                        value: anos,
+                                        onChange: (e)=>setAnos(e.target.value),
+                                        className: "w-full"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/page.tsx",
+                                        lineNumber: 107,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/page.tsx",
+                                lineNumber: 97,
                                 columnNumber: 13
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$number$2d$format$2f$dist$2f$react$2d$number$2d$format$2e$es$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NumericFormat"], {
-                                value: outrasFernanda,
-                                thousandSeparator: ".",
-                                decimalSeparator: ",",
-                                prefix: "R$ ",
-                                decimalScale: 2,
-                                fixedDecimalScale: true,
-                                onValueChange: (values)=>setOutrasFernanda(values.value),
-                                placeholder: "Outras Entradas Fernanda",
-                                className: "px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                type: "number",
+                                placeholder: "Rendimento Mensal (%)",
+                                value: juros,
+                                onChange: (e)=>setJuros(e.target.value),
+                                className: "w-full md:col-span-2"
                             }, void 0, false, {
-                                fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 100,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$number$2d$format$2f$dist$2f$react$2d$number$2d$format$2e$es$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NumericFormat"], {
-                                value: gastos,
-                                thousandSeparator: ".",
-                                decimalSeparator: ",",
-                                prefix: "R$ ",
-                                decimalScale: 2,
-                                fixedDecimalScale: true,
-                                onValueChange: (values)=>setGastos(values.value),
-                                placeholder: "Gastos Familiares",
-                                className: "px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 md:col-span-2"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 112,
+                                fileName: "[project]/src/app/page.tsx",
+                                lineNumber: 116,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
-                        fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 63,
+                        fileName: "[project]/src/app/page.tsx",
+                        lineNumber: 72,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -422,7 +555,7 @@ function RendaFamiliar() {
                                 className: "w-full md:w-auto text-lg px-6 py-2",
                                 children: "Calcular"
                             }, void 0, false, {
-                                fileName: "[project]/src/app/renda-familiar/page.tsx",
+                                fileName: "[project]/src/app/page.tsx",
                                 lineNumber: 126,
                                 columnNumber: 13
                             }, this),
@@ -431,53 +564,53 @@ function RendaFamiliar() {
                                 className: "w-full md:w-auto text-lg px-6 py-2 bg-gray-300 text-gray-800 hover:bg-gray-400",
                                 children: "Limpar"
                             }, void 0, false, {
-                                fileName: "[project]/src/app/renda-familiar/page.tsx",
+                                fileName: "[project]/src/app/page.tsx",
                                 lineNumber: 129,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
-                        fileName: "[project]/src/app/renda-familiar/page.tsx",
+                        fileName: "[project]/src/app/page.tsx",
                         lineNumber: 125,
                         columnNumber: 11
                     }, this),
-                    resultadoRenda && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ResultadoRenda$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ResultadoRenda"], {
+                    resultadoHome && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ResultadoHome$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ResultadoHome"], {
                         onCopiar: ()=>{
-                            setAporteMensal(resultadoRenda.saldoFinal.toString());
+                            setValorInicial(resultadoHome.valorFinal.toString());
                             setAvisoCopiado(true);
                             setTimeout(()=>setAvisoCopiado(false), 3000);
                         },
                         avisoCopiado: avisoCopiado
                     }, void 0, false, {
-                        fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 137,
+                        fileName: "[project]/src/app/page.tsx",
+                        lineNumber: 138,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
-                fileName: "[project]/src/app/renda-familiar/page.tsx",
-                lineNumber: 60,
+                fileName: "[project]/src/app/page.tsx",
+                lineNumber: 69,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
-            fileName: "[project]/src/app/renda-familiar/page.tsx",
-            lineNumber: 59,
+            fileName: "[project]/src/app/page.tsx",
+            lineNumber: 68,
             columnNumber: 7
         }, this)
     }, void 0, false, {
-        fileName: "[project]/src/app/renda-familiar/page.tsx",
-        lineNumber: 58,
+        fileName: "[project]/src/app/page.tsx",
+        lineNumber: 67,
         columnNumber: 5
     }, this);
 }
-_s(RendaFamiliar, "TMlAVNsvE8ETZc8vENPdl0YzWZw=", false, function() {
+_s(Home, "AFrB3+pDxepBndsyE2T/XGvfygQ=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSimuladorStore"]
     ];
 });
-_c = RendaFamiliar;
+_c = Home;
 var _c;
-__turbopack_context__.k.register(_c, "RendaFamiliar");
+__turbopack_context__.k.register(_c, "Home");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }
@@ -2567,4 +2700,4 @@ const persist = persistImpl;
 }}),
 }]);
 
-//# sourceMappingURL=_9a4d5423._.js.map
+//# sourceMappingURL=_49d04f23._.js.map

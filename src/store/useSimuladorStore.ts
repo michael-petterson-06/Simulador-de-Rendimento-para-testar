@@ -1,51 +1,13 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { SimuladorState } from '@/types/simulador';
+import { RendaFamiliarState } from '@/types/renda-familiar';
 
-type SimuladorState = {
-  // Simulador de Rendimento
-  valorInicial: string;
-  aporteMensal: string;
-  anos: string;
-  juros: string;
-  tempoPoupancaTipo: 'anos' | 'meses';
-
-  resultadoHome: {
-    totalDepositado: number;
-    totalJuros: number;
-    valorFinal: number;
-  } | null;
-
-  // Renda Familiar
-  salarioMichael: string;
-  salarioFernanda: string;
-  outrasMichael: string;
-  outrasFernanda: string;
-  gastos: string;
-
-  resultadoRenda: {
-    totalEntradas: number;
-    saldoFinal: number;
-  } | null;
-
-  // Setters
-  setValorInicial: (v: string) => void;
-  setAporteMensal: (v: string) => void;
-  setAnos: (v: string) => void;
-  setJuros: (v: string) => void;
-  setTempoPoupancaTipo: (tipo: 'anos' | 'meses') => void;
-  setResultadoHome: (r: SimuladorState['resultadoHome']) => void;
-
-  setSalarioMichael: (v: string) => void;
-  setSalarioFernanda: (v: string) => void;
-  setOutrasMichael: (v: string) => void;
-  setOutrasFernanda: (v: string) => void;
-  setGastos: (v: string) => void;
-  setResultadoRenda: (r: SimuladorState['resultadoRenda']) => void;
-
+type StoreState = SimuladorState & RendaFamiliarState & {
   resetAll: () => void;
 };
 
-export const useSimuladorStore = create<SimuladorState>()(
+export const useSimuladorStore = create<StoreState>()(
   persist(
     (set) => ({
       valorInicial: '',

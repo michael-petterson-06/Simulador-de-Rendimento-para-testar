@@ -4,21 +4,17 @@ import { useSimuladorStore } from '@/store/useSimuladorStore';
 import { useState } from 'react';
 import { NumericFormat } from 'react-number-format';
 import { Button } from '@/components/ui/Button';
+import { formatarReal } from '@/utils/formatarReal';
+import { ResultadoProps } from '@/types/props';
 
-type Props = {
-  onCopiar?: () => void;
-  avisoCopiado?: boolean;
-};
 
-export const ResultadoHome = ({ onCopiar, avisoCopiado }: Props) => {
+
+
+export const ResultadoHome = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
   const { resultadoHome, setResultadoHome } = useSimuladorStore();
   const [desconto, setDesconto] = useState('');
 
-  const formatarReal = (valor: number | string) =>
-    new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-    }).format(Number(valor));
+
 
   if (!resultadoHome) return null;
 

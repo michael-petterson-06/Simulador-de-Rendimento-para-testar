@@ -1,20 +1,16 @@
 'use client';
 
 import { useSimuladorStore } from '@/store/useSimuladorStore';
+import { Button } from './ui/Button';
+import { formatarReal } from '@/utils/formatarReal';
+import { ResultadoProps } from '@/types/props';
 
-type Props = {
-  onCopiar?: () => void;
-  avisoCopiado?: boolean;
-};
 
-export const ResultadoRenda = ({ onCopiar, avisoCopiado }: Props) => {
+
+export const ResultadoRenda = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
   const { resultadoRenda } = useSimuladorStore();
 
-  const formatarReal = (valor: number | string) =>
-    new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-    }).format(Number(valor));
+ 
 
   if (!resultadoRenda) return null;
 
@@ -33,12 +29,12 @@ export const ResultadoRenda = ({ onCopiar, avisoCopiado }: Props) => {
 
       {onCopiar && (
         <div className="mt-4">
-          <button
+          <Button
             onClick={onCopiar}
-            className="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-xl"
+            className="bg-indigo-500 hover:bg-indigo-600 text-white"
           >
             Usar Saldo Final como Aporte Mensal
-          </button>
+        </Button>
           {avisoCopiado && (
             <p className="mt-2 text-sm text-green-600 font-medium animate-fade-in-out">
               ✅ Valor copiado para Aporte Mensal!
