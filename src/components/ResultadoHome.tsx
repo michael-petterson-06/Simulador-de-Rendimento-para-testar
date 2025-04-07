@@ -8,13 +8,9 @@ import { formatarReal } from '@/utils/formatarReal';
 import { ResultadoProps } from '@/types/props';
 
 
-
-
 export const ResultadoHome = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
   const { resultadoHome, setResultadoHome } = useSimuladorStore();
   const [desconto, setDesconto] = useState('');
-
-
 
   if (!resultadoHome) return null;
 

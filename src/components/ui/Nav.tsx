@@ -7,7 +7,8 @@ export const Nav = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="w-full bg-white shadow p-4 flex justify-center gap-6 mb-6">
+    <nav className="w-full bg-white p-4 flex justify-center gap-6 mb-6">
+
       <Link
         href="/"
         className={`text-lg font-medium transition-colors duration-300 ${

@@ -5,14 +5,10 @@ import { Button } from './ui/Button';
 import { formatarReal } from '@/utils/formatarReal';
 import { ResultadoProps } from '@/types/props';
 
-
-
 export const ResultadoRenda = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
   const { resultadoRenda } = useSimuladorStore();
 
- 
-
-  if (!resultadoRenda) return null;
+   if (!resultadoRenda) return null;
 
   return (
     <div className="mt-8 space-y-4 text-center">

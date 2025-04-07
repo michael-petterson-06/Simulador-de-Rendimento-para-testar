@@ -3,9 +3,7 @@ import { persist } from 'zustand/middleware';
 import { SimuladorState } from '@/types/simulador';
 import { RendaFamiliarState } from '@/types/renda-familiar';
 
-type StoreState = SimuladorState & RendaFamiliarState & {
-  resetAll: () => void;
-};
+type StoreState = SimuladorState & RendaFamiliarState 
 
 export const useSimuladorStore = create<StoreState>()(
   persist(
@@ -37,22 +35,6 @@ export const useSimuladorStore = create<StoreState>()(
       setOutrasFernanda: (v) => set({ outrasFernanda: v }),
       setGastos: (v) => set({ gastos: v }),
       setResultadoRenda: (r) => set({ resultadoRenda: r }),
-
-      resetAll: () =>
-        set({
-          valorInicial: '',
-          aporteMensal: '',
-          anos: '',
-          juros: '',
-          tempoPoupancaTipo: 'anos',
-          resultadoHome: null,
-          salarioMichael: '',
-          salarioFernanda: '',
-          outrasMichael: '',
-          outrasFernanda: '',
-          gastos: '',
-          resultadoRenda: null,
-        }),
     }),
     {
       name: 'simulador-storage',
