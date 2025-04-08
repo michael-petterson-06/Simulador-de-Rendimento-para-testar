@@ -3,6 +3,7 @@
 import { NumericFormat } from 'react-number-format';
 import { Button } from './ui/Button';
 import { ModalGastoProps } from '@/types';
+import { Input } from './ui/Input';
 
 export const ModalGasto = ({
   nomeGasto,
@@ -13,6 +14,7 @@ export const ModalGasto = ({
   onCancelar,
   isEditing = false,
 }: ModalGastoProps) => {
+  
   return (
     <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
       <div className="bg-white rounded-xl shadow-xl p-6 w-full max-w-md space-y-4">
@@ -20,7 +22,7 @@ export const ModalGasto = ({
           {isEditing ? 'Editar Gasto' : 'Novo Gasto'}
         </h2>
 
-        <input
+        <Input
           type="text"
           placeholder="Nome do gasto"
           value={nomeGasto}
