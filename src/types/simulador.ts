@@ -4,6 +4,16 @@ export type ResultadoHome = {
   valorFinal: number;
 };
 
+export type ResultadoRenda = {
+  totalEntradas: number;
+  saldoFinal: number;
+};
+
+export type Gasto = {
+  nome: string;
+  valor: number;
+};
+
 export type SimuladorState = {
   valorInicial: string;
   aporteMensal: string;
@@ -12,10 +22,28 @@ export type SimuladorState = {
   tempoPoupancaTipo: 'anos' | 'meses';
   resultadoHome: ResultadoHome | null;
 
+  salarioMichael: string;
+  salarioFernanda: string;
+  outrasMichael: string;
+  outrasFernanda: string;
+  gastos: string;
+  listaGastos: Gasto[];
+  resultadoRenda: ResultadoRenda | null;
+
   setValorInicial: (v: string) => void;
   setAporteMensal: (v: string) => void;
   setAnos: (v: string) => void;
   setJuros: (v: string) => void;
   setTempoPoupancaTipo: (tipo: 'anos' | 'meses') => void;
   setResultadoHome: (r: ResultadoHome | null) => void;
+
+  setSalarioMichael: (v: string) => void;
+  setSalarioFernanda: (v: string) => void;
+  setOutrasMichael: (v: string) => void;
+  setOutrasFernanda: (v: string) => void;
+  setGastos: (v: string) => void;
+  addGasto: (gasto: Gasto) => void;
+  setResultadoRenda: (r: ResultadoRenda | null) => void;
+
+  resetAll: () => void;
 };

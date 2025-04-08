@@ -65,7 +65,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$e
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$middleware$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/zustand/esm/middleware.mjs [app-client] (ecmascript)");
 ;
 ;
-const useSimuladorStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["create"])()((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$middleware$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["persist"])((set)=>({
+const useSimuladorStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["create"])()((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$middleware$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["persist"])((set, get)=>({
         valorInicial: '',
         aporteMensal: '',
         anos: '',
@@ -77,6 +77,7 @@ const useSimuladorStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$no
         outrasMichael: '',
         outrasFernanda: '',
         gastos: '',
+        listaGastos: [],
         resultadoRenda: null,
         setValorInicial: (v)=>set({
                 valorInicial: v
@@ -111,8 +112,34 @@ const useSimuladorStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$no
         setGastos: (v)=>set({
                 gastos: v
             }),
+        addGasto: (gasto)=>{
+            const listaAtual = get().listaGastos;
+            const novoTotal = listaAtual.reduce((acc, cur)=>acc + cur.valor, 0) + gasto.valor;
+            set({
+                listaGastos: [
+                    ...listaAtual,
+                    gasto
+                ],
+                gastos: novoTotal.toString()
+            });
+        },
         setResultadoRenda: (r)=>set({
                 resultadoRenda: r
+            }),
+        resetAll: ()=>set({
+                valorInicial: '',
+                aporteMensal: '',
+                anos: '',
+                juros: '',
+                tempoPoupancaTipo: 'anos',
+                resultadoHome: null,
+                salarioMichael: '',
+                salarioFernanda: '',
+                outrasMichael: '',
+                outrasFernanda: '',
+                gastos: '',
+                listaGastos: [],
+                resultadoRenda: null
             })
     }), {
     name: 'simulador-storage'

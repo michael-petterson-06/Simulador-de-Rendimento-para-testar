@@ -6,6 +6,8 @@ import { Card } from '@/components/ui/Card';
 import { useSimuladorStore } from '@/store/useSimuladorStore';
 import { useState } from 'react';
 import { ResultadoRenda } from '@/components/ResultadoRenda';
+import { ListaGastos } from '@/components/ListaGastos';
+import { ModalGasto } from '@/components/ModalGasto';
 
 export default function RendaFamiliar() {
   const {
@@ -22,10 +24,19 @@ export default function RendaFamiliar() {
     resultadoRenda,
     setResultadoRenda,
     setAporteMensal,
+    addGasto,
   } = useSimuladorStore();
 
   const [avisoCopiado, setAvisoCopiado] = useState(false);
+  const [mostrarModal, setMostrarModal] = useState(false);
+  const [nomeGasto, setNomeGasto] = useState('');
+  const [valorGasto, setValorGasto] = useState('');
 
+  const formatarReal = (valor: number | string) =>
+    new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    }).format(Number(valor));
 
   const calcular = () => {
     const sm = Number(salarioMichael);
@@ -54,6 +65,19 @@ export default function RendaFamiliar() {
     setResultadoRenda(null);
   };
 
+  const adicionarGasto = () => {
+    const valor = Number(valorGasto);
+    if (!nomeGasto.trim() || isNaN(valor)) {
+      alert('Preencha corretamente o nome e valor do gasto.');
+      return;
+    }
+
+    addGasto({ nome: nomeGasto, valor });
+    setNomeGasto('');
+    setValorGasto('');
+    setMostrarModal(false);
+  };
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-pink-100 to-white p-4 flex items-center justify-center">
       <div className="w-full max-w-xl">
@@ -64,7 +88,7 @@ export default function RendaFamiliar() {
             <NumericFormat
               value={salarioMichael}
               thousandSeparator="."
-              decimalSeparator=","
+              decimalSeparator="," 
               prefix="R$ "
               decimalScale={2}
               fixedDecimalScale
@@ -76,7 +100,7 @@ export default function RendaFamiliar() {
             <NumericFormat
               value={salarioFernanda}
               thousandSeparator="."
-              decimalSeparator=","
+              decimalSeparator="," 
               prefix="R$ "
               decimalScale={2}
               fixedDecimalScale
@@ -88,7 +112,7 @@ export default function RendaFamiliar() {
             <NumericFormat
               value={outrasMichael}
               thousandSeparator="."
-              decimalSeparator=","
+              decimalSeparator="," 
               prefix="R$ "
               decimalScale={2}
               fixedDecimalScale
@@ -100,7 +124,7 @@ export default function RendaFamiliar() {
             <NumericFormat
               value={outrasFernanda}
               thousandSeparator="."
-              decimalSeparator=","
+              decimalSeparator="," 
               prefix="R$ "
               decimalScale={2}
               fixedDecimalScale
@@ -108,18 +132,17 @@ export default function RendaFamiliar() {
               placeholder="Outras Entradas Fernanda"
               className="px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
+          </div>
 
-            <NumericFormat
-              value={gastos}
-              thousandSeparator="."
-              decimalSeparator=","
-              prefix="R$ "
-              decimalScale={2}
-              fixedDecimalScale
-              onValueChange={(values) => setGastos(values.value)}
-              placeholder="Gastos Familiares"
-              className="px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 md:col-span-2"
-            />
+          <div className="mt-8">
+            <ListaGastos />
+          </div>
+
+          <div className="md:col-span-2 text-left text-sm font-medium text-gray-700 mt-4">
+            {/* <span className="block mt-2">Gastos Familiares:</span> */}
+            <span className="inline-block text-lg text-rose-600 font-bold">
+              {formatarReal(gastos)}
+            </span>
           </div>
 
           <div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-4">
@@ -132,7 +155,25 @@ export default function RendaFamiliar() {
             >
               Limpar
             </Button>
+            <Button
+              onClick={() => setMostrarModal(true)}
+              className="w-full md:w-auto text-lg px-6 py-2 bg-rose-500 text-white hover:bg-rose-600"
+            >
+              Adicionar Gasto
+            </Button>
           </div>
+
+          {mostrarModal && (
+            <ModalGasto
+              nomeGasto={nomeGasto}
+              valorGasto={valorGasto}
+              setNomeGasto={setNomeGasto}
+              setValorGasto={setValorGasto}
+              onAdicionar={adicionarGasto}
+              onCancelar={() => setMostrarModal(false)}
+            />
+          )}
+
           {resultadoRenda && (
             <ResultadoRenda
               onCopiar={() => {
@@ -143,7 +184,6 @@ export default function RendaFamiliar() {
               avisoCopiado={avisoCopiado}
             />
           )}
-
         </Card>
       </div>
     </main>
