@@ -2,15 +2,7 @@
 
 import { NumericFormat } from 'react-number-format';
 import { Button } from './ui/Button';
-
-interface ModalGastoProps {
-  nomeGasto: string;
-  valorGasto: string;
-  setNomeGasto: (v: string) => void;
-  setValorGasto: (v: string) => void;
-  onAdicionar: () => void;
-  onCancelar: () => void;
-}
+import { ModalGastoProps } from '@/types';
 
 export const ModalGasto = ({
   nomeGasto,
@@ -19,11 +11,14 @@ export const ModalGasto = ({
   setValorGasto,
   onAdicionar,
   onCancelar,
+  isEditing = false,
 }: ModalGastoProps) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
       <div className="bg-white rounded-xl shadow-xl p-6 w-full max-w-md space-y-4">
-        <h2 className="text-xl font-bold text-center">Novo Gasto</h2>
+        <h2 className="text-xl font-bold text-center">
+          {isEditing ? 'Editar Gasto' : 'Novo Gasto'}
+        </h2>
 
         <input
           type="text"
@@ -36,7 +31,7 @@ export const ModalGasto = ({
         <NumericFormat
           value={valorGasto}
           thousandSeparator="."
-          decimalSeparator="," 
+          decimalSeparator=","
           prefix="R$ "
           decimalScale={2}
           fixedDecimalScale
@@ -47,7 +42,7 @@ export const ModalGasto = ({
 
         <div className="flex justify-center gap-4 pt-2">
           <Button onClick={onAdicionar} className="bg-indigo-600 hover:bg-indigo-700 text-white">
-            Adicionar
+            {isEditing ? 'Salvar' : 'Adicionar'}
           </Button>
           <Button onClick={onCancelar} className="bg-gray-300 text-gray-800 hover:bg-gray-400">
             Cancelar
