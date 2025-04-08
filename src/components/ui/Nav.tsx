@@ -7,8 +7,7 @@ export const Nav = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="w-full bg-white p-4 flex justify-center gap-6 mb-6">
-
+    <nav className="w-full bg-white p-4 flex justify-center gap-6 mb-6 flex-wrap">
       <Link
         href="/"
         className={`text-lg font-medium transition-colors duration-300 ${
@@ -29,6 +28,17 @@ export const Nav = () => {
         }`}
       >
         Renda Familiar
+      </Link>
+
+      <Link
+        href="/retiradas"
+        className={`text-lg font-medium transition-colors duration-300 ${
+          pathname === '/retiradas'
+            ? 'text-indigo-700 underline underline-offset-4'
+            : 'text-indigo-500 hover:text-indigo-700 hover:underline'
+        }`}
+      >
+        Histórico de Retiradas
       </Link>
     </nav>
   );

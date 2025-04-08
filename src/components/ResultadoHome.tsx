@@ -2,28 +2,31 @@
 
 import { useSimuladorStore } from '@/store/useSimuladorStore';
 import { useState } from 'react';
-import { NumericFormat } from 'react-number-format';
 import { Button } from '@/components/ui/Button';
 import { formatarReal } from '@/utils/formatarReal';
 import { ResultadoProps } from '@/types/props';
-
+import { RetiradaPanel } from '@/components/RetiradaPanel';
 
 export const ResultadoHome = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
   const { resultadoHome, setResultadoHome } = useSimuladorStore();
-  const [desconto, setDesconto] = useState('');
+  const [mostrarRetirada, setMostrarRetirada] = useState(false);
+  const [mensagemSucesso, setMensagemSucesso] = useState('');
 
   if (!resultadoHome) return null;
 
-  const subtrairDoValorTotal = () => {
-    const d = Number(desconto);
-    if (isNaN(d)) {
-      alert('Digite um valor válido para subtrair');
-      return;
+  const handleSalvarRetirada = (nome: string, valor: number) => {
+    if (valor > resultadoHome.valorFinal) {
+      const confirmar = window.confirm(
+        '⚠️ A retirada excede o valor total. Sua conta ficará negativa. Deseja continuar?'
+      );
+      if (!confirmar) return;
     }
 
-    const novoFinal = resultadoHome.valorFinal - d;
+    const novoFinal = resultadoHome.valorFinal - valor;
     setResultadoHome({ ...resultadoHome, valorFinal: novoFinal });
-    setDesconto('');
+    setMostrarRetirada(false);
+    setMensagemSucesso(`✅ Retirada "${nome}" realizada com sucesso!`);
+    setTimeout(() => setMensagemSucesso(''), 4000);
   };
 
   return (
@@ -60,25 +63,26 @@ export const ResultadoHome = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
         </div>
       )}
 
-      <div className="mt-10 flex flex-col items-center gap-4">
-        <NumericFormat
-          value={desconto}
-          thousandSeparator="."
-          decimalSeparator=","
-          prefix="R$ "
-          decimalScale={2}
-          fixedDecimalScale
-          onValueChange={(values) => setDesconto(values.value)}
-          placeholder="Subtrair valor"
-          className="w-1/2 px-3 py-1.5 border-2 border-rose-400 focus:border-rose-600 focus:ring-2 focus:ring-rose-300 rounded-xl shadow-inner transition duration-300 outline-none text-center"
-        />
+      {mensagemSucesso && (
+        <p className="text-green-600 font-medium text-sm animate-fade-in-out">
+          {mensagemSucesso}
+        </p>
+      )}
 
-        <Button
-          onClick={subtrairDoValorTotal}
-          className="bg-rose-500 hover:bg-rose-600 text-white"
-        >
-          Subtrair do Valor Total
-        </Button>
+      <div className="mt-10 flex flex-col items-center gap-4">
+        {!mostrarRetirada ? (
+          <Button
+            onClick={() => setMostrarRetirada(true)}
+            className="bg-rose-500 hover:bg-rose-600 text-white"
+          >
+            Retirada
+          </Button>
+        ) : (
+          <RetiradaPanel
+            onCancel={() => setMostrarRetirada(false)}
+            onSalvar={handleSalvarRetirada}
+          />
+        )}
       </div>
     </div>
   );

@@ -29,8 +29,7 @@ export default function LoginPage() {
     router.push('/');
   };
 
-  if (!hydrated) return null; // impede o 'flash'
-
+  if (!hydrated) return null;
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-100 to-white p-4 flex items-center justify-center">
       <div className="w-full max-w-md">
