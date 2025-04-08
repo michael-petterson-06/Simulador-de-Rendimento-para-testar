@@ -42,8 +42,11 @@ export type SimuladorState = {
   setOutrasMichael: (v: string) => void;
   setOutrasFernanda: (v: string) => void;
   setGastos: (v: string) => void;
-  addGasto: (gasto: Gasto) => void;
-  setResultadoRenda: (r: ResultadoRenda | null) => void;
 
+  addGasto: (gasto: Gasto) => void;
+  editarGasto: (index: number, novoGasto: Gasto) => void;
+  removerGasto: (index: number) => void;
+
+  setResultadoRenda: (r: ResultadoRenda | null) => void;
   resetAll: () => void;
 };

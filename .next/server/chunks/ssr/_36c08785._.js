@@ -111,6 +111,25 @@ const useSimuladorStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$no
                 gastos: novoTotal.toString()
             });
         },
+        editarGasto: (index, novoGasto)=>{
+            const novaLista = [
+                ...get().listaGastos
+            ];
+            novaLista[index] = novoGasto;
+            const novoTotal = novaLista.reduce((acc, g)=>acc + g.valor, 0);
+            set({
+                listaGastos: novaLista,
+                gastos: novoTotal.toString()
+            });
+        },
+        removerGasto: (index)=>{
+            const novaLista = get().listaGastos.filter((_, i)=>i !== index);
+            const novoTotal = novaLista.reduce((acc, g)=>acc + g.valor, 0);
+            set({
+                listaGastos: novaLista,
+                gastos: novoTotal.toString()
+            });
+        },
         setResultadoRenda: (r)=>set({
                 resultadoRenda: r
             }),
