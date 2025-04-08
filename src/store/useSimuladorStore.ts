@@ -1,53 +1,59 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-type SimuladorState = {
-  // Simulador de Rendimento
+export type ResultadoHome = {
+  totalDepositado: number;
+  totalJuros: number;
+  valorFinal: number;
+};
+
+export type ResultadoRenda = {
+  totalEntradas: number;
+  saldoFinal: number;
+};
+
+export type Gasto = {
+  nome: string;
+  valor: number;
+};
+
+export type SimuladorState = {
   valorInicial: string;
   aporteMensal: string;
   anos: string;
   juros: string;
   tempoPoupancaTipo: 'anos' | 'meses';
+  resultadoHome: ResultadoHome | null;
 
-  resultadoHome: {
-    totalDepositado: number;
-    totalJuros: number;
-    valorFinal: number;
-  } | null;
-
-  // Renda Familiar
   salarioMichael: string;
   salarioFernanda: string;
   outrasMichael: string;
   outrasFernanda: string;
   gastos: string;
+  listaGastos: Gasto[];
+  resultadoRenda: ResultadoRenda | null;
 
-  resultadoRenda: {
-    totalEntradas: number;
-    saldoFinal: number;
-  } | null;
-
-  // Setters
   setValorInicial: (v: string) => void;
   setAporteMensal: (v: string) => void;
   setAnos: (v: string) => void;
   setJuros: (v: string) => void;
   setTempoPoupancaTipo: (tipo: 'anos' | 'meses') => void;
-  setResultadoHome: (r: SimuladorState['resultadoHome']) => void;
+  setResultadoHome: (r: ResultadoHome | null) => void;
 
   setSalarioMichael: (v: string) => void;
   setSalarioFernanda: (v: string) => void;
   setOutrasMichael: (v: string) => void;
   setOutrasFernanda: (v: string) => void;
   setGastos: (v: string) => void;
-  setResultadoRenda: (r: SimuladorState['resultadoRenda']) => void;
+  addGasto: (gasto: Gasto) => void;
+  setResultadoRenda: (r: ResultadoRenda | null) => void;
 
   resetAll: () => void;
 };
 
 export const useSimuladorStore = create<SimuladorState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       valorInicial: '',
       aporteMensal: '',
       anos: '',
@@ -60,6 +66,7 @@ export const useSimuladorStore = create<SimuladorState>()(
       outrasMichael: '',
       outrasFernanda: '',
       gastos: '',
+      listaGastos: [],
       resultadoRenda: null,
 
       setValorInicial: (v) => set({ valorInicial: v }),
@@ -74,6 +81,14 @@ export const useSimuladorStore = create<SimuladorState>()(
       setOutrasMichael: (v) => set({ outrasMichael: v }),
       setOutrasFernanda: (v) => set({ outrasFernanda: v }),
       setGastos: (v) => set({ gastos: v }),
+      addGasto: (gasto) => {
+        const listaAtual = get().listaGastos;
+        const novoTotal = listaAtual.reduce((acc, cur) => acc + cur.valor, 0) + gasto.valor;
+        set({
+          listaGastos: [...listaAtual, gasto],
+          gastos: novoTotal.toString(),
+        });
+      },
       setResultadoRenda: (r) => set({ resultadoRenda: r }),
 
       resetAll: () =>
@@ -89,6 +104,7 @@ export const useSimuladorStore = create<SimuladorState>()(
           outrasMichael: '',
           outrasFernanda: '',
           gastos: '',
+          listaGastos: [],
           resultadoRenda: null,
         }),
     }),
