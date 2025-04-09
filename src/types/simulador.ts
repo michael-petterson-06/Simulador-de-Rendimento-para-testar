@@ -28,9 +28,7 @@ export type SimuladorState = {
 
   ano: number;
   setAno: (ano: number) => void;
-  // incrementar: () => void;
-  // decrementar: () => void;
-
+  
   setValorInicial: (v: string) => void;
   setAporteMensal: (v: string) => void;
   setAnos: (v: string) => void;
