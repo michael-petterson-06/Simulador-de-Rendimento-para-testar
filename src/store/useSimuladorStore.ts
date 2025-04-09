@@ -11,11 +11,7 @@ export const useSimuladorStore = create<SimuladorState>()(
       juros: '',
       tempoPoupancaTipo: 'anos',
       resultadoHome: null,
-
-      salarioMichael: '',
-      salarioFernanda: '',
-      outrasMichael: '',
-      outrasFernanda: '',
+      
       gastos: '',
       listaGastos: [],
       resultadoRenda: null,
@@ -28,13 +24,8 @@ export const useSimuladorStore = create<SimuladorState>()(
       setJuros: (v) => set({ juros: v }),
       setTempoPoupancaTipo: (tipo) => set({ tempoPoupancaTipo: tipo }),
       setResultadoHome: (r) => set({ resultadoHome: r }),
-
-      setSalarioMichael: (v) => set({ salarioMichael: v }),
-      setSalarioFernanda: (v) => set({ salarioFernanda: v }),
-      setOutrasMichael: (v) => set({ outrasMichael: v }),
-      setOutrasFernanda: (v) => set({ outrasFernanda: v }),
       setGastos: (v) => set({ gastos: v }),
-
+      
       addGasto: (gasto) => {
         const listaAtual = get().listaGastos;
         const novoTotal = listaAtual.reduce((acc, cur) => acc + cur.valor, 0) + gasto.valor;
@@ -66,9 +57,9 @@ export const useSimuladorStore = create<SimuladorState>()(
       setResultadoRenda: (r) => set({ resultadoRenda: r }),
 
       setAno: (ano) => set({ ano }),
-      // incrementar: () => set((state) => ({ ano: state.ano + 1 })),
-      // decrementar: () => set((state) => ({ ano: state.ano - 1 })),
 
+      resetGastos: () => set({ listaGastos: [], gastos: '',}),
+     
       resetAll: () =>
         set({
           valorInicial: '',
@@ -77,10 +68,6 @@ export const useSimuladorStore = create<SimuladorState>()(
           juros: '',
           tempoPoupancaTipo: 'anos',
           resultadoHome: null,
-          salarioMichael: '',
-          salarioFernanda: '',
-          outrasMichael: '',
-          outrasFernanda: '',
           gastos: '',
           listaGastos: [],
           resultadoRenda: null,

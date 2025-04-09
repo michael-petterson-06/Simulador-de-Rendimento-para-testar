@@ -99,10 +99,6 @@ const useSimuladorStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$no
         juros: '',
         tempoPoupancaTipo: 'anos',
         resultadoHome: null,
-        salarioMichael: '',
-        salarioFernanda: '',
-        outrasMichael: '',
-        outrasFernanda: '',
         gastos: '',
         listaGastos: [],
         resultadoRenda: null,
@@ -124,18 +120,6 @@ const useSimuladorStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$no
             }),
         setResultadoHome: (r)=>set({
                 resultadoHome: r
-            }),
-        setSalarioMichael: (v)=>set({
-                salarioMichael: v
-            }),
-        setSalarioFernanda: (v)=>set({
-                salarioFernanda: v
-            }),
-        setOutrasMichael: (v)=>set({
-                outrasMichael: v
-            }),
-        setOutrasFernanda: (v)=>set({
-                outrasFernanda: v
             }),
         setGastos: (v)=>set({
                 gastos: v
@@ -176,8 +160,10 @@ const useSimuladorStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$no
         setAno: (ano)=>set({
                 ano
             }),
-        // incrementar: () => set((state) => ({ ano: state.ano + 1 })),
-        // decrementar: () => set((state) => ({ ano: state.ano - 1 })),
+        resetGastos: ()=>set({
+                listaGastos: [],
+                gastos: ''
+            }),
         resetAll: ()=>set({
                 valorInicial: '',
                 aporteMensal: '',
@@ -185,10 +171,6 @@ const useSimuladorStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$no
                 juros: '',
                 tempoPoupancaTipo: 'anos',
                 resultadoHome: null,
-                salarioMichael: '',
-                salarioFernanda: '',
-                outrasMichael: '',
-                outrasFernanda: '',
                 gastos: '',
                 listaGastos: [],
                 resultadoRenda: null,
@@ -345,15 +327,25 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$e
 const useEntradasStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$react$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["create"])()((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$middleware$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["persist"])((set)=>({
         quantidade: 0,
         nomes: [],
+        valores: [],
+        formularioPreenchido: false,
         setQuantidade: (qtd)=>set({
                 quantidade: qtd
             }),
         setNomes: (nomes)=>set({
                 nomes
             }),
-        reset: ()=>set({
+        setFormularioPreenchido: (preenchido)=>set({
+                formularioPreenchido: preenchido
+            }),
+        setValores: (valores)=>set({
+                valores
+            }),
+        resetAll: ()=>set({
                 quantidade: 0,
-                nomes: []
+                nomes: [],
+                formularioPreenchido: false,
+                valores: []
             })
     }), {
     name: 'entradas-store'
@@ -387,6 +379,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasS
 ;
 ;
 const ClientHeader = ()=>{
+    const { formularioPreenchido } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEntradasStore"])();
     const [hydrated, setHydrated] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [saindo, setSaindo] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const { nome, idade, logout, setIdade } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useUserStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useUserStore"])();
@@ -412,9 +405,11 @@ const ClientHeader = ()=>{
         nome,
         hydrated
     ]);
+    if (!formularioPreenchido) return null;
     if (!hydrated || !nome) return null;
     const handleLogout = ()=>{
         setSaindo(true);
+        limparTudo();
         setTimeout(()=>{
             logout();
             router.push('/login');
@@ -433,7 +428,7 @@ const ClientHeader = ()=>{
             __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useSimuladorStore"].getState().resetAll();
             __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useUserStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useUserStore"].getState().resetAll();
             __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useRetiradaStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRetiradaStore"].getState().resetAll();
-            __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEntradasStore"].getState().reset();
+            __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEntradasStore"].getState().resetAll();
             router.push('/login');
         }
     };
@@ -444,23 +439,7 @@ const ClientHeader = ()=>{
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Nav$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Nav"], {}, void 0, false, {
                     fileName: "[project]/src/components/ClientHeader.tsx",
-                    lineNumber: 68,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute left-0 top-1/2 -translate-y-1/2",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                        onClick: limparTudo,
-                        className: "bg-red-500 hover:bg-red-600 text-white px-4 py-1 text-sm rounded-md",
-                        children: "Limpar Tudo"
-                    }, void 0, false, {
-                        fileName: "[project]/src/components/ClientHeader.tsx",
-                        lineNumber: 71,
-                        columnNumber: 11
-                    }, this)
-                }, void 0, false, {
-                    fileName: "[project]/src/components/ClientHeader.tsx",
-                    lineNumber: 70,
+                    lineNumber: 74,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -478,7 +457,7 @@ const ClientHeader = ()=>{
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/ClientHeader.tsx",
-                            lineNumber: 80,
+                            lineNumber: 86,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -490,7 +469,7 @@ const ClientHeader = ()=>{
                                     children: "-1"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/ClientHeader.tsx",
-                                    lineNumber: 85,
+                                    lineNumber: 91,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -499,13 +478,13 @@ const ClientHeader = ()=>{
                                     children: "+1"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/ClientHeader.tsx",
-                                    lineNumber: 91,
+                                    lineNumber: 97,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/ClientHeader.tsx",
-                            lineNumber: 84,
+                            lineNumber: 90,
                             columnNumber: 11
                         }, this),
                         saindo ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -513,7 +492,7 @@ const ClientHeader = ()=>{
                             children: "Saindo..."
                         }, void 0, false, {
                             fileName: "[project]/src/components/ClientHeader.tsx",
-                            lineNumber: 100,
+                            lineNumber: 106,
                             columnNumber: 13
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                             onClick: handleLogout,
@@ -521,24 +500,24 @@ const ClientHeader = ()=>{
                             children: "Sair"
                         }, void 0, false, {
                             fileName: "[project]/src/components/ClientHeader.tsx",
-                            lineNumber: 102,
+                            lineNumber: 108,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/ClientHeader.tsx",
-                    lineNumber: 79,
+                    lineNumber: 85,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/ClientHeader.tsx",
-            lineNumber: 67,
+            lineNumber: 73,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/ClientHeader.tsx",
-        lineNumber: 66,
+        lineNumber: 72,
         columnNumber: 5
     }, this);
 };
