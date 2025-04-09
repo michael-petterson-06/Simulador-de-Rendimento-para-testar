@@ -7,6 +7,7 @@ import { useSimuladorStore } from '@/store/useSimuladorStore';
 import { Nav } from './ui/Nav';
 import { Button } from './ui/Button';
 import { useRetiradaStore } from '@/store/useRetiradaStore';
+import { useEntradasStore } from '@/store/useEntradasStore';
 
 export const ClientHeader = () => {
   const [hydrated, setHydrated] = useState(false);
@@ -56,6 +57,7 @@ export const ClientHeader = () => {
       useSimuladorStore.getState().resetAll();
       useUserStore.getState().resetAll();
       useRetiradaStore.getState().resetAll();
+      useEntradasStore.getState().reset();
       router.push('/login');
     }
   };
