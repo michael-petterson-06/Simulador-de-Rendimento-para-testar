@@ -6,11 +6,13 @@ import { useUserStore } from '@/store/useUserStore';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
+import { FormularioEntradas } from '@/components/FormularioEntradas';
 
 export default function LoginPage() {
   const [nome, setNome] = useState('');
   const [dataNascimento, setDataNascimento] = useState('');
   const [erro, setErro] = useState('');
+  const [mostrarEntradas, setMostrarEntradas] = useState(false);
   const [hydrated, setHydrated] = useState(false);
 
   const { setUser, nome: nomeSalvo } = useUserStore();
@@ -20,23 +22,25 @@ export default function LoginPage() {
     setHydrated(true);
   }, []);
 
-  const handleEntrar = () => {
+  const handleAvancar = () => {
     if (!nome.trim() || !dataNascimento.trim()) {
       setErro('Preencha todos os campos!');
       return;
     }
+
     setUser(nome.trim(), dataNascimento);
-    router.push('/');
+    setMostrarEntradas(true);
   };
 
   if (!hydrated) return null;
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-100 to-white p-4 flex items-center justify-center">
       <div className="w-full max-w-md">
         <Card>
           <h1 className="text-2xl font-bold text-center mb-6">Bem-vindo! 🧑‍💻</h1>
 
-          {nomeSalvo ? (
+          {nomeSalvo && !mostrarEntradas ? (
             <div className="text-center space-y-4">
               <p className="text-green-600 font-medium">
                 Você já está logado como <strong>{nomeSalvo}</strong>.<br />
@@ -46,6 +50,8 @@ export default function LoginPage() {
                 Voltar para tela anterior
               </Button>
             </div>
+          ) : mostrarEntradas ? (
+            <FormularioEntradas />
           ) : (
             <div className="space-y-4">
               <Input
@@ -61,8 +67,8 @@ export default function LoginPage() {
               />
               {erro && <p className="text-red-600 text-sm font-medium">{erro}</p>}
 
-              <Button onClick={handleEntrar} className="w-full text-lg">
-                Entrar na aplicação
+              <Button onClick={handleAvancar} className="w-full text-lg">
+                Avançar
               </Button>
             </div>
           )}
