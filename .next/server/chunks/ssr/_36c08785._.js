@@ -67,6 +67,7 @@ const useSimuladorStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$no
         gastos: '',
         listaGastos: [],
         resultadoRenda: null,
+        ano: new Date().getFullYear(),
         setValorInicial: (v)=>set({
                 valorInicial: v
             }),
@@ -133,6 +134,15 @@ const useSimuladorStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$no
         setResultadoRenda: (r)=>set({
                 resultadoRenda: r
             }),
+        setAno: (ano)=>set({
+                ano
+            }),
+        incrementar: ()=>set((state)=>({
+                    ano: state.ano + 1
+                })),
+        decrementar: ()=>set((state)=>({
+                    ano: state.ano - 1
+                })),
         resetAll: ()=>set({
                 valorInicial: '',
                 aporteMensal: '',
@@ -146,7 +156,8 @@ const useSimuladorStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$no
                 outrasFernanda: '',
                 gastos: '',
                 listaGastos: [],
-                resultadoRenda: null
+                resultadoRenda: null,
+                ano: new Date().getFullYear()
             })
     }), {
     name: 'simulador-storage'

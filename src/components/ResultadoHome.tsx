@@ -26,7 +26,7 @@ export const ResultadoHome = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
     setResultadoHome({ ...resultadoHome, valorFinal: novoFinal });
     setMostrarRetirada(false);
     setMensagemSucesso(`✅ Retirada "${nome}" realizada com sucesso!`);
-    setTimeout(() => setMensagemSucesso(''), 4000);
+    setTimeout(() => setMensagemSucesso(''), 3000);
   };
 
   return (
@@ -81,6 +81,7 @@ export const ResultadoHome = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
           <RetiradaPanel
             onCancel={() => setMostrarRetirada(false)}
             onSalvar={handleSalvarRetirada}
+            tipoPagamento='A Vista'
           />
         )}
       </div>
