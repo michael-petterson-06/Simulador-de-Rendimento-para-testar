@@ -19,15 +19,21 @@ export const useUserStore = create<UserState>()(
       nome: '',
       dataNascimento: '',
       idade: 0,
+
       setUser: (nome, dataNascimento) =>
         set({ nome, dataNascimento, idade: calcularIdade(dataNascimento) }),
+
       logout: () =>
         set({
           nome: '',
           dataNascimento: '',
           idade: 0,
         }),
+
+      setIdade: (novaIdade: number) =>
+        set({ idade: novaIdade }),
     }),
     { name: 'user-store' }
   )
 );
+

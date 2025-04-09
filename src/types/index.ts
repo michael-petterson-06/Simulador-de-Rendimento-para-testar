@@ -5,6 +5,6 @@ export * from './props';
 export * from './user';
 export * from './retirada';
 export * from './modalGastoProps';
-
+// export * from './anoteState';
 
 

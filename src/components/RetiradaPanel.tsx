@@ -5,13 +5,10 @@ import { useRetiradaStore } from '@/store/useRetiradaStore';
 import { Input } from './ui/Input';
 import { Button } from './ui/Button';
 import { NumericFormat } from 'react-number-format';
+import { RetiradaPanelProps } from '@/types';
 
-interface RetiradaPanelProps {
-  onCancel: () => void;
-  onSalvar: (nome: string, valor: number) => void;
-}
 
-export const RetiradaPanel = ({ onCancel, onSalvar }: RetiradaPanelProps) => {
+export const RetiradaPanel = ({ onCancel, onSalvar, tipoPagamento }: RetiradaPanelProps) => {
   const { addRetirada } = useRetiradaStore();
   const [nome, setNome] = useState('');
   const [valor, setValor] = useState('');
@@ -21,8 +18,12 @@ export const RetiradaPanel = ({ onCancel, onSalvar }: RetiradaPanelProps) => {
       alert('Preencha o nome e o valor corretamente.');
       return;
     }
-
-    addRetirada({ nome, valor: Number(valor) });
+    
+    if (tipoPagamento) {
+      addRetirada({ nome, valor: Number(valor), pagamento: 'À Vista' });
+    }
+     
+    
     onSalvar(nome, Number(valor));
   };
 

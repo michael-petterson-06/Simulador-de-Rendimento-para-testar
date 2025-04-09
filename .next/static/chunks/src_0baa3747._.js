@@ -10,6 +10,8 @@ __turbopack_context__.s({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/zustand/esm/react.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$middleware$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/zustand/esm/middleware.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useUserStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/store/useUserStore.ts [app-client] (ecmascript)");
+;
 ;
 ;
 const useRetiradaStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["create"])()((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$middleware$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["persist"])((set, get)=>({
@@ -20,13 +22,15 @@ const useRetiradaStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$nod
             }),
         addRetirada: ({ nome, valor })=>{
             const { anoAtual, retiradas } = get();
+            const idade = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useUserStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useUserStore"].getState().idade;
             set({
                 retiradas: [
                     ...retiradas,
                     {
                         nome,
                         valor,
-                        ano: anoAtual
+                        ano: anoAtual,
+                        idade
                     }
                 ]
             });
@@ -144,6 +148,22 @@ function RetiradasPage() {
                                                 fileName: "[project]/src/app/retiradas/page.tsx",
                                                 lineNumber: 25,
                                                 columnNumber: 21
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                className: "text-left",
+                                                children: "Idade"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/retiradas/page.tsx",
+                                                lineNumber: 26,
+                                                columnNumber: 21
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                className: "text-left",
+                                                children: "Pagamento"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/retiradas/page.tsx",
+                                                lineNumber: 27,
+                                                columnNumber: 21
                                             }, this)
                                         ]
                                     }, void 0, true, {
@@ -165,7 +185,7 @@ function RetiradasPage() {
                                                     children: i + 1
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/retiradas/page.tsx",
-                                                    lineNumber: 31,
+                                                    lineNumber: 33,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -173,7 +193,7 @@ function RetiradasPage() {
                                                     children: r.nome
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/retiradas/page.tsx",
-                                                    lineNumber: 32,
+                                                    lineNumber: 34,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -184,7 +204,7 @@ function RetiradasPage() {
                                                     })
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/retiradas/page.tsx",
-                                                    lineNumber: 33,
+                                                    lineNumber: 35,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -192,18 +212,26 @@ function RetiradasPage() {
                                                     children: r.ano
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/retiradas/page.tsx",
-                                                    lineNumber: 39,
+                                                    lineNumber: 41,
+                                                    columnNumber: 23
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                    className: "px-4 py-2 text-sm",
+                                                    children: r.idade
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/retiradas/page.tsx",
+                                                    lineNumber: 42,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, i, true, {
                                             fileName: "[project]/src/app/retiradas/page.tsx",
-                                            lineNumber: 30,
+                                            lineNumber: 32,
                                             columnNumber: 21
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/retiradas/page.tsx",
-                                    lineNumber: 28,
+                                    lineNumber: 30,
                                     columnNumber: 17
                                 }, this)
                             ]

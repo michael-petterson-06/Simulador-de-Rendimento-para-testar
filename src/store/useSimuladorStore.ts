@@ -20,6 +20,8 @@ export const useSimuladorStore = create<SimuladorState>()(
       listaGastos: [],
       resultadoRenda: null,
 
+      ano: new Date().getFullYear(),
+
       setValorInicial: (v) => set({ valorInicial: v }),
       setAporteMensal: (v) => set({ aporteMensal: v }),
       setAnos: (v) => set({ anos: v }),
@@ -63,6 +65,10 @@ export const useSimuladorStore = create<SimuladorState>()(
 
       setResultadoRenda: (r) => set({ resultadoRenda: r }),
 
+      setAno: (ano) => set({ ano }),
+      // incrementar: () => set((state) => ({ ano: state.ano + 1 })),
+      // decrementar: () => set((state) => ({ ano: state.ano - 1 })),
+
       resetAll: () =>
         set({
           valorInicial: '',
@@ -78,6 +84,7 @@ export const useSimuladorStore = create<SimuladorState>()(
           gastos: '',
           listaGastos: [],
           resultadoRenda: null,
+          ano: new Date().getFullYear(),
         }),
     }),
     {

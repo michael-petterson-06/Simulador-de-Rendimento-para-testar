@@ -1,8 +1,7 @@
 import { RetiradaState } from '@/types/retirada';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-
-
+import { useUserStore } from './useUserStore';
 
 export const useRetiradaStore = create<RetiradaState>()(
   persist(
@@ -10,10 +9,13 @@ export const useRetiradaStore = create<RetiradaState>()(
       anoAtual: new Date().getFullYear(),
       retiradas: [],
       setAnoAtual: (ano) => set({ anoAtual: ano }),
-      addRetirada: ({ nome, valor }) => {
+
+      addRetirada: ({ nome, valor, pagamento }) => {
         const { anoAtual, retiradas } = get();
+        const idade = useUserStore.getState().idade;
+
         set({
-          retiradas: [...retiradas, { nome, valor, ano: anoAtual }],
+          retiradas: [...retiradas, { nome, valor, pagamento, ano: anoAtual, idade }],
         });
       },
     }),
