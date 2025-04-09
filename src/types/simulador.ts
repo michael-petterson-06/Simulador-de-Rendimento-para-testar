@@ -22,10 +22,6 @@ export type SimuladorState = {
   tempoPoupancaTipo: 'anos' | 'meses';
   resultadoHome: ResultadoHome | null;
 
-  salarioMichael: string;
-  salarioFernanda: string;
-  outrasMichael: string;
-  outrasFernanda: string;
   gastos: string;
   listaGastos: Gasto[];
   resultadoRenda: ResultadoRenda | null;
@@ -42,10 +38,6 @@ export type SimuladorState = {
   setTempoPoupancaTipo: (tipo: 'anos' | 'meses') => void;
   setResultadoHome: (r: ResultadoHome | null) => void;
 
-  setSalarioMichael: (v: string) => void;
-  setSalarioFernanda: (v: string) => void;
-  setOutrasMichael: (v: string) => void;
-  setOutrasFernanda: (v: string) => void;
   setGastos: (v: string) => void;
 
   addGasto: (gasto: Gasto) => void;
@@ -53,5 +45,6 @@ export type SimuladorState = {
   removerGasto: (index: number) => void;
 
   setResultadoRenda: (r: ResultadoRenda | null) => void;
+  resetGastos: () => void;
   resetAll: () => void;
 };

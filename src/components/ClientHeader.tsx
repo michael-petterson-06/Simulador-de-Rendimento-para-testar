@@ -10,11 +10,15 @@ import { useRetiradaStore } from '@/store/useRetiradaStore';
 import { useEntradasStore } from '@/store/useEntradasStore';
 
 export const ClientHeader = () => {
+
+  const { formularioPreenchido } = useEntradasStore();
+
   const [hydrated, setHydrated] = useState(false);
   const [saindo, setSaindo] = useState(false);
   const { nome, idade, logout, setIdade } = useUserStore();
   const { ano, setAno } = useSimuladorStore();
   const router = useRouter();
+ 
 
   useEffect(() => {
     setHydrated(true);
@@ -32,10 +36,12 @@ export const ClientHeader = () => {
     }
   }, [nome, hydrated]);
 
+  if (!formularioPreenchido) return null;
   if (!hydrated || !nome) return null;
 
   const handleLogout = () => {
     setSaindo(true);
+    limparTudo()
     setTimeout(() => {
       logout();
       router.push('/login');
@@ -57,7 +63,7 @@ export const ClientHeader = () => {
       useSimuladorStore.getState().resetAll();
       useUserStore.getState().resetAll();
       useRetiradaStore.getState().resetAll();
-      useEntradasStore.getState().reset();
+      useEntradasStore.getState().resetAll();
       router.push('/login');
     }
   };
@@ -67,14 +73,14 @@ export const ClientHeader = () => {
       <div className="relative flex items-center justify-center">
         <Nav />
       
-        <div className="absolute left-0 top-1/2 -translate-y-1/2">
+        {/* <div className="absolute left-0 top-1/2 -translate-y-1/2">
           <Button
             onClick={limparTudo}
             className="bg-red-500 hover:bg-red-600 text-white px-4 py-1 text-sm rounded-md"
           >
             Limpar Tudo
           </Button>
-        </div>
+        </div> */}
   
         <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-4 text-sm text-gray-600 whitespace-nowrap">
           <span>

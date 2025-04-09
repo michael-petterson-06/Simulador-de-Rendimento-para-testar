@@ -12,7 +12,7 @@ export const FormularioEntradas = () => {
   const [nomesEntradas, setNomesEntradas] = useState('');
   const [erro, setErro] = useState('');
 
-  const { setQuantidade, setNomes } = useEntradasStore();
+  const { setQuantidade, setNomes, setFormularioPreenchido } = useEntradasStore();
   const router = useRouter();
 
   const handleFinalizar = () => {
@@ -35,6 +35,7 @@ export const FormularioEntradas = () => {
 
     setQuantidade(qtd);
     setNomes(nomesArray);
+    setFormularioPreenchido(true);
     router.push('/');
   };
 
