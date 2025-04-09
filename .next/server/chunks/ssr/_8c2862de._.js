@@ -65,6 +65,8 @@ __turbopack_context__.s({
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$react$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/zustand/esm/react.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$middleware$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/zustand/esm/middleware.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useUserStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/store/useUserStore.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/store/useSimuladorStore.ts [app-ssr] (ecmascript)");
+;
 ;
 ;
 ;
@@ -75,7 +77,8 @@ const useRetiradaStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$nod
                 anoAtual: ano
             }),
         addRetirada: ({ nome, valor, pagamento })=>{
-            const { anoAtual, retiradas } = get();
+            const { retiradas } = get();
+            const { ano } = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useSimuladorStore"].getState();
             const idade = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useUserStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useUserStore"].getState().idade;
             set({
                 retiradas: [
@@ -84,12 +87,16 @@ const useRetiradaStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$nod
                         nome,
                         valor,
                         pagamento,
-                        ano: anoAtual,
+                        ano,
                         idade
                     }
                 ]
             });
-        }
+        },
+        resetAll: ()=>set({
+                anoAtual: new Date().getFullYear(),
+                retiradas: []
+            })
     }), {
     name: 'retirada-store'
 }));

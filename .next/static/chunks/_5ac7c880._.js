@@ -38,6 +38,11 @@ const useUserStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_mo
             }),
         setIdade: (novaIdade)=>set({
                 idade: novaIdade
+            }),
+        resetAll: ()=>set({
+                nome: '',
+                dataNascimento: '',
+                idade: 0
             })
     }), {
     name: 'user-store'

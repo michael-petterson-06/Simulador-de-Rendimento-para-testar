@@ -3,7 +3,7 @@ export type Retirada = {
   valor: number;
   ano: number;
   idade: number;
-  pagamento: string
+  pagamento: 'À Vista' | 'Parcelado';
 };
 
 export type RetiradaState = {
@@ -11,6 +11,7 @@ export type RetiradaState = {
   retiradas: Retirada[];
   setAnoAtual: (ano: number) => void;
   addRetirada: (retirada: Omit<Retirada, 'ano' | 'idade'>) => void;
+  resetAll: () => void;
 };
 
 
