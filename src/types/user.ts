@@ -5,4 +5,5 @@ export type UserState = {
   setUser: (nome: string, dataNascimento: string) => void;
   logout: () => void;
   setIdade: (idade: number) => void;
+  resetAll: () => void;
 };

@@ -32,8 +32,15 @@ export const useUserStore = create<UserState>()(
 
       setIdade: (novaIdade: number) =>
         set({ idade: novaIdade }),
+
+
+      resetAll: () =>
+        set({
+          nome: '',
+          dataNascimento: '',
+          idade: 0,
+        }),
     }),
     { name: 'user-store' }
   )
 );
-
