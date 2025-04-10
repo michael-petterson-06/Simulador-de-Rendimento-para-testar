@@ -17,4 +17,5 @@ export const useEntradasStore = create<EntradasState>()(
     }),
     { name: 'entradas-store' }
   )
+
 );
