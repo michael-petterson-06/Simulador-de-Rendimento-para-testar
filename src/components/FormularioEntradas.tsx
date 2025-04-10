@@ -36,7 +36,7 @@ export const FormularioEntradas = () => {
     setQuantidade(qtd);
     setNomes(nomesArray);
     setFormularioPreenchido(true);
-    router.push('/');
+    router.push('/renda-familiar');
   };
 
   return (

@@ -70,23 +70,18 @@ export const ClientHeader = () => {
 
   return (
     <header className="w-full px-6 pt-4 mb-6">
-      <div className="relative flex items-center justify-center">
+      <div className="w-full flex flex-col md:flex-row items-center justify-center md:justify-between gap-4">
+     
+      <div className="flex justify-center w-full md:justify-start md:pl-[700px]">
         <Nav />
-      
-        {/* <div className="absolute left-0 top-1/2 -translate-y-1/2">
-          <Button
-            onClick={limparTudo}
-            className="bg-red-500 hover:bg-red-600 text-white px-4 py-1 text-sm rounded-md"
-          >
-            Limpar Tudo
-          </Button>
-        </div> */}
-  
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-4 text-sm text-gray-600 whitespace-nowrap">
+      </div>
+
+          
+        <div className="flex items-center gap-2 text-sm text-gray-600 whitespace-nowrap self-end md:self-auto">
           <span>
             👤 {nome} — {idade} anos ({ano})
           </span>
-
+    
           <div className="flex gap-2">
             <Button
               onClick={decrementarAnoEIdade}
@@ -101,7 +96,7 @@ export const ClientHeader = () => {
               +1
             </Button>
           </div>
-
+    
           {saindo ? (
             <span className="text-rose-600 animate-pulse">Saindo...</span>
           ) : (
@@ -115,5 +110,6 @@ export const ClientHeader = () => {
         </div>
       </div>
     </header>
+  
   );
 };
