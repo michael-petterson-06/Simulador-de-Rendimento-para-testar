@@ -438,11 +438,14 @@ __turbopack_context__.s({
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/Input.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/Button.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/store/useEntradasStore.ts [app-ssr] (ecmascript)");
 'use client';
 ;
 ;
 ;
-const ModalGastoPercentual = ({ nome, percentual, setNome, setPercentual, onAdicionar, onCancelar })=>{
+;
+const ModalGastoPercentual = ({ nome, percentual, tipoEntrada, setNome, setPercentual, setTipoEntrada, onAdicionar, onCancelar })=>{
+    const { nomes } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEntradasStore"])();
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -453,7 +456,36 @@ const ModalGastoPercentual = ({ nome, percentual, setNome, setPercentual, onAdic
                     children: "Adicionar Gasto Percentual"
                 }, void 0, false, {
                     fileName: "[project]/src/components/ModalGastoPercentual.tsx",
-                    lineNumber: 18,
+                    lineNumber: 23,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                    className: "w-full px-4 py-2 bg-white border border-indigo-300 text-indigo-700 font-medium rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition",
+                    value: tipoEntrada,
+                    onChange: (e)=>setTipoEntrada(e.target.value),
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                            value: "todas",
+                            className: "bg-indigo-100 text-indigo-700 font-semibold",
+                            children: "Todas as Entradas"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/ModalGastoPercentual.tsx",
+                            lineNumber: 30,
+                            columnNumber: 13
+                        }, this),
+                        nomes.map((nome, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                value: nome,
+                                className: "bg-white text-gray-800 hover:bg-indigo-100",
+                                children: nome
+                            }, index, false, {
+                                fileName: "[project]/src/components/ModalGastoPercentual.tsx",
+                                lineNumber: 37,
+                                columnNumber: 15
+                            }, this))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/components/ModalGastoPercentual.tsx",
+                    lineNumber: 25,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -463,7 +495,7 @@ const ModalGastoPercentual = ({ nome, percentual, setNome, setPercentual, onAdic
                     onChange: (e)=>setNome(e.target.value)
                 }, void 0, false, {
                     fileName: "[project]/src/components/ModalGastoPercentual.tsx",
-                    lineNumber: 20,
+                    lineNumber: 48,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -473,7 +505,7 @@ const ModalGastoPercentual = ({ nome, percentual, setNome, setPercentual, onAdic
                     onChange: (e)=>setPercentual(e.target.value)
                 }, void 0, false, {
                     fileName: "[project]/src/components/ModalGastoPercentual.tsx",
-                    lineNumber: 27,
+                    lineNumber: 55,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -485,7 +517,7 @@ const ModalGastoPercentual = ({ nome, percentual, setNome, setPercentual, onAdic
                             children: "Adicionar"
                         }, void 0, false, {
                             fileName: "[project]/src/components/ModalGastoPercentual.tsx",
-                            lineNumber: 35,
+                            lineNumber: 63,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -494,24 +526,24 @@ const ModalGastoPercentual = ({ nome, percentual, setNome, setPercentual, onAdic
                             children: "Cancelar"
                         }, void 0, false, {
                             fileName: "[project]/src/components/ModalGastoPercentual.tsx",
-                            lineNumber: 38,
+                            lineNumber: 66,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/ModalGastoPercentual.tsx",
-                    lineNumber: 34,
+                    lineNumber: 62,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/ModalGastoPercentual.tsx",
-            lineNumber: 17,
+            lineNumber: 22,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/ModalGastoPercentual.tsx",
-        lineNumber: 16,
+        lineNumber: 21,
         columnNumber: 5
     }, this);
 };
@@ -559,6 +591,7 @@ function RendaFamiliar() {
     const [mostrarModalPercentual, setMostrarModalPercentual] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [nomePercentual, setNomePercentual] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
     const [percentual, setPercentual] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
+    const [tipoEntrada, setTipoEntrada] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('todas');
     const handleValorEntrada = (index, valor)=>{
         const novosValores = [
             ...valoresEntradas
@@ -601,13 +634,24 @@ function RendaFamiliar() {
         setMostrarModal(false);
     };
     const adicionarGastoPercentual = ()=>{
-        const valor = parseFloat(percentual);
-        const entradasNumericas = valoresEntradas.map(Number);
-        const totalEntradas = entradasNumericas.reduce((acc, val)=>acc + val, 0);
-        const valorCalculado = valor / 100 * totalEntradas;
-        if (!nomePercentual.trim() || isNaN(valorCalculado)) {
+        const perc = parseFloat(percentual);
+        if (!nomePercentual.trim() || isNaN(perc) || perc <= 0) {
             alert('Preencha corretamente o nome e percentual.');
             return;
+        }
+        const entradasNumericas = valoresEntradas.map(Number);
+        const totalEntradas = entradasNumericas.reduce((acc, val)=>acc + val, 0);
+        let valorCalculado = 0;
+        if (tipoEntrada === 'todas') {
+            valorCalculado = perc / 100 * totalEntradas;
+        } else {
+            const index = nomesEntradas.findIndex((n)=>n === tipoEntrada);
+            const valorEntrada = entradasNumericas[index];
+            if (index === -1 || isNaN(valorEntrada)) {
+                alert('Entrada específica não encontrada ou inválida.');
+                return;
+            }
+            valorCalculado = perc / 100 * valorEntrada;
         }
         addGasto({
             nome: nomePercentual,
@@ -615,6 +659,7 @@ function RendaFamiliar() {
         });
         setNomePercentual('');
         setPercentual('');
+        setTipoEntrada('');
         setMostrarModalPercentual(false);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -628,7 +673,7 @@ function RendaFamiliar() {
                         children: "Renda Familiar"
                     }, void 0, false, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 103,
+                        lineNumber: 126,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -645,24 +690,24 @@ function RendaFamiliar() {
                                 className: "px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
                             }, index, false, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 107,
+                                lineNumber: 130,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 105,
+                        lineNumber: 128,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "mt-8",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ListaGastos$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ListaGastos"], {}, void 0, false, {
                             fileName: "[project]/src/app/renda-familiar/page.tsx",
-                            lineNumber: 123,
+                            lineNumber: 146,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 122,
+                        lineNumber: 145,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -672,12 +717,12 @@ function RendaFamiliar() {
                             children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$formatarReal$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatarReal"])(gastos)
                         }, void 0, false, {
                             fileName: "[project]/src/app/renda-familiar/page.tsx",
-                            lineNumber: 127,
+                            lineNumber: 150,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 126,
+                        lineNumber: 149,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -689,7 +734,7 @@ function RendaFamiliar() {
                                 children: "Calcular"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 133,
+                                lineNumber: 156,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -698,7 +743,7 @@ function RendaFamiliar() {
                                 children: "Limpar"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 139,
+                                lineNumber: 162,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -707,7 +752,7 @@ function RendaFamiliar() {
                                 children: "Gasto 💸"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 145,
+                                lineNumber: 168,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -716,13 +761,13 @@ function RendaFamiliar() {
                                 children: "Gasto %"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 151,
+                                lineNumber: 174,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 132,
+                        lineNumber: 155,
                         columnNumber: 11
                     }, this),
                     mostrarModal && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ModalGasto$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ModalGasto"], {
@@ -734,19 +779,21 @@ function RendaFamiliar() {
                         onCancelar: ()=>setMostrarModal(false)
                     }, void 0, false, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 160,
+                        lineNumber: 183,
                         columnNumber: 13
                     }, this),
                     mostrarModalPercentual && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ModalGastoPercentual$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ModalGastoPercentual"], {
                         nome: nomePercentual,
                         percentual: percentual,
+                        tipoEntrada: tipoEntrada,
                         setNome: setNomePercentual,
                         setPercentual: setPercentual,
+                        setTipoEntrada: setTipoEntrada,
                         onAdicionar: adicionarGastoPercentual,
                         onCancelar: ()=>setMostrarModalPercentual(false)
                     }, void 0, false, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 171,
+                        lineNumber: 194,
                         columnNumber: 13
                     }, this),
                     resultadoRenda && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ResultadoRenda$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ResultadoRenda"], {
@@ -758,23 +805,23 @@ function RendaFamiliar() {
                         avisoCopiado: avisoCopiado
                     }, void 0, false, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 182,
+                        lineNumber: 207,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                lineNumber: 102,
+                lineNumber: 125,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/app/renda-familiar/page.tsx",
-            lineNumber: 101,
+            lineNumber: 124,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/renda-familiar/page.tsx",
-        lineNumber: 100,
+        lineNumber: 123,
         columnNumber: 5
     }, this);
 }

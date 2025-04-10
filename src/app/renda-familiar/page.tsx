@@ -37,6 +37,8 @@ export default function RendaFamiliar() {
   const [mostrarModalPercentual, setMostrarModalPercentual] = useState(false);
   const [nomePercentual, setNomePercentual] = useState('');
   const [percentual, setPercentual] = useState('');
+  const [tipoEntrada, setTipoEntrada] = useState('Todas as Entradas');
+
 
   const handleValorEntrada = (index: number, valor: string) => {
     const novosValores = [...valoresEntradas];
@@ -80,22 +82,43 @@ export default function RendaFamiliar() {
   };
 
   const adicionarGastoPercentual = () => {
-    const valor = parseFloat(percentual);
-    const entradasNumericas = valoresEntradas.map(Number);
-    const totalEntradas = entradasNumericas.reduce((acc, val) => acc + val, 0);
-    const valorCalculado = (valor / 100) * totalEntradas;
-
-    if (!nomePercentual.trim() || isNaN(valorCalculado)) {
+    const perc = parseFloat(percentual);
+  
+    if (!nomePercentual.trim() || isNaN(perc) || perc <= 0) {
       alert('Preencha corretamente o nome e percentual.');
       return;
     }
+  
+    const entradasNumericas = valoresEntradas.map(Number);
+    const totalEntradas = entradasNumericas.reduce((acc, val) => acc + val, 0);
+  
+    let valorCalculado = 0;
+  
+    if (tipoEntrada === 'Todas as Entradas') {
+     
+      valorCalculado = (perc / 100) * totalEntradas;
 
+    } else {
+     
+      const index = nomesEntradas.findIndex((n) => n === tipoEntrada);
+      const valorEntrada = entradasNumericas[index];
+  
+      if (index === -1 || isNaN(valorEntrada)) {
+        alert('Entrada específica não encontrada ou inválida.');
+        return;
+      }
+  
+      valorCalculado = (perc / 100) * valorEntrada;
+    }
+  
     addGasto({ nome: nomePercentual, valor: valorCalculado });
+
     setNomePercentual('');
     setPercentual('');
+    // setTipoEntrada('');
     setMostrarModalPercentual(false);
   };
-
+  
   return (
     <main className="min-h-screen bg-gradient-to-br from-pink-100 to-white p-4 flex items-center justify-center">
       <div className="w-full max-w-xl">
@@ -171,8 +194,10 @@ export default function RendaFamiliar() {
             <ModalGastoPercentual
               nome={nomePercentual}
               percentual={percentual}
+              tipoEntrada={tipoEntrada} 
               setNome={setNomePercentual}
               setPercentual={setPercentual}
+              setTipoEntrada={setTipoEntrada}
               onAdicionar={adicionarGastoPercentual}
               onCancelar={() => setMostrarModalPercentual(false)}
             />
