@@ -6,7 +6,7 @@
   "path": "static/chunks/src_app_renda-familiar_page_tsx_b4350d2e._.js",
   "chunks": [
     "static/chunks/node_modules_50b3513c._.js",
-    "static/chunks/src_ba9acf14._.js"
+    "static/chunks/src_be244734._.js"
   ],
   "source": "dynamic"
 });
