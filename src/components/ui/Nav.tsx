@@ -45,6 +45,16 @@ export const Nav = () => {
         >
           Retiradas
         </Link>
+        <Link
+          href="/historico"
+          className={`text-lg font-medium transition-colors duration-300 ${
+            pathname === '/historico'
+              ? 'text-indigo-700 underline underline-offset-4'
+              : 'text-indigo-500 hover:text-indigo-700 hover:underline'
+          }`}
+        >
+          Histórico
+        </Link>
       </div>
     </nav>
 
