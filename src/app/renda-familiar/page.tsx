@@ -11,6 +11,7 @@ import { ListaGastos } from '@/components/ListaGastos';
 import { ModalGasto } from '@/components/ModalGasto';
 import { ModalGastoPercentual } from '@/components/ModalGastoPercentual';
 import { formatarReal } from '@/utils/formatarReal';
+import { SelectMeses } from '@/components/ui/SelectMeses';
 
 export default function RendaFamiliar() {
   const {
@@ -124,7 +125,7 @@ export default function RendaFamiliar() {
       <div className="w-full max-w-xl">
         <Card>
           <h1 className="text-3xl font-bold text-center mb-6">Renda Familiar</h1>
-
+          <SelectMeses/>
           <div className="grid gap-4 md:grid-cols-2">
             {nomesEntradas.map((nome, index) => (
               <NumericFormat
