@@ -10,7 +10,7 @@ import { formatarReal } from '@/utils/formatarReal';
 import { ResultadoProps } from '@/types/props';
 
 export const ResultadoRenda = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
-  const { resultadoRenda, gastos, listaGastos, ano } = useSimuladorStore();
+  const { resultadoRenda, gastos, listaGastos, ano, mesInicial, mesFinal } = useSimuladorStore();
   const { nome, idade } = useUserStore();
   const { nomes, valores } = useEntradasStore();
   const { adicionarHistorico } = useHistoricoStore();
@@ -26,6 +26,8 @@ export const ResultadoRenda = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
         idade,
       },
       ano,
+      mesInicial,
+      mesFinal,
       entradas: nomes.map((nome, index) => ({
         nome,
         valor: valores[index],

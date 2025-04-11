@@ -103,6 +103,14 @@ const useSimuladorStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$no
         listaGastos: [],
         resultadoRenda: null,
         ano: new Date().getFullYear(),
+        mesInicial: 'Janeiro',
+        mesFinal: 'Dezembro',
+        setMesInicial: (mes)=>set({
+                mesInicial: mes
+            }),
+        setMesFinal: (mes)=>set({
+                mesFinal: mes
+            }),
         setValorInicial: (v)=>set({
                 valorInicial: v
             }),
@@ -174,7 +182,9 @@ const useSimuladorStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$no
                 gastos: '',
                 listaGastos: [],
                 resultadoRenda: null,
-                ano: new Date().getFullYear()
+                ano: new Date().getFullYear(),
+                mesInicial: 'Janeiro',
+                mesFinal: 'Dezembro'
             })
     }), {
     name: 'simulador-storage'

@@ -18,6 +18,12 @@ export const useSimuladorStore = create<SimuladorState>()(
 
       ano: new Date().getFullYear(),
 
+      mesInicial: 'Janeiro',
+      mesFinal: 'Dezembro',
+
+      setMesInicial: (mes) => set({ mesInicial: mes }),
+      setMesFinal: (mes) => set({ mesFinal: mes }),
+
       setValorInicial: (v) => set({ valorInicial: v }),
       setAporteMensal: (v) => set({ aporteMensal: v }),
       setAnos: (v) => set({ anos: v }),
@@ -72,6 +78,8 @@ export const useSimuladorStore = create<SimuladorState>()(
           listaGastos: [],
           resultadoRenda: null,
           ano: new Date().getFullYear(),
+          mesInicial: 'Janeiro',
+          mesFinal: 'Dezembro',
         }),
     }),
     {

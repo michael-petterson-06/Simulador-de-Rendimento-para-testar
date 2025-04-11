@@ -21,6 +21,9 @@ export type SimuladorState = {
   juros: string;
   tempoPoupancaTipo: 'anos' | 'meses';
   resultadoHome: ResultadoHome | null;
+  mesInicial: string;
+  mesFinal: string;
+  
 
   gastos: string;
   listaGastos: Gasto[];
@@ -41,6 +44,9 @@ export type SimuladorState = {
   addGasto: (gasto: Gasto) => void;
   editarGasto: (index: number, novoGasto: Gasto) => void;
   removerGasto: (index: number) => void;
+
+  setMesInicial: (mes: string) => void;
+  setMesFinal: (mes: string) => void;
 
   setResultadoRenda: (r: ResultadoRenda | null) => void;
   resetGastos: () => void;
