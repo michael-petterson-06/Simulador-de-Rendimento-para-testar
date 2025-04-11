@@ -20,7 +20,7 @@ export const Nav = () => {
               : 'text-indigo-500 hover:text-indigo-700 hover:underline'
           }`}
         >
-          Renda Familiar
+          Renda
         </Link>
 
 
@@ -32,7 +32,7 @@ export const Nav = () => {
               : 'text-indigo-500 hover:text-indigo-700 hover:underline'
           }`}
         >
-          Simulador de Rendimento
+          Rendimento
         </Link>
      
         <Link

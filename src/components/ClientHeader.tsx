@@ -8,6 +8,7 @@ import { Nav } from './ui/Nav';
 import { Button } from './ui/Button';
 import { useRetiradaStore } from '@/store/useRetiradaStore';
 import { useEntradasStore } from '@/store/useEntradasStore';
+import { useHistoricoStore } from '@/store/useHistoricoStore';
 
 export const ClientHeader = () => {
 
@@ -41,7 +42,7 @@ export const ClientHeader = () => {
 
   const handleLogout = () => {
     setSaindo(true);
-    limparTudo()
+    limparTudo();
     setTimeout(() => {
       logout();
       router.push('/login');
@@ -64,6 +65,7 @@ export const ClientHeader = () => {
       useUserStore.getState().resetAll();
       useRetiradaStore.getState().resetAll();
       useEntradasStore.getState().resetAll();
+      useHistoricoStore.getState().resetAll();
       router.push('/login');
     }
   };
