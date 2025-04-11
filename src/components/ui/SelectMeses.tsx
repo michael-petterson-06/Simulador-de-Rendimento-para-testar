@@ -10,7 +10,7 @@ export const SelectMeses = () => {
 
   return (
     <div className="mb-4">
-      <p className="text-center text-gray-700 font-medium">Mês</p>
+      <p className="text-center text-gray-700 font-medium">Mês Inicial até Final</p>
       <div className="flex justify-center gap-4 mt-2 flex-wrap">
         <div className="relative">
           <select

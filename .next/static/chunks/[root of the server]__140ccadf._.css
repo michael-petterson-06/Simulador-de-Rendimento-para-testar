@@ -433,12 +433,12 @@ img, video {
   right: 0;
 }
 
-.top-4 {
-  top: 1rem;
-}
-
 .right-3 {
   right: .75rem;
+}
+
+.top-4 {
+  top: 1rem;
 }
 
 .z-50 {
@@ -479,6 +479,10 @@ img, video {
 
 .mt-8 {
   margin-top: 2rem;
+}
+
+.ml-2 {
+  margin-left: .5rem;
 }
 
 .block {
@@ -1136,14 +1140,14 @@ img, video {
   transition-duration: .15s;
 }
 
-.transition-colors {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+.transition-all {
+  transition-property: all;
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
   transition-duration: .15s;
 }
 
-.transition-all {
-  transition-property: all;
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
   transition-duration: .15s;
 }
