@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useSimuladorStore } from '@/store/useSimuladorStore';
 import { useUserStore } from '@/store/useUserStore';
 import { useEntradasStore } from '@/store/useEntradasStore';
@@ -13,6 +14,8 @@ export const ResultadoRenda = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
   const { nome, idade } = useUserStore();
   const { nomes, valores } = useEntradasStore();
   const { adicionarHistorico } = useHistoricoStore();
+
+  const [avisoSalvo, setAvisoSalvo] = useState(false);
 
   if (!resultadoRenda) return null;
 
@@ -34,6 +37,9 @@ export const ResultadoRenda = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
     };
 
     adicionarHistorico(dados);
+    setAvisoSalvo(true);
+
+    setTimeout(() => setAvisoSalvo(false), 3000);
   };
 
   return (
@@ -69,6 +75,12 @@ export const ResultadoRenda = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
       {avisoCopiado && (
         <p className="mt-2 text-sm text-green-600 font-medium animate-fade-in-out">
           ✅ Valor copiado para Aporte Mensal!
+        </p>
+      )}
+
+      {avisoSalvo && (
+        <p className="mt-2 text-sm text-green-600 font-medium animate-fade-in-out">
+          💾 Dados salvos com sucesso no histórico!
         </p>
       )}
     </div>

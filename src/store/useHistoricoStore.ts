@@ -8,6 +8,11 @@ export const useHistoricoStore = create<HistoricoState>()(
       historico: [],
       adicionarHistorico: (dados) =>
         set({ historico: [...get().historico, dados] }),
+      removerHistorico: (index) => {
+        const novaLista = get().historico.filter((_, i) => i !== index);
+        set({ historico: novaLista });
+      },
+      resetAll: () => set({ historico: [] }),
     }),
     { name: 'historico-simulador' }
   )

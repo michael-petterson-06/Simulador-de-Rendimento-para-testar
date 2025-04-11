@@ -19,6 +19,9 @@ const useHistoricoStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$no
                     ...get().historico,
                     dados
                 ]
+            }),
+        resetAll: ()=>set({
+                historico: []
             })
     }), {
     name: 'historico-simulador'
