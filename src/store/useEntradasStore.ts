@@ -10,6 +10,8 @@ export const useEntradasStore = create<EntradasState>()(
       valores: [],
       formularioPreenchido: false,
       setQuantidade: (qtd) => set({ quantidade: qtd }),
+     
+     
       setNomes: (novosNomes) =>
         set((state) => {
           const nomesAtualizados = [...state.nomes, ...novosNomes];
@@ -20,7 +22,10 @@ export const useEntradasStore = create<EntradasState>()(
             valores: valoresAtualizados,
           };
         }),
-      setFormularioPreenchido: (preenchido) => set({ formularioPreenchido: preenchido }),
+     
+     
+     
+        setFormularioPreenchido: (preenchido) => set({ formularioPreenchido: preenchido }),
       setValores: (valores) => set({ valores }),
       resetAll: () => set({ quantidade: 0, nomes: [], formularioPreenchido: false, valores: [] }),
     }),
