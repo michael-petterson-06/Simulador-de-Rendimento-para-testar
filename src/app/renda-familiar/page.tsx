@@ -12,6 +12,8 @@ import { ModalGasto } from '@/components/ModalGasto';
 import { ModalGastoPercentual } from '@/components/ModalGastoPercentual';
 import { formatarReal } from '@/utils/formatarReal';
 import { SelectMeses } from '@/components/ui/SelectMeses';
+import { ModalAcoesEntradas } from '@/components/ModalAcoesEntradas';
+import { ModalExcluirEntradas } from '@/components/ModalExcluirEntradas';
 
 export default function RendaFamiliar() {
   const {
@@ -39,6 +41,10 @@ export default function RendaFamiliar() {
   const [nomePercentual, setNomePercentual] = useState('');
   const [percentual, setPercentual] = useState('');
   const [tipoEntrada, setTipoEntrada] = useState('Todas as Entradas');
+
+  const [mostrarModalAcoes, setMostrarModalAcoes] = useState(false);
+  const [mostrarModalExcluirEntradas, setMostrarModalExcluirEntradas] = useState(false);
+
 
 
   const handleValorEntrada = (index: number, valor: string) => {
@@ -124,7 +130,16 @@ export default function RendaFamiliar() {
     <main className="min-h-screen bg-gradient-to-br from-pink-100 to-white p-4 flex items-center justify-center">
       <div className="w-full max-w-xl">
         <Card>
-          <h1 className="text-3xl font-bold text-center mb-6">Renda Familiar</h1>
+          <div className="flex justify-between items-center mb-4">
+            <h1 className="text-3xl font-bold text-center w-full">Renda Familiar</h1>
+            <button
+              onClick={() => setMostrarModalAcoes(true)}
+              className="text-3xl font-bold text-indigo-500 hover:text-indigo-700"
+              title="Mais opções"
+            >
+              ⋯
+            </button>
+          </div>
           <SelectMeses/>
           <div className="grid gap-4 md:grid-cols-2">
             {nomesEntradas.map((nome, index) => (
@@ -213,6 +228,17 @@ export default function RendaFamiliar() {
               }}
               avisoCopiado={avisoCopiado}
             />
+          )}
+
+          {mostrarModalAcoes && (
+            <ModalAcoesEntradas
+              onFechar={() => setMostrarModalAcoes(false)}
+              onExcluir={() => setMostrarModalExcluirEntradas(true)}
+            />
+          )}
+
+          {mostrarModalExcluirEntradas && (
+            <ModalExcluirEntradas onCancelar={() => setMostrarModalExcluirEntradas(false)} />
           )}
         </Card>
       </div>

@@ -351,8 +351,9 @@ const useEntradasStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$nod
         setQuantidade: (qtd)=>set({
                 quantidade: qtd
             }),
-        setNomes: (nomes)=>set({
-                nomes
+        setNomes: (novosNomes)=>set({
+                nomes: novosNomes,
+                valores: novosNomes.map(()=>'')
             }),
         setFormularioPreenchido: (preenchido)=>set({
                 formularioPreenchido: preenchido

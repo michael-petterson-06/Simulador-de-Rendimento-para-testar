@@ -457,6 +457,10 @@ img, video {
   margin-bottom: 1.5rem;
 }
 
+.ml-2 {
+  margin-left: .5rem;
+}
+
 .mt-1 {
   margin-top: .25rem;
 }
@@ -479,10 +483,6 @@ img, video {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.ml-2 {
-  margin-left: .5rem;
 }
 
 .block {
@@ -723,6 +723,11 @@ img, video {
 .bg-green-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(240 253 244 / var(--tw-bg-opacity, 1));
+}
+
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity, 1));
 }
 
 .bg-green-600 {
@@ -1203,6 +1208,11 @@ img, video {
 .hover\:bg-green-500:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(34 197 94 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-green-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(22 163 74 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:bg-green-700:hover {

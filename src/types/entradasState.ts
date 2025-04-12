@@ -9,3 +9,15 @@ export interface EntradasState {
   setFormularioPreenchido: (preenchido: boolean) => void;
   resetAll: () => void;
 }
+
+export interface FormularioEntradasProps {
+  login?: string;
+  onFechar?: () => void;
+  fecharFormulario?: (mostrar: boolean) => void | undefined ;
+}
+
+
+export interface ModalAcoesEntradasProps {
+  onFechar: () => void;
+  onExcluir: () => void;
+}
