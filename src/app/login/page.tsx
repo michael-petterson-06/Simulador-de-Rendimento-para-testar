@@ -40,7 +40,13 @@ export default function LoginPage() {
         <Card>
           <h1 className="text-2xl font-bold text-center mb-6">Bem-vindo! 🧑‍💻</h1>
 
-          {nomeSalvo && !mostrarEntradas ? (
+          {mostrarEntradas ? (
+            <FormularioEntradas onFechar={() =>
+               setMostrarEntradas(false)}
+                login='Login'
+            />
+       
+          ) : nomeSalvo ? (
             <div className="text-center space-y-4">
               <p className="text-green-600 font-medium">
                 Você já está logado como <strong>{nomeSalvo}</strong>.<br />
@@ -50,8 +56,6 @@ export default function LoginPage() {
                 Voltar para tela anterior
               </Button>
             </div>
-          ) : mostrarEntradas ? (
-            <FormularioEntradas />
           ) : (
             <div className="space-y-4">
               <Input

@@ -49,8 +49,14 @@ export default function HistoricoPage() {
             <div className="space-y-1 text-sm">
               <p><strong>Nome:</strong> {registro.usuario.nome}</p>
               <p><strong>Idade:</strong> {registro.usuario.idade}</p>
-              <p><strong>Ano:</strong> {registro.ano}</p>
+              <p>
+                <strong>Ano:</strong> {registro.ano}
+                <span className="ml-2 text-gray-500">
+                  ({registro.mesInicial} – {registro.mesFinal})
+                </span>
+              </p>
             </div>
+
 
             <div className="bg-blue-50 p-3 rounded-xl text-sm">
               <p>
