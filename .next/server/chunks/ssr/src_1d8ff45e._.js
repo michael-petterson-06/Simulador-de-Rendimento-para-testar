@@ -885,16 +885,47 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
             setErro('Insira uma quantidade válida.');
             return;
         }
-        const nomesArray = nomesEntradas.split(',').map((n)=>n.trim()).filter(Boolean);
-        if (nomesArray.length !== qtd) {
-            setErro('A quantidade de nomes deve ser igual à quantidade informada.');
+        // Remover espaços e filtrar nomes válidos
+        const novosNomes = nomesEntradas.split(',').map((n)=>n.trim().replace(/\s/g, '')) // remove espaços
+        .filter(Boolean);
+        // Verificar duplicados internos (dentro dos novos nomes)
+        const nomesSet = new Set();
+        const nomesDuplicadosInternos = [];
+        novosNomes.forEach((nome)=>{
+            if (nomesSet.has(nome)) {
+                nomesDuplicadosInternos.push(nome);
+            } else {
+                nomesSet.add(nome);
+            }
+        });
+        if (nomesDuplicadosInternos.length > 0) {
+            setErro(`Nomes repetidos entre os novos: ${nomesDuplicadosInternos.join(', ')}`);
             return;
         }
-        fecharFormulario?.(false);
-        // onFechar?.();
-        setQuantidade(qtd);
-        setNomes(nomesArray);
-        setFormularioPreenchido(true);
+        const novosNomesSemEspacos = Array.from(nomesSet);
+        const nomesExistentes = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEntradasStore"].getState().nomes.map((n)=>n.trim().replace(/\s/g, ''));
+        const nomesNaoRepetidos = [];
+        const nomesDuplicados = [];
+        novosNomesSemEspacos.forEach((nome)=>{
+            if (nomesExistentes.includes(nome)) {
+                nomesDuplicados.push(nome);
+            } else {
+                nomesNaoRepetidos.push(nome);
+            }
+        });
+        if (nomesNaoRepetidos.length > 0) {
+            setQuantidade(nomesExistentes.length + nomesNaoRepetidos.length);
+            setNomes([
+                ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEntradasStore"].getState().nomes,
+                ...nomesNaoRepetidos
+            ]);
+            setFormularioPreenchido(true);
+        }
+        if (nomesDuplicados.length > 0) {
+            setErro(`Os seguintes nomes já existiam e não foram adicionados: ${nomesDuplicados.join(', ')}`);
+        } else {
+            setErro('');
+        }
         return true;
     };
     // if (!mostrarFormulario) return null;
@@ -908,7 +939,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                 onChange: (e)=>setQuantidadeEntradas(e.target.value)
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 52,
+                lineNumber: 91,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -918,7 +949,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                 onChange: (e)=>setNomesEntradas(e.target.value)
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 59,
+                lineNumber: 98,
                 columnNumber: 7
             }, this),
             erro && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -926,7 +957,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                 children: erro
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 66,
+                lineNumber: 105,
                 columnNumber: 16
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -943,7 +974,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                         children: login === 'Login' ? 'Entrar na aplicação' : 'Salvar'
                     }, void 0, false, {
                         fileName: "[project]/src/components/FormularioEntradas.tsx",
-                        lineNumber: 69,
+                        lineNumber: 108,
                         columnNumber: 7
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -960,19 +991,19 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                         children: "Voltar"
                     }, void 0, false, {
                         fileName: "[project]/src/components/FormularioEntradas.tsx",
-                        lineNumber: 81,
+                        lineNumber: 120,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 68,
+                lineNumber: 107,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/FormularioEntradas.tsx",
-        lineNumber: 51,
+        lineNumber: 90,
         columnNumber: 5
     }, this);
 };

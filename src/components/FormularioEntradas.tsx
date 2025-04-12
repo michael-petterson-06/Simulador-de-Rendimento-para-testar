@@ -20,30 +20,69 @@ export const FormularioEntradas = ({onFechar, login,  fecharFormulario,   }: For
 
   const handleFinalizar = () => {
     const qtd = parseInt(quantidadeEntradas);
-
+  
     if (isNaN(qtd) || qtd <= 0) {
       setErro('Insira uma quantidade válida.');
       return;
     }
-
-    const nomesArray = nomesEntradas
+  
+    // Remover espaços e filtrar nomes válidos
+    const novosNomes = nomesEntradas
       .split(',')
-      .map((n) => n.trim())
+      .map((n) => n.trim().replace(/\s/g, '')) // remove espaços
       .filter(Boolean);
-
-    if (nomesArray.length !== qtd) {
-      setErro('A quantidade de nomes deve ser igual à quantidade informada.');
+  
+    // Verificar duplicados internos (dentro dos novos nomes)
+    const nomesSet = new Set<string>();
+    const nomesDuplicadosInternos: string[] = [];
+  
+    novosNomes.forEach((nome) => {
+      if (nomesSet.has(nome)) {
+        nomesDuplicadosInternos.push(nome);
+      } else {
+        nomesSet.add(nome);
+      }
+    });
+  
+    if (nomesDuplicadosInternos.length > 0) {
+      setErro(`Nomes repetidos entre os novos: ${nomesDuplicadosInternos.join(', ')}`);
       return;
     }
-
-    fecharFormulario?.(false);
-    // onFechar?.();
-    setQuantidade(qtd);
-    setNomes(nomesArray);
-    setFormularioPreenchido(true);
-    
+  
+    const novosNomesSemEspacos: string[] = Array.from(nomesSet);
+  
+    const nomesExistentes = useEntradasStore.getState().nomes.map((n) =>
+      n.trim().replace(/\s/g, '')
+    );
+  
+    const nomesNaoRepetidos: string[] = [];
+    const nomesDuplicados: string[] = [];
+  
+    novosNomesSemEspacos.forEach((nome) => {
+      if (nomesExistentes.includes(nome)) {
+        nomesDuplicados.push(nome);
+      } else {
+        nomesNaoRepetidos.push(nome);
+      }
+    });
+  
+    if (nomesNaoRepetidos.length > 0) {
+      setQuantidade(nomesExistentes.length + nomesNaoRepetidos.length);
+      setNomes([...useEntradasStore.getState().nomes, ...nomesNaoRepetidos]);
+      setFormularioPreenchido(true);
+    }
+  
+    if (nomesDuplicados.length > 0) {
+      setErro(
+        `Os seguintes nomes já existiam e não foram adicionados: ${nomesDuplicados.join(', ')}`
+      );
+    } else {
+      setErro('');
+    }
+  
     return true;
   };
+  
 
   // if (!mostrarFormulario) return null;
 
