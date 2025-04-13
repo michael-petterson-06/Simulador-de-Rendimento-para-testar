@@ -1,5 +1,8 @@
 {
   "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/historico/page": "app/historico/page.js",
   "/login/page": "app/login/page.js",
-  "/renda-familiar/page": "app/renda-familiar/page.js"
+  "/page": "app/page.js",
+  "/renda-familiar/page": "app/renda-familiar/page.js",
+  "/retiradas/page": "app/retiradas/page.js"
 }
