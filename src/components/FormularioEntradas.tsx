@@ -26,56 +26,58 @@ export const FormularioEntradas = ({onFechar, login,  fecharFormulario,   }: For
       return;
     }
   
-    // Remover espaços e filtrar nomes válidos
-    const novosNomes = nomesEntradas
+    // Processar os novos nomes (limpar espaços e remover vazios)
+    const novosNomesBrutos = nomesEntradas
       .split(',')
-      .map((n) => n.trim().replace(/\s/g, '')) // remove espaços
+      .map((n) => n.trim().replace(/\s/g, ''))
       .filter(Boolean);
   
-    // Verificar duplicados internos (dentro dos novos nomes)
-    const nomesSet = new Set<string>();
+    // Verificar duplicados internos nos novos nomes
+    const nomesUnicosSet = new Set<string>();
     const nomesDuplicadosInternos: string[] = [];
   
-    novosNomes.forEach((nome) => {
-      if (nomesSet.has(nome)) {
+    novosNomesBrutos.forEach((nome) => {
+      if (nomesUnicosSet.has(nome)) {
         nomesDuplicadosInternos.push(nome);
       } else {
-        nomesSet.add(nome);
+        nomesUnicosSet.add(nome);
       }
     });
   
     if (nomesDuplicadosInternos.length > 0) {
-      setErro(`Nomes repetidos entre os novos: ${nomesDuplicadosInternos.join(', ')}`);
+      setErro(`Os seguintes nomes estão duplicados na lista: ${nomesDuplicadosInternos.join(', ')}`);
       return;
     }
   
-    const novosNomesSemEspacos: string[] = Array.from(nomesSet);
+    const novosNomes = Array.from(nomesUnicosSet);
   
-    const nomesExistentes = useEntradasStore.getState().nomes.map((n) =>
-      n.trim().replace(/\s/g, '')
-    );
+    // Obter os nomes já existentes do store (normalizados)
+    const nomesExistentesOriginais = useEntradasStore.getState().nomes;
+    const nomesExistentesNormalizados = nomesExistentesOriginais.map(n => n.trim().replace(/\s/g, ''));
   
-    const nomesNaoRepetidos: string[] = [];
-    const nomesDuplicados: string[] = [];
+    // Separar nomes novos e já cadastrados
+    const nomesNaoCadastrados: string[] = [];
+    const nomesRepetidos: string[] = [];
   
-    novosNomesSemEspacos.forEach((nome) => {
-      if (nomesExistentes.includes(nome)) {
-        nomesDuplicados.push(nome);
+    novosNomes.forEach((nome) => {
+      if (nomesExistentesNormalizados.includes(nome)) {
+        nomesRepetidos.push(nome);
       } else {
-        nomesNaoRepetidos.push(nome);
+        nomesNaoCadastrados.push(nome);
       }
     });
   
-    if (nomesNaoRepetidos.length > 0) {
-      setQuantidade(nomesExistentes.length + nomesNaoRepetidos.length);
-      setNomes([...useEntradasStore.getState().nomes, ...nomesNaoRepetidos]);
+    if (nomesNaoCadastrados.length > 0) {
+      const novosNomesFinal = [...nomesExistentesOriginais, ...nomesNaoCadastrados];
+      setQuantidade(novosNomesFinal.length);
+      setNomes(novosNomesFinal);
       setFormularioPreenchido(true);
+      fecharFormulario?.(false);
+      onFechar?.();
     }
   
-    if (nomesDuplicados.length > 0) {
-      setErro(
-        `Os seguintes nomes já existiam e não foram adicionados: ${nomesDuplicados.join(', ')}`
-      );
+    if (nomesRepetidos.length > 0) {
+      setErro(`Os seguintes nomes já existem e foram ignorados: ${nomesRepetidos.join(', ')}`);
     } else {
       setErro('');
     }

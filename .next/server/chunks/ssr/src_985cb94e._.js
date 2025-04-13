@@ -74,44 +74,49 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
             setErro('Insira uma quantidade válida.');
             return;
         }
-        // Remover espaços e filtrar nomes válidos
-        const novosNomes = nomesEntradas.split(',').map((n)=>n.trim().replace(/\s/g, '')) // remove espaços
-        .filter(Boolean);
-        // Verificar duplicados internos (dentro dos novos nomes)
-        const nomesSet = new Set();
+        // Processar os novos nomes (limpar espaços e remover vazios)
+        const novosNomesBrutos = nomesEntradas.split(',').map((n)=>n.trim().replace(/\s/g, '')).filter(Boolean);
+        // Verificar duplicados internos nos novos nomes
+        const nomesUnicosSet = new Set();
         const nomesDuplicadosInternos = [];
-        novosNomes.forEach((nome)=>{
-            if (nomesSet.has(nome)) {
+        novosNomesBrutos.forEach((nome)=>{
+            if (nomesUnicosSet.has(nome)) {
                 nomesDuplicadosInternos.push(nome);
             } else {
-                nomesSet.add(nome);
+                nomesUnicosSet.add(nome);
             }
         });
         if (nomesDuplicadosInternos.length > 0) {
-            setErro(`Nomes repetidos entre os novos: ${nomesDuplicadosInternos.join(', ')}`);
+            setErro(`Os seguintes nomes estão duplicados na lista: ${nomesDuplicadosInternos.join(', ')}`);
             return;
         }
-        const novosNomesSemEspacos = Array.from(nomesSet);
-        const nomesExistentes = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEntradasStore"].getState().nomes.map((n)=>n.trim().replace(/\s/g, ''));
-        const nomesNaoRepetidos = [];
-        const nomesDuplicados = [];
-        novosNomesSemEspacos.forEach((nome)=>{
-            if (nomesExistentes.includes(nome)) {
-                nomesDuplicados.push(nome);
+        const novosNomes = Array.from(nomesUnicosSet);
+        // Obter os nomes já existentes do store (normalizados)
+        const nomesExistentesOriginais = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEntradasStore"].getState().nomes;
+        const nomesExistentesNormalizados = nomesExistentesOriginais.map((n)=>n.trim().replace(/\s/g, ''));
+        // Separar nomes novos e já cadastrados
+        const nomesNaoCadastrados = [];
+        const nomesRepetidos = [];
+        novosNomes.forEach((nome)=>{
+            if (nomesExistentesNormalizados.includes(nome)) {
+                nomesRepetidos.push(nome);
             } else {
-                nomesNaoRepetidos.push(nome);
+                nomesNaoCadastrados.push(nome);
             }
         });
-        if (nomesNaoRepetidos.length > 0) {
-            setQuantidade(nomesExistentes.length + nomesNaoRepetidos.length);
-            setNomes([
-                ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEntradasStore"].getState().nomes,
-                ...nomesNaoRepetidos
-            ]);
+        if (nomesNaoCadastrados.length > 0) {
+            const novosNomesFinal = [
+                ...nomesExistentesOriginais,
+                ...nomesNaoCadastrados
+            ];
+            setQuantidade(novosNomesFinal.length);
+            setNomes(novosNomesFinal);
             setFormularioPreenchido(true);
+            fecharFormulario?.(false);
+            onFechar?.();
         }
-        if (nomesDuplicados.length > 0) {
-            setErro(`Os seguintes nomes já existiam e não foram adicionados: ${nomesDuplicados.join(', ')}`);
+        if (nomesRepetidos.length > 0) {
+            setErro(`Os seguintes nomes já existem e foram ignorados: ${nomesRepetidos.join(', ')}`);
         } else {
             setErro('');
         }
@@ -128,7 +133,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                 onChange: (e)=>setQuantidadeEntradas(e.target.value)
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 91,
+                lineNumber: 93,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -138,7 +143,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                 onChange: (e)=>setNomesEntradas(e.target.value)
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 98,
+                lineNumber: 100,
                 columnNumber: 7
             }, this),
             erro && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -146,7 +151,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                 children: erro
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 105,
+                lineNumber: 107,
                 columnNumber: 16
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -163,7 +168,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                         children: login === 'Login' ? 'Entrar na aplicação' : 'Salvar'
                     }, void 0, false, {
                         fileName: "[project]/src/components/FormularioEntradas.tsx",
-                        lineNumber: 108,
+                        lineNumber: 110,
                         columnNumber: 7
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -180,19 +185,19 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                         children: "Voltar"
                     }, void 0, false, {
                         fileName: "[project]/src/components/FormularioEntradas.tsx",
-                        lineNumber: 120,
+                        lineNumber: 122,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 107,
+                lineNumber: 109,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/FormularioEntradas.tsx",
-        lineNumber: 90,
+        lineNumber: 92,
         columnNumber: 5
     }, this);
 };
