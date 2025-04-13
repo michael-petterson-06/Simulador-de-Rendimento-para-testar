@@ -885,44 +885,49 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
             setErro('Insira uma quantidade válida.');
             return;
         }
-        // Remover espaços e filtrar nomes válidos
-        const novosNomes = nomesEntradas.split(',').map((n)=>n.trim().replace(/\s/g, '')) // remove espaços
-        .filter(Boolean);
-        // Verificar duplicados internos (dentro dos novos nomes)
-        const nomesSet = new Set();
+        // Processar os novos nomes (limpar espaços e remover vazios)
+        const novosNomesBrutos = nomesEntradas.split(',').map((n)=>n.trim().replace(/\s/g, '')).filter(Boolean);
+        // Verificar duplicados internos nos novos nomes
+        const nomesUnicosSet = new Set();
         const nomesDuplicadosInternos = [];
-        novosNomes.forEach((nome)=>{
-            if (nomesSet.has(nome)) {
+        novosNomesBrutos.forEach((nome)=>{
+            if (nomesUnicosSet.has(nome)) {
                 nomesDuplicadosInternos.push(nome);
             } else {
-                nomesSet.add(nome);
+                nomesUnicosSet.add(nome);
             }
         });
         if (nomesDuplicadosInternos.length > 0) {
-            setErro(`Nomes repetidos entre os novos: ${nomesDuplicadosInternos.join(', ')}`);
+            setErro(`Os seguintes nomes estão duplicados na lista: ${nomesDuplicadosInternos.join(', ')}`);
             return;
         }
-        const novosNomesSemEspacos = Array.from(nomesSet);
-        const nomesExistentes = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEntradasStore"].getState().nomes.map((n)=>n.trim().replace(/\s/g, ''));
-        const nomesNaoRepetidos = [];
-        const nomesDuplicados = [];
-        novosNomesSemEspacos.forEach((nome)=>{
-            if (nomesExistentes.includes(nome)) {
-                nomesDuplicados.push(nome);
+        const novosNomes = Array.from(nomesUnicosSet);
+        // Obter os nomes já existentes do store (normalizados)
+        const nomesExistentesOriginais = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEntradasStore"].getState().nomes;
+        const nomesExistentesNormalizados = nomesExistentesOriginais.map((n)=>n.trim().replace(/\s/g, ''));
+        // Separar nomes novos e já cadastrados
+        const nomesNaoCadastrados = [];
+        const nomesRepetidos = [];
+        novosNomes.forEach((nome)=>{
+            if (nomesExistentesNormalizados.includes(nome)) {
+                nomesRepetidos.push(nome);
             } else {
-                nomesNaoRepetidos.push(nome);
+                nomesNaoCadastrados.push(nome);
             }
         });
-        if (nomesNaoRepetidos.length > 0) {
-            setQuantidade(nomesExistentes.length + nomesNaoRepetidos.length);
-            setNomes([
-                ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEntradasStore"].getState().nomes,
-                ...nomesNaoRepetidos
-            ]);
+        if (nomesNaoCadastrados.length > 0) {
+            const novosNomesFinal = [
+                ...nomesExistentesOriginais,
+                ...nomesNaoCadastrados
+            ];
+            setQuantidade(novosNomesFinal.length);
+            setNomes(novosNomesFinal);
             setFormularioPreenchido(true);
+            fecharFormulario?.(false);
+            onFechar?.();
         }
-        if (nomesDuplicados.length > 0) {
-            setErro(`Os seguintes nomes já existiam e não foram adicionados: ${nomesDuplicados.join(', ')}`);
+        if (nomesRepetidos.length > 0) {
+            setErro(`Os seguintes nomes já existem e foram ignorados: ${nomesRepetidos.join(', ')}`);
         } else {
             setErro('');
         }
@@ -939,7 +944,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                 onChange: (e)=>setQuantidadeEntradas(e.target.value)
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 91,
+                lineNumber: 93,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -949,7 +954,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                 onChange: (e)=>setNomesEntradas(e.target.value)
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 98,
+                lineNumber: 100,
                 columnNumber: 7
             }, this),
             erro && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -957,7 +962,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                 children: erro
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 105,
+                lineNumber: 107,
                 columnNumber: 16
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -974,7 +979,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                         children: login === 'Login' ? 'Entrar na aplicação' : 'Salvar'
                     }, void 0, false, {
                         fileName: "[project]/src/components/FormularioEntradas.tsx",
-                        lineNumber: 108,
+                        lineNumber: 110,
                         columnNumber: 7
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -991,19 +996,19 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                         children: "Voltar"
                     }, void 0, false, {
                         fileName: "[project]/src/components/FormularioEntradas.tsx",
-                        lineNumber: 120,
+                        lineNumber: 122,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 107,
+                lineNumber: 109,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/FormularioEntradas.tsx",
-        lineNumber: 90,
+        lineNumber: 92,
         columnNumber: 5
     }, this);
 };
@@ -1140,11 +1145,34 @@ __turbopack_context__.s({
     "ModalExcluirEntradas": (()=>ModalExcluirEntradas)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/Button.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/store/useEntradasStore.ts [app-ssr] (ecmascript)");
 'use client';
 ;
 ;
+;
+;
 const ModalExcluirEntradas = ({ onCancelar })=>{
+    const { nomes, valores, setNomes, setValores, setQuantidade } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEntradasStore"])();
+    const [selecionados, setSelecionados] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    const toggleSelecionado = (nome)=>{
+        setSelecionados((prev)=>prev.includes(nome) ? prev.filter((n)=>n !== nome) : [
+                ...prev,
+                nome
+            ]);
+    };
+    const handleExcluir = ()=>{
+        const novosNomes = nomes.filter((nome)=>!selecionados.includes(nome));
+        const novosValores = nomes.map((nome, index)=>({
+                nome,
+                valor: valores[index]
+            })).filter((item)=>!selecionados.includes(item.nome)).map((item)=>item.valor);
+        setNomes(novosNomes);
+        setValores(novosValores);
+        setQuantidade(novosNomes.length);
+        onCancelar(); // Fecha o modal
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1155,35 +1183,72 @@ const ModalExcluirEntradas = ({ onCancelar })=>{
                     children: "Excluir Entradas"
                 }, void 0, false, {
                     fileName: "[project]/src/components/ModalExcluirEntradas.tsx",
-                    lineNumber: 13,
+                    lineNumber: 36,
                     columnNumber: 9
                 }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                    className: "text-sm text-gray-700",
-                    children: "Funcionalidade em construção."
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "text-left max-h-48 overflow-y-auto space-y-2",
+                    children: nomes.map((nome, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                            className: "flex items-center gap-2 text-sm",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    type: "checkbox",
+                                    checked: selecionados.includes(nome),
+                                    onChange: ()=>toggleSelecionado(nome)
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/ModalExcluirEntradas.tsx",
+                                    lineNumber: 41,
+                                    columnNumber: 15
+                                }, this),
+                                nome
+                            ]
+                        }, index, true, {
+                            fileName: "[project]/src/components/ModalExcluirEntradas.tsx",
+                            lineNumber: 40,
+                            columnNumber: 13
+                        }, this))
                 }, void 0, false, {
                     fileName: "[project]/src/components/ModalExcluirEntradas.tsx",
-                    lineNumber: 14,
+                    lineNumber: 38,
                     columnNumber: 9
                 }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                    onClick: onCancelar,
-                    className: "bg-gray-300 text-gray-800 hover:bg-gray-400",
-                    children: "Fechar"
-                }, void 0, false, {
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "flex justify-center gap-4 pt-4",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                            onClick: handleExcluir,
+                            className: "bg-rose-500 hover:bg-rose-600 text-white",
+                            disabled: selecionados.length === 0,
+                            children: "Excluir selecionados"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/ModalExcluirEntradas.tsx",
+                            lineNumber: 52,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                            onClick: onCancelar,
+                            className: "bg-gray-300 text-gray-800 hover:bg-gray-400",
+                            children: "Cancelar"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/ModalExcluirEntradas.tsx",
+                            lineNumber: 59,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
                     fileName: "[project]/src/components/ModalExcluirEntradas.tsx",
-                    lineNumber: 15,
+                    lineNumber: 51,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/ModalExcluirEntradas.tsx",
-            lineNumber: 12,
+            lineNumber: 35,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/ModalExcluirEntradas.tsx",
-        lineNumber: 11,
+        lineNumber: 34,
         columnNumber: 5
     }, this);
 };
