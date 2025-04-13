@@ -57,6 +57,16 @@ export default function HistoricoPage() {
               </p>
             </div>
 
+            <div className="bg-yellow-50 p-3 rounded-xl text-sm">
+              <p className="font-semibold mb-2">💼 Entradas:</p>
+              <ul className="list-disc list-inside space-y-1">
+                {registro.entradas.map((entrada, eIdx) => (
+                  <li key={eIdx}>
+                    {entrada.nome} — <strong className="text-yellow-700">{formatarReal(Number(entrada.valor))}</strong>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             <div className="bg-blue-50 p-3 rounded-xl text-sm">
               <p>
@@ -86,20 +96,19 @@ export default function HistoricoPage() {
           </div>
         ))}
       </div>
-    
+
       {indiceParaRemover !== null && (
         <ModalRemoverHistorico
-        onConfirmar={confirmarRemocao}
-        onCancelar={() => setIndiceParaRemover(null)}
-      />
+          onConfirmar={confirmarRemocao}
+          onCancelar={() => setIndiceParaRemover(null)}
+        />
       )}
-      
+
       {mensagemRemovido && (
         <p className="fixed top-4 left-1/2 -translate-x-1/2 bg-green-100 text-green-700 px-4 py-2 rounded-xl shadow text-sm font-medium animate-fade-in-out z-50">
           ✅ Histórico removido com sucesso!
         </p>
       )}
-
     </main>
   );
 }
