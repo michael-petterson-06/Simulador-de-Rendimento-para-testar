@@ -75,7 +75,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$num
 ;
 ;
 ;
-const RetiradaPanel = ({ onCancel, onSalvar, tipoPagamento })=>{
+const RetiradaPanel = ({ onCancel, onSalvar, tipoPagamento, modo = 'Retirada', titulo = 'Nova Retirada', placeholderNome = 'Nome da Retirada', placeholderValor = 'Valor da Retirada', labelBotaoSalvar = 'Salvar' })=>{
     const { addRetirada } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useRetiradaStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRetiradaStore"])();
     const [nome, setNome] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
     const [valor, setValor] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
@@ -84,34 +84,34 @@ const RetiradaPanel = ({ onCancel, onSalvar, tipoPagamento })=>{
             alert('Preencha o nome e o valor corretamente.');
             return;
         }
-        if (tipoPagamento) {
+        if (modo === 'Retirada' && tipoPagamento === 'À Vista') {
             addRetirada({
                 nome,
                 valor: Number(valor),
-                pagamento: 'À Vista'
+                pagamento: tipoPagamento ?? 'À Vista'
             });
         }
         onSalvar(nome, Number(valor));
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "mt-8 p-4 bg-rose-50 border border-rose-200 rounded-xl shadow-md space-y-4 animate-fade-in",
+        className: `mt-8 p-4 border rounded-xl shadow-md space-y-4 animate-fade-in ${titulo === 'Novo Depósito' ? 'bg-green-50 border-green-200' : 'bg-rose-50 border-rose-200'}`,
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                 className: "text-lg font-bold text-center text-rose-600",
-                children: "Nova Retirada"
+                children: titulo
             }, void 0, false, {
                 fileName: "[project]/src/components/RetiradaPanel.tsx",
-                lineNumber: 32,
+                lineNumber: 50,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
                 type: "text",
-                placeholder: "Nome da Retirada",
+                placeholder: placeholderNome,
                 value: nome,
                 onChange: (e)=>setNome(e.target.value)
             }, void 0, false, {
                 fileName: "[project]/src/components/RetiradaPanel.tsx",
-                lineNumber: 34,
+                lineNumber: 52,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$number$2d$format$2f$dist$2f$react$2d$number$2d$format$2e$es$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NumericFormat"], {
@@ -122,11 +122,11 @@ const RetiradaPanel = ({ onCancel, onSalvar, tipoPagamento })=>{
                 decimalScale: 2,
                 fixedDecimalScale: true,
                 onValueChange: (values)=>setValor(values.value),
-                placeholder: "Valor da Retirada",
+                placeholder: placeholderValor,
                 className: "px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-rose-500"
             }, void 0, false, {
                 fileName: "[project]/src/components/RetiradaPanel.tsx",
-                lineNumber: 41,
+                lineNumber: 59,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -135,10 +135,10 @@ const RetiradaPanel = ({ onCancel, onSalvar, tipoPagamento })=>{
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                         onClick: handleSalvar,
                         className: "bg-rose-500 hover:bg-rose-600",
-                        children: "Salvar"
+                        children: labelBotaoSalvar
                     }, void 0, false, {
                         fileName: "[project]/src/components/RetiradaPanel.tsx",
-                        lineNumber: 54,
+                        lineNumber: 72,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -147,19 +147,19 @@ const RetiradaPanel = ({ onCancel, onSalvar, tipoPagamento })=>{
                         children: "Cancelar"
                     }, void 0, false, {
                         fileName: "[project]/src/components/RetiradaPanel.tsx",
-                        lineNumber: 57,
+                        lineNumber: 75,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/RetiradaPanel.tsx",
-                lineNumber: 53,
+                lineNumber: 71,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/RetiradaPanel.tsx",
-        lineNumber: 31,
+        lineNumber: 42,
         columnNumber: 5
     }, this);
 };
@@ -188,6 +188,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Retirad
 const ResultadoHome = ({ onCopiar, avisoCopiado })=>{
     const { resultadoHome, setResultadoHome } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useSimuladorStore"])();
     const [mostrarRetirada, setMostrarRetirada] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [mostrarDeposito, setMostrarDeposito] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [mensagemSucesso, setMensagemSucesso] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
     if (!resultadoHome) return null;
     const handleSalvarRetirada = (nome, valor)=>{
@@ -204,6 +205,16 @@ const ResultadoHome = ({ onCopiar, avisoCopiado })=>{
         setMensagemSucesso(`✅ Retirada "${nome}" realizada com sucesso!`);
         setTimeout(()=>setMensagemSucesso(''), 3000);
     };
+    const handleSalvarDeposito = (nome, valor)=>{
+        const novoFinal = resultadoHome.valorFinal + valor;
+        setResultadoHome({
+            ...resultadoHome,
+            valorFinal: novoFinal
+        });
+        setMostrarDeposito(false);
+        setMensagemSucesso(`✅ Depósito "${nome}" realizado com sucesso!`);
+        setTimeout(()=>setMensagemSucesso(''), 3000);
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "mt-8 space-y-4 text-center",
         children: [
@@ -217,18 +228,18 @@ const ResultadoHome = ({ onCopiar, avisoCopiado })=>{
                             children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$formatarReal$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatarReal"])(resultadoHome.totalDepositado)
                         }, void 0, false, {
                             fileName: "[project]/src/components/ResultadoHome.tsx",
-                            lineNumber: 36,
+                            lineNumber: 45,
                             columnNumber: 32
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/ResultadoHome.tsx",
-                    lineNumber: 35,
+                    lineNumber: 44,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/ResultadoHome.tsx",
-                lineNumber: 34,
+                lineNumber: 43,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -241,18 +252,18 @@ const ResultadoHome = ({ onCopiar, avisoCopiado })=>{
                             children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$formatarReal$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatarReal"])(resultadoHome.totalJuros)
                         }, void 0, false, {
                             fileName: "[project]/src/components/ResultadoHome.tsx",
-                            lineNumber: 41,
+                            lineNumber: 50,
                             columnNumber: 31
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/ResultadoHome.tsx",
-                    lineNumber: 40,
+                    lineNumber: 49,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/ResultadoHome.tsx",
-                lineNumber: 39,
+                lineNumber: 48,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -265,18 +276,18 @@ const ResultadoHome = ({ onCopiar, avisoCopiado })=>{
                             children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$formatarReal$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatarReal"])(resultadoHome.valorFinal)
                         }, void 0, false, {
                             fileName: "[project]/src/components/ResultadoHome.tsx",
-                            lineNumber: 46,
+                            lineNumber: 55,
                             columnNumber: 27
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/ResultadoHome.tsx",
-                    lineNumber: 45,
+                    lineNumber: 54,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/ResultadoHome.tsx",
-                lineNumber: 44,
+                lineNumber: 53,
                 columnNumber: 7
             }, this),
             onCopiar && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -288,7 +299,7 @@ const ResultadoHome = ({ onCopiar, avisoCopiado })=>{
                         children: "Usar Valor Total como Novo Valor Inicial"
                     }, void 0, false, {
                         fileName: "[project]/src/components/ResultadoHome.tsx",
-                        lineNumber: 52,
+                        lineNumber: 61,
                         columnNumber: 11
                     }, this),
                     avisoCopiado && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -296,13 +307,13 @@ const ResultadoHome = ({ onCopiar, avisoCopiado })=>{
                         children: "✅ Valor copiado para Valor Inicial!"
                     }, void 0, false, {
                         fileName: "[project]/src/components/ResultadoHome.tsx",
-                        lineNumber: 59,
+                        lineNumber: 68,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/ResultadoHome.tsx",
-                lineNumber: 51,
+                lineNumber: 60,
                 columnNumber: 9
             }, this),
             mensagemSucesso && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -310,37 +321,70 @@ const ResultadoHome = ({ onCopiar, avisoCopiado })=>{
                 children: mensagemSucesso
             }, void 0, false, {
                 fileName: "[project]/src/components/ResultadoHome.tsx",
-                lineNumber: 67,
+                lineNumber: 76,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "mt-10 flex flex-col items-center gap-4",
-                children: !mostrarRetirada ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                    onClick: ()=>setMostrarRetirada(true),
-                    className: "bg-rose-500 hover:bg-rose-600 text-white",
-                    children: "Retirada"
-                }, void 0, false, {
-                    fileName: "[project]/src/components/ResultadoHome.tsx",
-                    lineNumber: 74,
-                    columnNumber: 11
-                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$RetiradaPanel$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RetiradaPanel"], {
-                    onCancel: ()=>setMostrarRetirada(false),
-                    onSalvar: handleSalvarRetirada,
-                    tipoPagamento: "A Vista"
-                }, void 0, false, {
-                    fileName: "[project]/src/components/ResultadoHome.tsx",
-                    lineNumber: 81,
-                    columnNumber: 11
-                }, this)
-            }, void 0, false, {
+                className: "mt-10 flex flex-col md:flex-row justify-center items-center gap-4",
+                children: [
+                    !mostrarRetirada && !mostrarDeposito && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                onClick: ()=>setMostrarRetirada(true),
+                                className: "bg-rose-500 hover:bg-rose-600 text-white",
+                                children: "Retirada"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/ResultadoHome.tsx",
+                                lineNumber: 85,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                onClick: ()=>setMostrarDeposito(true),
+                                className: "bg-green-500 hover:bg-green-600 text-white",
+                                children: "Depósito"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/ResultadoHome.tsx",
+                                lineNumber: 91,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true),
+                    mostrarRetirada && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$RetiradaPanel$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RetiradaPanel"], {
+                        onCancel: ()=>setMostrarRetirada(false),
+                        onSalvar: handleSalvarRetirada,
+                        tipoPagamento: "À Vista",
+                        titulo: "Nova Retirada",
+                        placeholderNome: "Nome da Retirada",
+                        placeholderValor: "Valor da Retirada",
+                        labelBotaoSalvar: "Salvar Retirada"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/ResultadoHome.tsx",
+                        lineNumber: 101,
+                        columnNumber: 11
+                    }, this),
+                    mostrarDeposito && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$RetiradaPanel$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RetiradaPanel"], {
+                        onCancel: ()=>setMostrarDeposito(false),
+                        onSalvar: handleSalvarDeposito,
+                        tipoPagamento: "À Vista",
+                        titulo: "Novo Depósito",
+                        placeholderNome: "Nome do Depósito",
+                        placeholderValor: "Valor do Depósito",
+                        labelBotaoSalvar: "Depositar"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/ResultadoHome.tsx",
+                        lineNumber: 113,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "[project]/src/components/ResultadoHome.tsx",
-                lineNumber: 72,
+                lineNumber: 81,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/ResultadoHome.tsx",
-        lineNumber: 33,
+        lineNumber: 42,
         columnNumber: 5
     }, this);
 };
