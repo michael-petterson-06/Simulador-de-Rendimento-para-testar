@@ -18,5 +18,10 @@ export type RetiradaState = {
 export interface RetiradaPanelProps {
   onCancel: () => void;
   onSalvar: (nome: string, valor: number) => void;
-  tipoPagamento?: string;
+  modo?: 'Retirada' | 'Novo Depósito';
+  tipoPagamento?: 'À Vista' | 'Parcelado';
+  titulo?: string;
+  placeholderNome?: string;
+  placeholderValor?: string;
+  labelBotaoSalvar?: string;
 }

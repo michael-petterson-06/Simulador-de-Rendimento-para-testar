@@ -10,6 +10,7 @@ import { RetiradaPanel } from '@/components/RetiradaPanel';
 export const ResultadoHome = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
   const { resultadoHome, setResultadoHome } = useSimuladorStore();
   const [mostrarRetirada, setMostrarRetirada] = useState(false);
+  const [mostrarDeposito, setMostrarDeposito] = useState(false);
   const [mensagemSucesso, setMensagemSucesso] = useState('');
 
   if (!resultadoHome) return null;
@@ -26,6 +27,14 @@ export const ResultadoHome = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
     setResultadoHome({ ...resultadoHome, valorFinal: novoFinal });
     setMostrarRetirada(false);
     setMensagemSucesso(`✅ Retirada "${nome}" realizada com sucesso!`);
+    setTimeout(() => setMensagemSucesso(''), 3000);
+  };
+
+  const handleSalvarDeposito = (nome: string, valor: number) => {
+    const novoFinal = resultadoHome.valorFinal + valor;
+    setResultadoHome({ ...resultadoHome, valorFinal: novoFinal });
+    setMostrarDeposito(false);
+    setMensagemSucesso(`✅ Depósito "${nome}" realizado com sucesso!`);
     setTimeout(() => setMensagemSucesso(''), 3000);
   };
 
@@ -69,19 +78,46 @@ export const ResultadoHome = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
         </p>
       )}
 
-      <div className="mt-10 flex flex-col items-center gap-4">
-        {!mostrarRetirada ? (
-          <Button
-            onClick={() => setMostrarRetirada(true)}
-            className="bg-rose-500 hover:bg-rose-600 text-white"
-          >
-            Retirada
-          </Button>
-        ) : (
+      <div className="mt-10 flex flex-col md:flex-row justify-center items-center gap-4">
+
+        {!mostrarRetirada && !mostrarDeposito && (
+          <>
+            <Button
+              onClick={() => setMostrarRetirada(true)}
+              className="bg-rose-500 hover:bg-rose-600 text-white"
+            >
+              Retirada
+            </Button>
+            <Button
+              onClick={() => setMostrarDeposito(true)}
+              className="bg-green-500 hover:bg-green-600 text-white"
+            >
+              Depósito
+            </Button>
+          </>
+        )}
+
+        {mostrarRetirada && (
           <RetiradaPanel
             onCancel={() => setMostrarRetirada(false)}
             onSalvar={handleSalvarRetirada}
-            tipoPagamento='A Vista'
+            tipoPagamento="À Vista"
+            titulo="Nova Retirada"
+            placeholderNome="Nome da Retirada"
+            placeholderValor="Valor da Retirada"
+            labelBotaoSalvar="Salvar Retirada"
+          />
+        )}
+
+        {mostrarDeposito && (
+          <RetiradaPanel
+            onCancel={() => setMostrarDeposito(false)}
+            onSalvar={handleSalvarDeposito}
+            tipoPagamento="À Vista"
+            titulo="Novo Depósito"
+            placeholderNome="Nome do Depósito"
+            placeholderValor="Valor do Depósito"
+            labelBotaoSalvar="Depositar"
           />
         )}
       </div>
