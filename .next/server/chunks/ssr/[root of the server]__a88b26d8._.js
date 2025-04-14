@@ -266,7 +266,6 @@ const Nav = ()=>{
 
 var { g: global, __dirname } = __turbopack_context__;
 {
-// src/components/ui/Button.tsx
 __turbopack_context__.s({
     "Button": (()=>Button)
 });
@@ -275,11 +274,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 const Button = ({ children, className = '', ...props })=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
         ...props,
-        className: `bg-indigo-600 text-white font-semibold py-2 px-4 rounded-xl hover:bg-indigo-700 transition ${className}`,
+        className: `font-semibold py-2 px-4 rounded-xl transition ${className}`,
         children: children
     }, void 0, false, {
         fileName: "[project]/src/components/ui/Button.tsx",
-        lineNumber: 6,
+        lineNumber: 5,
         columnNumber: 5
     }, this);
 };
