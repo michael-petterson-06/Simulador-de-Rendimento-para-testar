@@ -93,6 +93,12 @@ export default function HistoricoPage() {
                 Total: {formatarReal(registro.totalGastos)}
               </p>
             </div>
+
+            <div className="bg-yellow-100 p-3 rounded-xl text-sm">
+                <p>
+                  🏆 <strong>Valor Poupado:</strong> {formatarReal(registro.valorPoupado)}
+                </p>
+              </div>
           </div>
         ))}
       </div>
@@ -101,6 +107,8 @@ export default function HistoricoPage() {
         <ModalRemoverHistorico
           onConfirmar={confirmarRemocao}
           onCancelar={() => setIndiceParaRemover(null)}
+          titulo= 'Remover Histórico'
+          paragrafo='histórico'
         />
       )}
 

@@ -6,13 +6,20 @@ import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { RetiradaPanel } from '@/components/RetiradaPanel';
 import { Trash2 } from 'lucide-react';
-
+import { ModalRemoverHistorico } from '@/components/ModalRemoverHistorico';
 
 export default function RetiradasPage() {
-  
   const { retiradas, removerHistorico } = useRetiradaStore();
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
-  
+  const [indiceParaRemover, setIndiceParaRemover] = useState<number | null>(null);
+
+  const confirmarRemocao = () => {
+    if (indiceParaRemover !== null) {
+      removerHistorico(indiceParaRemover);
+      setIndiceParaRemover(null);
+    }
+  };
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-purple-100 to-white p-4 flex items-center justify-center">
       <div className="w-full max-w-4xl">
@@ -38,7 +45,7 @@ export default function RetiradasPage() {
                   valor,
                   pagamento: 'Parcelado',
                   titulo: 'Nova Retirada',
-                })
+                });
                 setMostrarFormulario(false);
               }}
             />
@@ -72,8 +79,8 @@ export default function RetiradasPage() {
                       <td className="px-4 py-2 text-sm">{r.idade}</td>
                       <td className="px-4 py-2 text-sm">{r.pagamento ?? 'À Vista'}</td>
                       <td className="px-4 py-2 text-center">
-                      <Trash2
-                          onClick={() => removerHistorico(i)}
+                        <Trash2
+                          onClick={() => setIndiceParaRemover(i)}
                           className="h-5 w-5 text-red-500 hover:text-red-600 cursor-pointer transition"
                         >
                           <title>Remover retirada</title>
@@ -86,6 +93,15 @@ export default function RetiradasPage() {
             </div>
           ) : null}
         </Card>
+
+        {indiceParaRemover !== null && (
+          <ModalRemoverHistorico
+            onConfirmar={confirmarRemocao}
+            onCancelar={() => setIndiceParaRemover(null)}
+            titulo= 'Remover Registro'
+            paragrafo='registro'
+          />
+        )}
       </div>
     </main>
   );

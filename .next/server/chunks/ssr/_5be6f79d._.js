@@ -26,7 +26,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$B
 'use client';
 ;
 ;
-const ModalRemoverHistorico = ({ onConfirmar, onCancelar })=>{
+const ModalRemoverHistorico = ({ onConfirmar, onCancelar, titulo, paragrafo })=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -42,7 +42,7 @@ const ModalRemoverHistorico = ({ onConfirmar, onCancelar })=>{
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                     className: "text-lg font-semibold text-rose-600",
-                    children: "Remover Histórico"
+                    children: titulo
                 }, void 0, false, {
                     fileName: "[project]/src/components/ModalRemoverHistorico.tsx",
                     lineNumber: 11,
@@ -50,7 +50,7 @@ const ModalRemoverHistorico = ({ onConfirmar, onCancelar })=>{
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: "text-gray-700 text-sm",
-                    children: "Tem certeza que deseja apagar este histórico?"
+                    children: `Tem certeza que deseja apagar este ${paragrafo}?`
                 }, void 0, false, {
                     fileName: "[project]/src/components/ModalRemoverHistorico.tsx",
                     lineNumber: 12,
@@ -390,6 +390,31 @@ function HistoricoPage() {
                                 fileName: "[project]/src/app/historico/page.tsx",
                                 lineNumber: 83,
                                 columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "bg-yellow-100 p-3 rounded-xl text-sm",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    children: [
+                                        "🏆 ",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                            children: "Valor Poupado:"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/historico/page.tsx",
+                                            lineNumber: 99,
+                                            columnNumber: 22
+                                        }, this),
+                                        " ",
+                                        (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$formatarReal$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatarReal"])(registro.valorPoupado)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/app/historico/page.tsx",
+                                    lineNumber: 98,
+                                    columnNumber: 17
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/historico/page.tsx",
+                                lineNumber: 97,
+                                columnNumber: 13
                             }, this)
                         ]
                     }, idx, true, {
@@ -404,10 +429,12 @@ function HistoricoPage() {
             }, this),
             indiceParaRemover !== null && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ModalRemoverHistorico$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ModalRemoverHistorico"], {
                 onConfirmar: confirmarRemocao,
-                onCancelar: ()=>setIndiceParaRemover(null)
+                onCancelar: ()=>setIndiceParaRemover(null),
+                titulo: "Remover Histórico",
+                paragrafo: "histórico"
             }, void 0, false, {
                 fileName: "[project]/src/app/historico/page.tsx",
-                lineNumber: 101,
+                lineNumber: 107,
                 columnNumber: 9
             }, this),
             mensagemRemovido && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -415,7 +442,7 @@ function HistoricoPage() {
                 children: "✅ Histórico removido com sucesso!"
             }, void 0, false, {
                 fileName: "[project]/src/app/historico/page.tsx",
-                lineNumber: 108,
+                lineNumber: 116,
                 columnNumber: 9
             }, this)
         ]
