@@ -11,7 +11,7 @@ export const RetiradaPanel = ({
   onCancel,
   onSalvar,
   tipoPagamento,
-  modo = 'Retirada',
+  // modo = 'Retirada',
   titulo = 'Nova Retirada',
   placeholderNome = 'Nome da Retirada',
   placeholderValor = 'Valor da Retirada',
@@ -28,8 +28,12 @@ export const RetiradaPanel = ({
     }
 
    
-    if (modo === 'Retirada' && tipoPagamento === 'À Vista') {
-      addRetirada({ nome, valor: Number(valor), pagamento: (tipoPagamento as 'À Vista' | 'Parcelado') ?? 'À Vista'
+    if (tipoPagamento === 'À Vista') {
+      addRetirada({
+         nome,
+         valor: Number(valor),
+         pagamento: 'À Vista',
+         titulo,
       });
     }
 

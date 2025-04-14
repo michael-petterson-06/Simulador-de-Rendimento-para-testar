@@ -12,13 +12,13 @@ export const useRetiradaStore = create<RetiradaState>()(
       
       setAnoAtual: (ano) => set({ anoAtual: ano }),
 
-      addRetirada: ({ nome, valor, pagamento }) => {
+      addRetirada: ({ nome, valor, pagamento, titulo }) => {
         const { retiradas } = get();
         const { ano } = useSimuladorStore.getState();
         const idade = useUserStore.getState().idade;
 
         set({
-          retiradas: [...retiradas, { nome, valor, pagamento, ano, idade }],
+          retiradas: [...retiradas, { nome, valor, ano, idade, pagamento, titulo }],
         });
       },
 

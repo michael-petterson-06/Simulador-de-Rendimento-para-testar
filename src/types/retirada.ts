@@ -4,6 +4,7 @@ export type Retirada = {
   ano: number;
   idade: number;
   pagamento: 'À Vista' | 'Parcelado';
+  titulo: string; 
 };
 
 export type RetiradaState = {
@@ -19,7 +20,7 @@ export type RetiradaState = {
 export interface RetiradaPanelProps {
   onCancel: () => void;
   onSalvar: (nome: string, valor: number) => void;
-  modo?: 'Retirada' | 'Novo Depósito';
+  // modo?: 'Retirada' | 'Novo Depósito';
   tipoPagamento?: 'À Vista' | 'Parcelado';
   titulo?: string;
   placeholderNome?: string;
