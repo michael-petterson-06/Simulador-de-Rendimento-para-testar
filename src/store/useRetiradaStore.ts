@@ -22,6 +22,12 @@ export const useRetiradaStore = create<RetiradaState>()(
         });
       },
 
+      removerHistorico: (index: number) =>
+        set((state) => ({
+          retiradas: state.retiradas.filter((_, i) => i !== index),
+        })),
+      
+
       resetAll: () =>
         set({
           anoAtual: new Date().getFullYear(),

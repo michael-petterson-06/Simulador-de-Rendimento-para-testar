@@ -123,7 +123,7 @@ export default function Home() {
           </div>
 
           <div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-4">
-            <Button onClick={calcular} className="w-full md:w-auto text-lg px-6 py-2">
+            <Button onClick={calcular} className="w-full md:w-auto text-lg px-6 py-2 bg-indigo-500 hover:bg-indigo-600 text-white">
               Calcular
             </Button>
             <Button

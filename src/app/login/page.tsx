@@ -71,7 +71,7 @@ export default function LoginPage() {
               />
               {erro && <p className="text-red-600 text-sm font-medium">{erro}</p>}
 
-              <Button onClick={handleAvancar} className="w-full text-lg">
+              <Button onClick={handleAvancar} className="w-full text-lg bg-indigo-500 hover:bg-indigo-600 text-white">
                 Avançar
               </Button>
             </div>

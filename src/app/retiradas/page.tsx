@@ -5,9 +5,12 @@ import { useRetiradaStore } from '@/store/useRetiradaStore';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { RetiradaPanel } from '@/components/RetiradaPanel';
+import { Trash2 } from 'lucide-react';
+
 
 export default function RetiradasPage() {
-  const { retiradas } = useRetiradaStore();
+  
+  const { retiradas, removerHistorico } = useRetiradaStore();
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
 
   return (
@@ -53,6 +56,7 @@ export default function RetiradasPage() {
                     <th className="px-4 py-2">Ano</th>
                     <th className="px-4 py-2">Idade</th>
                     <th className="px-4 py-2">Pagamento</th>
+                    <th className="px-4 py-2 text-center">Ações</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -61,14 +65,19 @@ export default function RetiradasPage() {
                       <td className="px-4 py-2 font-medium text-sm">{i + 1}</td>
                       <td className="px-4 py-2 text-sm">{r.nome}</td>
                       <td className="px-4 py-2 text-sm text-rose-600 font-semibold">
-                        {r.valor.toLocaleString('pt-BR', {
-                          style: 'currency',
-                          currency: 'BRL',
-                        })}
+                        {r.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                       </td>
                       <td className="px-4 py-2 text-sm">{r.ano}</td>
                       <td className="px-4 py-2 text-sm">{r.idade}</td>
                       <td className="px-4 py-2 text-sm">{r.pagamento ?? 'À Vista'}</td>
+                      <td className="px-4 py-2 text-center">
+                      <Trash2
+                          onClick={() => removerHistorico(i)}
+                          className="h-5 w-5 text-red-500 hover:text-red-600 cursor-pointer transition"
+                        >
+                          <title>Remover retirada</title>
+                        </Trash2>
+                      </td>
                     </tr>
                   ))}
                 </tbody>

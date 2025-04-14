@@ -23,7 +23,7 @@ export const ModalAcoesEntradas = ({ onFechar, onExcluir }: ModalAcoesEntradasPr
                 className="bg-green-500 hover:bg-green-600 text-white flex items-center justify-center gap-2"
               >
                 <span>➕</span>
-                <span>Modificar Entradas</span>
+                <span>Inserir Entradas</span>
               </Button>
 
               <Button

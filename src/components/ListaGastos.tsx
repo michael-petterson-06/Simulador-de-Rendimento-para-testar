@@ -52,7 +52,7 @@ export const ListaGastos = () => {
             <div className="flex items-center gap-2">
               <Button
                 title="Editar gasto"
-                className="text-blue-500 hover:text-blue-700 transition"
+                className="hover:text-blue-700 transition bg-indigo-500 text-white hover:bg-indigo-600"
                 onClick={() => abrirEdicao(i)}
               >
                 <Pencil size={16} />
@@ -60,7 +60,7 @@ export const ListaGastos = () => {
 
               <Button
                 title="Remover gasto"
-                className="text-rose-500 hover:text-rose-700 transition"
+                className="hover:text-rose-700 transition bg-rose-500 text-white hover:bg-rose-600 "
                 onClick={() => removerGasto(i)}
               >
                 <Trash2 size={16} />
