@@ -12,7 +12,7 @@ export default function RetiradasPage() {
   
   const { retiradas, removerHistorico } = useRetiradaStore();
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
-
+  console.log('retiradas: ', retiradas)
   return (
     <main className="min-h-screen bg-gradient-to-br from-purple-100 to-white p-4 flex items-center justify-center">
       <div className="w-full max-w-4xl">
@@ -37,6 +37,7 @@ export default function RetiradasPage() {
                   nome,
                   valor,
                   pagamento: 'Parcelado',
+                  titulo: 'Nova Retirada',
                 })
                 setMostrarFormulario(false);
               }}
@@ -64,7 +65,7 @@ export default function RetiradasPage() {
                     <tr key={i} className="odd:bg-white even:bg-purple-50">
                       <td className="px-4 py-2 font-medium text-sm">{i + 1}</td>
                       <td className="px-4 py-2 text-sm">{r.nome}</td>
-                      <td className="px-4 py-2 text-sm text-rose-600 font-semibold">
+                      <td className={`px-4 py-2 text-sm font-semibold ${r.titulo === 'Novo Depósito' ? 'text-green-600' : 'text-rose-600'}`}>
                         {r.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                       </td>
                       <td className="px-4 py-2 text-sm">{r.ano}</td>

@@ -75,7 +75,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$num
 ;
 ;
 ;
-const RetiradaPanel = ({ onCancel, onSalvar, tipoPagamento, modo = 'Retirada', titulo = 'Nova Retirada', placeholderNome = 'Nome da Retirada', placeholderValor = 'Valor da Retirada', labelBotaoSalvar = 'Salvar' })=>{
+const RetiradaPanel = ({ onCancel, onSalvar, tipoPagamento, // modo = 'Retirada',
+titulo = 'Nova Retirada', placeholderNome = 'Nome da Retirada', placeholderValor = 'Valor da Retirada', labelBotaoSalvar = 'Salvar' })=>{
     const { addRetirada } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useRetiradaStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRetiradaStore"])();
     const [nome, setNome] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
     const [valor, setValor] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
@@ -84,11 +85,12 @@ const RetiradaPanel = ({ onCancel, onSalvar, tipoPagamento, modo = 'Retirada', t
             alert('Preencha o nome e o valor corretamente.');
             return;
         }
-        if (modo === 'Retirada' && tipoPagamento === 'À Vista') {
+        if (tipoPagamento === 'À Vista') {
             addRetirada({
                 nome,
                 valor: Number(valor),
-                pagamento: tipoPagamento ?? 'À Vista'
+                pagamento: 'À Vista',
+                titulo
             });
         }
         onSalvar(nome, Number(valor));
@@ -101,7 +103,7 @@ const RetiradaPanel = ({ onCancel, onSalvar, tipoPagamento, modo = 'Retirada', t
                 children: titulo
             }, void 0, false, {
                 fileName: "[project]/src/components/RetiradaPanel.tsx",
-                lineNumber: 50,
+                lineNumber: 54,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -111,7 +113,7 @@ const RetiradaPanel = ({ onCancel, onSalvar, tipoPagamento, modo = 'Retirada', t
                 onChange: (e)=>setNome(e.target.value)
             }, void 0, false, {
                 fileName: "[project]/src/components/RetiradaPanel.tsx",
-                lineNumber: 52,
+                lineNumber: 56,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$number$2d$format$2f$dist$2f$react$2d$number$2d$format$2e$es$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NumericFormat"], {
@@ -126,7 +128,7 @@ const RetiradaPanel = ({ onCancel, onSalvar, tipoPagamento, modo = 'Retirada', t
                 className: "px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-rose-500"
             }, void 0, false, {
                 fileName: "[project]/src/components/RetiradaPanel.tsx",
-                lineNumber: 59,
+                lineNumber: 63,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -138,7 +140,7 @@ const RetiradaPanel = ({ onCancel, onSalvar, tipoPagamento, modo = 'Retirada', t
                         children: labelBotaoSalvar
                     }, void 0, false, {
                         fileName: "[project]/src/components/RetiradaPanel.tsx",
-                        lineNumber: 72,
+                        lineNumber: 76,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -147,19 +149,19 @@ const RetiradaPanel = ({ onCancel, onSalvar, tipoPagamento, modo = 'Retirada', t
                         children: "Cancelar"
                     }, void 0, false, {
                         fileName: "[project]/src/components/RetiradaPanel.tsx",
-                        lineNumber: 75,
+                        lineNumber: 79,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/RetiradaPanel.tsx",
-                lineNumber: 71,
+                lineNumber: 75,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/RetiradaPanel.tsx",
-        lineNumber: 42,
+        lineNumber: 46,
         columnNumber: 5
     }, this);
 };

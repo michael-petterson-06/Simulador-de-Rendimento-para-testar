@@ -305,7 +305,7 @@ const useRetiradaStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$nod
         setAnoAtual: (ano)=>set({
                 anoAtual: ano
             }),
-        addRetirada: ({ nome, valor, pagamento })=>{
+        addRetirada: ({ nome, valor, pagamento, titulo })=>{
             const { retiradas } = get();
             const { ano } = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useSimuladorStore"].getState();
             const idade = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useUserStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useUserStore"].getState().idade;
@@ -315,9 +315,10 @@ const useRetiradaStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$nod
                     {
                         nome,
                         valor,
-                        pagamento,
                         ano,
-                        idade
+                        idade,
+                        pagamento,
+                        titulo
                     }
                 ]
             });
