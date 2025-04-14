@@ -323,9 +323,22 @@ const useRetiradaStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$nod
                 ]
             });
         },
-        removerHistorico: (index)=>set((state)=>({
-                    retiradas: state.retiradas.filter((_, i)=>i !== index)
-                })),
+        removerHistorico: (index)=>{
+            const state = get();
+            const retiradaRemovida = state.retiradas[index];
+            if (!retiradaRemovida) return;
+            const { resultadoHome, setResultadoHome } = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useSimuladorStore"].getState();
+            if (resultadoHome) {
+                const novoValor = retiradaRemovida.titulo === 'Novo Depósito' ? resultadoHome.valorFinal - retiradaRemovida.valor : resultadoHome.valorFinal + retiradaRemovida.valor;
+                setResultadoHome({
+                    ...resultadoHome,
+                    valorFinal: novoValor
+                });
+            }
+            set({
+                retiradas: state.retiradas.filter((_, i)=>i !== index)
+            });
+        },
         resetAll: ()=>set({
                 anoAtual: new Date().getFullYear(),
                 retiradas: []
