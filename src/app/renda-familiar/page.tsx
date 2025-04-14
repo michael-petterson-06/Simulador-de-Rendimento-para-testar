@@ -171,7 +171,8 @@ export default function RendaFamiliar() {
           <div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-4">
             <Button
               onClick={calcular}
-              className="w-full md:w-auto text-base px-4 py-2"
+              className="w-full md:w-auto text-base px-4 py-2 bg-green-500  text-white hover:bg-green-600"
+                                                                
             >
               Calcular
             </Button>

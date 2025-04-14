@@ -315,6 +315,9 @@ const useRetiradaStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$nod
                 ]
             });
         },
+        removerHistorico: (index)=>set((state)=>({
+                    retiradas: state.retiradas.filter((_, i)=>i !== index)
+                })),
         resetAll: ()=>set({
                 anoAtual: new Date().getFullYear(),
                 retiradas: []
