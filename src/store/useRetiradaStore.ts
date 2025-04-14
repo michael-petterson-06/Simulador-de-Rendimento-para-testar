@@ -16,16 +16,34 @@ export const useRetiradaStore = create<RetiradaState>()(
         const { retiradas } = get();
         const { ano } = useSimuladorStore.getState();
         const idade = useUserStore.getState().idade;
-
+   
         set({
           retiradas: [...retiradas, { nome, valor, ano, idade, pagamento, titulo }],
         });
       },
 
-      removerHistorico: (index: number) =>
-        set((state) => ({
+      removerHistorico: (index: number) => {
+        const state = get();
+        const retiradaRemovida = state.retiradas[index];
+      
+        if (!retiradaRemovida) return;
+      
+        const { resultadoHome, setResultadoHome } = useSimuladorStore.getState();
+      
+        if (resultadoHome) {
+        
+          const novoValor =
+            retiradaRemovida.titulo === 'Novo Depósito'
+              ? resultadoHome.valorFinal - retiradaRemovida.valor
+              : resultadoHome.valorFinal + retiradaRemovida.valor;
+      
+          setResultadoHome({ ...resultadoHome, valorFinal: novoValor });
+        }
+      
+        set({
           retiradas: state.retiradas.filter((_, i) => i !== index),
-        })),
+        });
+      },
       
 
       resetAll: () =>

@@ -12,7 +12,7 @@ export default function RetiradasPage() {
   
   const { retiradas, removerHistorico } = useRetiradaStore();
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
-  console.log('retiradas: ', retiradas)
+  
   return (
     <main className="min-h-screen bg-gradient-to-br from-purple-100 to-white p-4 flex items-center justify-center">
       <div className="w-full max-w-4xl">
