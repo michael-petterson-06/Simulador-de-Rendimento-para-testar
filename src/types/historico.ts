@@ -8,6 +8,7 @@ type Historico = {
   totalEntradas: number;
   totalGastos: number;
   saldoFinal: number;
+  valorPoupado: number;
 };
 
 export type HistoricoState = {

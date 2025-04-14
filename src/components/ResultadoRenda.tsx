@@ -10,15 +10,15 @@ import { formatarReal } from '@/utils/formatarReal';
 import { ResultadoProps } from '@/types/props';
 
 export const ResultadoRenda = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
-  const { resultadoRenda, gastos, listaGastos, ano, mesInicial, mesFinal } = useSimuladorStore();
+  const { resultadoRenda, gastos, listaGastos, ano, mesInicial, mesFinal, resultadoHome } = useSimuladorStore();
   const { nome, idade } = useUserStore();
   const { nomes, valores } = useEntradasStore();
   const { adicionarHistorico } = useHistoricoStore();
 
   const [avisoSalvo, setAvisoSalvo] = useState(false);
-
+  
   if (!resultadoRenda) return null;
-
+  console.log('resultadoHome: ', resultadoHome)
   const handleSalvar = () => {
     const dados = {
       usuario: {
@@ -36,6 +36,7 @@ export const ResultadoRenda = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
       totalEntradas: resultadoRenda.totalEntradas,
       totalGastos: Number(gastos),
       saldoFinal: resultadoRenda.saldoFinal,
+      valorPoupado: Number(resultadoHome?.valorFinal,)
     };
 
     adicionarHistorico(dados);
