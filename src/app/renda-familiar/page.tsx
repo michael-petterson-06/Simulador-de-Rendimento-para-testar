@@ -48,8 +48,10 @@ export default function RendaFamiliar() {
 
 
   const handleValorEntrada = (index: number, valor: string) => {
+   
     const novosValores = [...valoresEntradas];
     novosValores[index] = valor;
+   
     setValoresEntradas(novosValores);
   };
 
@@ -143,20 +145,23 @@ export default function RendaFamiliar() {
           <SelectMeses/>
           <div className="grid gap-4 md:grid-cols-2">
             {nomesEntradas.map((nome, index) => (
-              <NumericFormat
-                key={index}
-                value={valoresEntradas[index]}
-                thousandSeparator="."
-                decimalSeparator="," 
-                prefix="R$ "
-                decimalScale={2}
-                fixedDecimalScale
-                onValueChange={(values) => handleValorEntrada(index, values.value)}
-                placeholder={nome}
-                className="px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              />
+              <div key={index} className="flex flex-col">
+               <label className="mb-1 pl-2 text-sm font-medium text-gray-700">{nome}</label>
+                <NumericFormat
+                  value={valoresEntradas[index]}
+                  thousandSeparator="."
+                  decimalSeparator=","
+                  prefix="R$ "
+                  decimalScale={2}
+                  fixedDecimalScale
+                  onValueChange={(values) => handleValorEntrada(index, values.value)}
+                  placeholder={`Valor de ${nome}`}
+                  className="px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+              </div>
             ))}
           </div>
+
 
           <div className="mt-8">
             <ListaGastos />
