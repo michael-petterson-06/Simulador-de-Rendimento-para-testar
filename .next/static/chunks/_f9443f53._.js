@@ -348,6 +348,7 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 
 var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
+// src/store/useEntradasStore.ts
 __turbopack_context__.s({
     "useEntradasStore": (()=>useEntradasStore)
 });
@@ -355,7 +356,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$e
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$middleware$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/zustand/esm/middleware.mjs [app-client] (ecmascript)");
 ;
 ;
-const useEntradasStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["create"])()((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$middleware$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["persist"])((set)=>({
+const useEntradasStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["create"])()((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$middleware$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["persist"])((set, get)=>({
         quantidade: 0,
         nomes: [],
         valores: [],
@@ -363,21 +364,28 @@ const useEntradasStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$nod
         setQuantidade: (qtd)=>set({
                 quantidade: qtd
             }),
-        setNomes: (novosNomes)=>set({
+        setNomes: (novosNomes)=>{
+            const { nomes: nomesAtuais, valores: valoresAtuais } = get();
+            const novosValores = novosNomes.map((nome)=>{
+                const indexExistente = nomesAtuais.findIndex((nomeAntigo)=>nomeAntigo.trim().toLowerCase() === nome.trim().toLowerCase());
+                return indexExistente !== -1 ? valoresAtuais[indexExistente] : '';
+            });
+            set({
                 nomes: novosNomes,
-                valores: novosNomes.map(()=>'')
+                valores: novosValores
+            });
+        },
+        setValores: (valores)=>set({
+                valores
             }),
         setFormularioPreenchido: (preenchido)=>set({
                 formularioPreenchido: preenchido
             }),
-        setValores: (valores)=>set({
-                valores
-            }),
         resetAll: ()=>set({
                 quantidade: 0,
                 nomes: [],
-                formularioPreenchido: false,
-                valores: []
+                valores: [],
+                formularioPreenchido: false
             })
     }), {
     name: 'entradas-store'

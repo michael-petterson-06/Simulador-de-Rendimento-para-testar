@@ -76,7 +76,6 @@ const ResultadoRenda = ({ onCopiar, avisoCopiado })=>{
     const { adicionarHistorico } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useHistoricoStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useHistoricoStore"])();
     const [avisoSalvo, setAvisoSalvo] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     if (!resultadoRenda) return null;
-    console.log('resultadoHome: ', resultadoHome);
     const handleSalvar = ()=>{
         const dados = {
             usuario: {
@@ -975,7 +974,12 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
             return;
         }
         // Processar os novos nomes (limpar espaços e remover vazios)
-        const novosNomesBrutos = nomesEntradas.split(',').map((n)=>n.trim().replace(/\s/g, '')).filter(Boolean);
+        const novosNomesBrutos = nomesEntradas.split(',').map((n)=>n.trim()) // agora só remove espaços extras do início/fim
+        .filter(Boolean);
+        if (novosNomesBrutos.length !== qtd) {
+            setErro(`Você informou ${qtd} entradas, mas digitou ${novosNomesBrutos.length} nome(s).`);
+            return;
+        }
         // Verificar duplicados internos nos novos nomes
         const nomesUnicosSet = new Set();
         const nomesDuplicadosInternos = [];
@@ -993,7 +997,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
         const novosNomes = Array.from(nomesUnicosSet);
         // Obter os nomes já existentes do store (normalizados)
         const nomesExistentesOriginais = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEntradasStore"].getState().nomes;
-        const nomesExistentesNormalizados = nomesExistentesOriginais.map((n)=>n.trim().replace(/\s/g, ''));
+        const nomesExistentesNormalizados = nomesExistentesOriginais.map((n)=>n.trim());
         // Separar nomes novos e já cadastrados
         const nomesNaoCadastrados = [];
         const nomesRepetidos = [];
@@ -1033,7 +1037,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                 onChange: (e)=>setQuantidadeEntradas(e.target.value)
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 93,
+                lineNumber: 99,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1043,7 +1047,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                 onChange: (e)=>setNomesEntradas(e.target.value)
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 100,
+                lineNumber: 106,
                 columnNumber: 7
             }, this),
             erro && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1051,7 +1055,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                 children: erro
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 107,
+                lineNumber: 113,
                 columnNumber: 16
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1068,7 +1072,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                         children: login === 'Login' ? 'Entrar na aplicação' : 'Salvar'
                     }, void 0, false, {
                         fileName: "[project]/src/components/FormularioEntradas.tsx",
-                        lineNumber: 110,
+                        lineNumber: 116,
                         columnNumber: 7
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1085,19 +1089,19 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                         children: "Voltar"
                     }, void 0, false, {
                         fileName: "[project]/src/components/FormularioEntradas.tsx",
-                        lineNumber: 122,
+                        lineNumber: 128,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 109,
+                lineNumber: 115,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/FormularioEntradas.tsx",
-        lineNumber: 92,
+        lineNumber: 98,
         columnNumber: 5
     }, this);
 };
@@ -1514,7 +1518,7 @@ function RendaFamiliar() {
                                 children: "Renda Familiar"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 134,
+                                lineNumber: 136,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1524,52 +1528,69 @@ function RendaFamiliar() {
                                 children: "⋯"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 135,
+                                lineNumber: 137,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 133,
+                        lineNumber: 135,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$SelectMeses$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectMeses"], {}, void 0, false, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 143,
+                        lineNumber: 145,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "grid gap-4 md:grid-cols-2",
-                        children: nomesEntradas.map((nome, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$number$2d$format$2f$dist$2f$react$2d$number$2d$format$2e$es$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NumericFormat"], {
-                                value: valoresEntradas[index],
-                                thousandSeparator: ".",
-                                decimalSeparator: ",",
-                                prefix: "R$ ",
-                                decimalScale: 2,
-                                fixedDecimalScale: true,
-                                onValueChange: (values)=>handleValorEntrada(index, values.value),
-                                placeholder: nome,
-                                className: "px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                            }, index, false, {
+                        children: nomesEntradas.map((nome, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex flex-col",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "mb-1 pl-2 text-sm font-medium text-gray-700",
+                                        children: nome
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/renda-familiar/page.tsx",
+                                        lineNumber: 149,
+                                        columnNumber: 16
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$number$2d$format$2f$dist$2f$react$2d$number$2d$format$2e$es$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NumericFormat"], {
+                                        value: valoresEntradas[index],
+                                        thousandSeparator: ".",
+                                        decimalSeparator: ",",
+                                        prefix: "R$ ",
+                                        decimalScale: 2,
+                                        fixedDecimalScale: true,
+                                        onValueChange: (values)=>handleValorEntrada(index, values.value),
+                                        placeholder: `Valor de ${nome}`,
+                                        className: "px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/renda-familiar/page.tsx",
+                                        lineNumber: 150,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, index, true, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 146,
+                                lineNumber: 148,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 144,
+                        lineNumber: 146,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "mt-8",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ListaGastos$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ListaGastos"], {}, void 0, false, {
                             fileName: "[project]/src/app/renda-familiar/page.tsx",
-                            lineNumber: 162,
+                            lineNumber: 167,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 161,
+                        lineNumber: 166,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1579,12 +1600,12 @@ function RendaFamiliar() {
                             children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$formatarReal$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["formatarReal"])(gastos)
                         }, void 0, false, {
                             fileName: "[project]/src/app/renda-familiar/page.tsx",
-                            lineNumber: 166,
+                            lineNumber: 171,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 165,
+                        lineNumber: 170,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1596,7 +1617,7 @@ function RendaFamiliar() {
                                 children: "Calcular"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 172,
+                                lineNumber: 177,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1605,7 +1626,7 @@ function RendaFamiliar() {
                                 children: "Limpar"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 179,
+                                lineNumber: 184,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1614,7 +1635,7 @@ function RendaFamiliar() {
                                 children: "Gasto 💸"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 185,
+                                lineNumber: 190,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1623,13 +1644,13 @@ function RendaFamiliar() {
                                 children: "Gasto %"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                                lineNumber: 191,
+                                lineNumber: 196,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 171,
+                        lineNumber: 176,
                         columnNumber: 11
                     }, this),
                     mostrarModal && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ModalGasto$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ModalGasto"], {
@@ -1641,7 +1662,7 @@ function RendaFamiliar() {
                         onCancelar: ()=>setMostrarModal(false)
                     }, void 0, false, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 200,
+                        lineNumber: 205,
                         columnNumber: 13
                     }, this),
                     mostrarModalPercentual && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ModalGastoPercentual$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ModalGastoPercentual"], {
@@ -1655,7 +1676,7 @@ function RendaFamiliar() {
                         onCancelar: ()=>setMostrarModalPercentual(false)
                     }, void 0, false, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 211,
+                        lineNumber: 216,
                         columnNumber: 13
                     }, this),
                     resultadoRenda && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ResultadoRenda$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ResultadoRenda"], {
@@ -1667,7 +1688,7 @@ function RendaFamiliar() {
                         avisoCopiado: avisoCopiado
                     }, void 0, false, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 224,
+                        lineNumber: 229,
                         columnNumber: 13
                     }, this),
                     mostrarModalAcoes && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ModalAcoesEntradas$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ModalAcoesEntradas"], {
@@ -1675,30 +1696,30 @@ function RendaFamiliar() {
                         onExcluir: ()=>setMostrarModalExcluirEntradas(true)
                     }, void 0, false, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 235,
+                        lineNumber: 240,
                         columnNumber: 13
                     }, this),
                     mostrarModalExcluirEntradas && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ModalExcluirEntradas$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ModalExcluirEntradas"], {
                         onCancelar: ()=>setMostrarModalExcluirEntradas(false)
                     }, void 0, false, {
                         fileName: "[project]/src/app/renda-familiar/page.tsx",
-                        lineNumber: 242,
+                        lineNumber: 247,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/renda-familiar/page.tsx",
-                lineNumber: 132,
+                lineNumber: 134,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/app/renda-familiar/page.tsx",
-            lineNumber: 131,
+            lineNumber: 133,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/renda-familiar/page.tsx",
-        lineNumber: 130,
+        lineNumber: 132,
         columnNumber: 5
     }, this);
 }

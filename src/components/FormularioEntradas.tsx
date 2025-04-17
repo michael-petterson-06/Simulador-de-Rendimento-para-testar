@@ -29,8 +29,14 @@ export const FormularioEntradas = ({onFechar, login,  fecharFormulario,   }: For
     // Processar os novos nomes (limpar espaços e remover vazios)
     const novosNomesBrutos = nomesEntradas
       .split(',')
-      .map((n) => n.trim().replace(/\s/g, ''))
+      .map((n) => n.trim()) // agora só remove espaços extras do início/fim
       .filter(Boolean);
+
+    if (novosNomesBrutos.length !== qtd) {
+      setErro(`Você informou ${qtd} entradas, mas digitou ${novosNomesBrutos.length} nome(s).`);
+      return;
+    }
+    
   
     // Verificar duplicados internos nos novos nomes
     const nomesUnicosSet = new Set<string>();
@@ -53,7 +59,7 @@ export const FormularioEntradas = ({onFechar, login,  fecharFormulario,   }: For
   
     // Obter os nomes já existentes do store (normalizados)
     const nomesExistentesOriginais = useEntradasStore.getState().nomes;
-    const nomesExistentesNormalizados = nomesExistentesOriginais.map(n => n.trim().replace(/\s/g, ''));
+    const nomesExistentesNormalizados = nomesExistentesOriginais.map((n) => n.trim());
   
     // Separar nomes novos e já cadastrados
     const nomesNaoCadastrados: string[] = [];

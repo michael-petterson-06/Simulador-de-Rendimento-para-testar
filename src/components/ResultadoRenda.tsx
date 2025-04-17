@@ -18,7 +18,7 @@ export const ResultadoRenda = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
   const [avisoSalvo, setAvisoSalvo] = useState(false);
   
   if (!resultadoRenda) return null;
-  console.log('resultadoHome: ', resultadoHome)
+
   const handleSalvar = () => {
     const dados = {
       usuario: {
