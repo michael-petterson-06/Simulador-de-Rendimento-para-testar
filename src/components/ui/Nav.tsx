@@ -55,6 +55,17 @@ export const Nav = () => {
         >
           Histórico
         </Link>
+
+        <Link
+          href="/patrimonio"
+          className={`text-lg font-medium transition-colors duration-300 ${
+            pathname === '/patrimonio'
+              ? 'text-indigo-700 underline underline-offset-4'
+              : 'text-indigo-500 hover:text-indigo-700 hover:underline'
+          }`}
+        >
+          Patrimônio
+        </Link>
       </div>
     </nav>
 
