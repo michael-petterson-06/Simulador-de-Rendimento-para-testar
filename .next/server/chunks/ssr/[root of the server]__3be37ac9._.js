@@ -104,9 +104,16 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$num
 ;
 ;
 ;
-const FormularioPatrimonio = ({ onSalvar, onCancelar })=>{
+const FormularioPatrimonio = ({ onSalvar, onCancelar, propriedadeInicial = '', valorInicial = '' })=>{
     const [propriedade, setPropriedade] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
     const [valor, setValor] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        setPropriedade(propriedadeInicial);
+        setValor(valorInicial.toString());
+    }, [
+        propriedadeInicial,
+        valorInicial
+    ]);
     const handleSalvar = ()=>{
         if (!propriedade.trim() || isNaN(Number(valor))) {
             alert('Preencha corretamente os campos.');
@@ -116,15 +123,16 @@ const FormularioPatrimonio = ({ onSalvar, onCancelar })=>{
         setPropriedade('');
         setValor('');
     };
+    const modoEdicao = !!propriedadeInicial;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "mt-6 p-4 bg-white border rounded-xl shadow space-y-4 animate-fade-in",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                 className: "text-lg font-bold text-indigo-600",
-                children: "Nova Propriedade"
+                children: modoEdicao ? 'Editar Propriedade' : 'Nova Propriedade'
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioPatrimonioProps.tsx",
-                lineNumber: 25,
+                lineNumber: 38,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -134,7 +142,7 @@ const FormularioPatrimonio = ({ onSalvar, onCancelar })=>{
                 onChange: (e)=>setPropriedade(e.target.value)
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioPatrimonioProps.tsx",
-                lineNumber: 26,
+                lineNumber: 42,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$number$2d$format$2f$dist$2f$react$2d$number$2d$format$2e$es$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NumericFormat"], {
@@ -149,7 +157,7 @@ const FormularioPatrimonio = ({ onSalvar, onCancelar })=>{
                 className: "px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioPatrimonioProps.tsx",
-                lineNumber: 32,
+                lineNumber: 49,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -158,10 +166,10 @@ const FormularioPatrimonio = ({ onSalvar, onCancelar })=>{
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                         onClick: handleSalvar,
                         className: "bg-green-500 hover:bg-green-600 text-white",
-                        children: "Salvar"
+                        children: modoEdicao ? 'Salvar Alterações' : 'Salvar'
                     }, void 0, false, {
                         fileName: "[project]/src/components/FormularioPatrimonioProps.tsx",
-                        lineNumber: 44,
+                        lineNumber: 62,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -170,19 +178,19 @@ const FormularioPatrimonio = ({ onSalvar, onCancelar })=>{
                         children: "Cancelar"
                     }, void 0, false, {
                         fileName: "[project]/src/components/FormularioPatrimonioProps.tsx",
-                        lineNumber: 47,
+                        lineNumber: 65,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/FormularioPatrimonioProps.tsx",
-                lineNumber: 43,
+                lineNumber: 61,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/FormularioPatrimonioProps.tsx",
-        lineNumber: 24,
+        lineNumber: 37,
         columnNumber: 5
     }, this);
 };
@@ -313,17 +321,41 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$uuid$2f$dist
 ;
 ;
 function PatrimonioPage() {
-    const { patrimonios, addPatrimonio, removePatrimonio } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$usePatrimonioStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["usePatrimonioStore"])();
-    const { idade } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useUserStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useUserStore"])(); // idade atual
-    const { ano } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useSimuladorStore"])(); // ano atual
+    const { patrimonios, addPatrimonio, removePatrimonio, updatePatrimonio } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$usePatrimonioStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["usePatrimonioStore"])();
+    const { idade } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useUserStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useUserStore"])();
+    const { ano } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useSimuladorStore"])();
     const [mostrarFormulario, setMostrarFormulario] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [idParaRemover, setIdParaRemover] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [patrimonioEmEdicao, setPatrimonioEmEdicao] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const total = patrimonios.reduce((acc, item)=>acc + item.valor, 0);
     const confirmarRemocao = ()=>{
         if (idParaRemover) {
             removePatrimonio(idParaRemover);
             setIdParaRemover(null);
         }
+    };
+    const iniciarEdicao = (item)=>{
+        setPatrimonioEmEdicao(item);
+        setMostrarFormulario(true);
+    };
+    const salvarFormulario = (propriedade, valor)=>{
+        if (patrimonioEmEdicao) {
+            updatePatrimonio({
+                ...patrimonioEmEdicao,
+                propriedade,
+                valor
+            });
+        } else {
+            addPatrimonio({
+                id: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$uuid$2f$dist$2f$esm$2f$v4$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__v4$3e$__["v4"])(),
+                ano,
+                idade,
+                propriedade,
+                valor
+            });
+        }
+        setMostrarFormulario(false);
+        setPatrimonioEmEdicao(null);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
         className: "min-h-screen bg-gradient-to-br from-blue-100 to-white p-4 flex items-center justify-center",
@@ -340,40 +372,38 @@ function PatrimonioPage() {
                                     children: "Patrimônio"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/patrimonio/page.tsx",
-                                    lineNumber: 37,
+                                    lineNumber: 70,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                    onClick: ()=>setMostrarFormulario(true),
+                                    onClick: ()=>{
+                                        setMostrarFormulario(true);
+                                        setPatrimonioEmEdicao(null);
+                                    },
                                     className: "bg-indigo-500 hover:bg-indigo-600 text-white",
                                     children: "Novo Cadastro"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/patrimonio/page.tsx",
-                                    lineNumber: 38,
+                                    lineNumber: 71,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/patrimonio/page.tsx",
-                            lineNumber: 36,
+                            lineNumber: 69,
                             columnNumber: 11
                         }, this),
                         mostrarFormulario && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$FormularioPatrimonioProps$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["FormularioPatrimonio"], {
-                            onCancelar: ()=>setMostrarFormulario(false),
-                            onSalvar: (propriedade, valor)=>{
-                                const novoPatrimonio = {
-                                    id: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$uuid$2f$dist$2f$esm$2f$v4$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__v4$3e$__["v4"])(),
-                                    ano,
-                                    idade,
-                                    propriedade,
-                                    valor
-                                };
-                                addPatrimonio(novoPatrimonio);
+                            onCancelar: ()=>{
                                 setMostrarFormulario(false);
-                            }
+                                setPatrimonioEmEdicao(null);
+                            },
+                            onSalvar: salvarFormulario,
+                            propriedadeInicial: patrimonioEmEdicao?.propriedade,
+                            valorInicial: patrimonioEmEdicao?.valor
                         }, void 0, false, {
                             fileName: "[project]/src/app/patrimonio/page.tsx",
-                            lineNumber: 47,
+                            lineNumber: 83,
                             columnNumber: 13
                         }, this),
                         patrimonios.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -381,7 +411,7 @@ function PatrimonioPage() {
                             children: "Nenhum bem cadastrado ainda."
                         }, void 0, false, {
                             fileName: "[project]/src/app/patrimonio/page.tsx",
-                            lineNumber: 64,
+                            lineNumber: 95,
                             columnNumber: 13
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "overflow-x-auto",
@@ -397,7 +427,7 @@ function PatrimonioPage() {
                                                     children: "Ano"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                    lineNumber: 70,
+                                                    lineNumber: 101,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -405,7 +435,7 @@ function PatrimonioPage() {
                                                     children: "Idade"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                    lineNumber: 71,
+                                                    lineNumber: 102,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -413,7 +443,7 @@ function PatrimonioPage() {
                                                     children: "Propriedade"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                    lineNumber: 72,
+                                                    lineNumber: 103,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -421,7 +451,7 @@ function PatrimonioPage() {
                                                     children: "Valor"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                    lineNumber: 73,
+                                                    lineNumber: 104,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -429,18 +459,18 @@ function PatrimonioPage() {
                                                     children: "Ações"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                    lineNumber: 74,
+                                                    lineNumber: 105,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/patrimonio/page.tsx",
-                                            lineNumber: 69,
+                                            lineNumber: 100,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/patrimonio/page.tsx",
-                                        lineNumber: 68,
+                                        lineNumber: 99,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -453,7 +483,7 @@ function PatrimonioPage() {
                                                             children: item.ano
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                            lineNumber: 80,
+                                                            lineNumber: 111,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -461,7 +491,7 @@ function PatrimonioPage() {
                                                             children: item.idade
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                            lineNumber: 81,
+                                                            lineNumber: 112,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -469,7 +499,7 @@ function PatrimonioPage() {
                                                             children: item.propriedade
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                            lineNumber: 82,
+                                                            lineNumber: 113,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -477,7 +507,7 @@ function PatrimonioPage() {
                                                             children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$formatarReal$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatarReal"])(item.valor)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                            lineNumber: 83,
+                                                            lineNumber: 114,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -486,10 +516,11 @@ function PatrimonioPage() {
                                                                 className: "flex justify-center gap-3",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$pencil$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Pencil$3e$__["Pencil"], {
+                                                                        onClick: ()=>iniciarEdicao(item),
                                                                         className: "h-5 w-5 text-gray-500 cursor-pointer hover:text-gray-700"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                                        lineNumber: 88,
+                                                                        lineNumber: 119,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__["Trash2"], {
@@ -497,24 +528,24 @@ function PatrimonioPage() {
                                                                         className: "h-5 w-5 text-red-500 hover:text-red-600 cursor-pointer transition"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                                        lineNumber: 89,
+                                                                        lineNumber: 123,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                                lineNumber: 87,
+                                                                lineNumber: 118,
                                                                 columnNumber: 25
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                            lineNumber: 86,
+                                                            lineNumber: 117,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, item.id, true, {
                                                     fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                    lineNumber: 79,
+                                                    lineNumber: 110,
                                                     columnNumber: 21
                                                 }, this)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -526,7 +557,7 @@ function PatrimonioPage() {
                                                         children: "Total:"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                        lineNumber: 98,
+                                                        lineNumber: 132,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -534,46 +565,46 @@ function PatrimonioPage() {
                                                         children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$formatarReal$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatarReal"])(total)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                        lineNumber: 101,
+                                                        lineNumber: 135,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {}, void 0, false, {
                                                         fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                        lineNumber: 102,
+                                                        lineNumber: 136,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                lineNumber: 97,
+                                                lineNumber: 131,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/patrimonio/page.tsx",
-                                        lineNumber: 77,
+                                        lineNumber: 108,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/patrimonio/page.tsx",
-                                lineNumber: 67,
+                                lineNumber: 98,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/patrimonio/page.tsx",
-                            lineNumber: 66,
+                            lineNumber: 97,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/patrimonio/page.tsx",
-                    lineNumber: 35,
+                    lineNumber: 68,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/patrimonio/page.tsx",
-                lineNumber: 34,
+                lineNumber: 67,
                 columnNumber: 7
             }, this),
             idParaRemover && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ModalRemoverHistorico$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ModalRemoverHistorico"], {
@@ -583,13 +614,13 @@ function PatrimonioPage() {
                 paragrafo: "registro de patrimônio"
             }, void 0, false, {
                 fileName: "[project]/src/app/patrimonio/page.tsx",
-                lineNumber: 113,
+                lineNumber: 146,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/patrimonio/page.tsx",
-        lineNumber: 33,
+        lineNumber: 66,
         columnNumber: 5
     }, this);
 }

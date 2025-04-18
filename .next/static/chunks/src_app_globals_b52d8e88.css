@@ -1308,10 +1308,6 @@ img, video {
     align-self: auto;
   }
 
-  .md\:pl-\[700px\] {
-    padding-left: 700px;
-  }
-
   .md\:text-left {
     text-align: left;
   }
