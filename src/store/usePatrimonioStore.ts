@@ -16,6 +16,7 @@ export const usePatrimonioStore = create<PatrimonioState>()(
         set({ patrimonios: get().patrimonios.filter((p) => p.id !== id) }),
     
       updatePatrimonio: (novoPatrimonio) =>
+
         set({
           patrimonios: get().patrimonios.map((p) =>
             p.id === novoPatrimonio.id ? novoPatrimonio : p

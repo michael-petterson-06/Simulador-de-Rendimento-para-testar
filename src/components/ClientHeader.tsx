@@ -74,7 +74,7 @@ export const ClientHeader = () => {
     <header className="w-full px-6 pt-4 mb-6">
       <div className="w-full flex flex-col md:flex-row items-center justify-center md:justify-between gap-4">
      
-        <div className="flex justify-center w-full md:justify-start md:pl-[700px]">
+        <div className="flex justify-center w-full md:justify-start">
           <Nav />
         </div>
 

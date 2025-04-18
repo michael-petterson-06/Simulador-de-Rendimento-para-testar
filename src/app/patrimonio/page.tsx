@@ -8,17 +8,59 @@ import { formatarReal } from '@/utils/formatarReal';
 import { usePatrimonioStore } from '@/store/usePatrimonioStore';
 import { useUserStore } from '@/store/useUserStore';
 import { useSimuladorStore } from '@/store/useSimuladorStore';
-import { FormularioPatrimonio } from '@/components/FormularioPatrimonioProps';
+import { ModalRemoverHistorico } from '@/components/ModalRemoverHistorico';
 import { v4 as uuid } from 'uuid';
-
+import { Patrimonio } from '@/types/patrimonioState';
+import { FormularioPatrimonio } from '@/components/FormularioPatrimonio';
 
 export default function PatrimonioPage() {
-  const { patrimonios, addPatrimonio, removePatrimonio } = usePatrimonioStore();
-  const { idade } = useUserStore(); 
+  const {
+    patrimonios,
+    addPatrimonio,
+    removePatrimonio,
+    updatePatrimonio,
+  } = usePatrimonioStore();
+  const { idade } = useUserStore();
   const { ano } = useSimuladorStore();
+
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
+  const [idParaRemover, setIdParaRemover] = useState<string | null>(null);
+  const [patrimonioEmEdicao, setPatrimonioEmEdicao] = useState<Patrimonio | null>(null);
 
   const total = patrimonios.reduce((acc, item) => acc + item.valor, 0);
+
+  const confirmarRemocao = () => {
+    if (idParaRemover) {
+      removePatrimonio(idParaRemover);
+      setIdParaRemover(null);
+    }
+  };
+
+  const iniciarEdicao = (item: Patrimonio) => {
+    setPatrimonioEmEdicao(item);
+    setMostrarFormulario(true);
+  };
+
+  const salvarFormulario = (propriedade: string, valor: number) => {
+    if (patrimonioEmEdicao) {
+      updatePatrimonio({
+        ...patrimonioEmEdicao,
+        propriedade,
+        valor,
+      });
+    } else {
+      addPatrimonio({
+        id: uuid(),
+        ano,
+        idade,
+        propriedade,
+        valor,
+      });
+    }
+
+    setMostrarFormulario(false);
+    setPatrimonioEmEdicao(null);
+  };
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-100 to-white p-4 flex items-center justify-center">
@@ -27,7 +69,10 @@ export default function PatrimonioPage() {
           <div className="flex items-center justify-between mb-6">
             <h1 className="text-3xl font-bold">Patrimônio</h1>
             <Button
-              onClick={() => setMostrarFormulario(true)}
+              onClick={() => {
+                setMostrarFormulario(true);
+                setPatrimonioEmEdicao(null);
+              }}
               className="bg-indigo-500 hover:bg-indigo-600 text-white"
             >
               Novo Cadastro
@@ -36,19 +81,13 @@ export default function PatrimonioPage() {
 
           {mostrarFormulario && (
             <FormularioPatrimonio
-              onCancelar={() => setMostrarFormulario(false)}
-              
-              onSalvar={(propriedade, valor) => {
-                const novoPatrimonio = {
-                  id: uuid(), // Gera um ID único
-                  ano,
-                  idade,
-                  propriedade,
-                  valor,
-                };
-                addPatrimonio(novoPatrimonio);
+              onCancelar={() => {
                 setMostrarFormulario(false);
+                setPatrimonioEmEdicao(null);
               }}
+              onSalvar={salvarFormulario}
+              propriedadeInicial={patrimonioEmEdicao?.propriedade}
+              valorInicial={patrimonioEmEdicao?.valor}
             />
           )}
 
@@ -67,8 +106,8 @@ export default function PatrimonioPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {patrimonios.map((item, i) => (
-                    <tr key={i} className="odd:bg-white even:bg-blue-50">
+                  {patrimonios.map((item) => (
+                    <tr key={item.id} className="odd:bg-white even:bg-blue-50">
                       <td className="px-4 py-2 text-sm">{item.ano}</td>
                       <td className="px-4 py-2 text-sm">{item.idade}</td>
                       <td className="px-4 py-2 text-sm">{item.propriedade}</td>
@@ -77,9 +116,12 @@ export default function PatrimonioPage() {
                       </td>
                       <td className="px-4 py-2 text-center">
                         <div className="flex justify-center gap-3">
-                          <Pencil className="h-5 w-5 text-gray-500 cursor-pointer hover:text-gray-700" />
+                          <Pencil
+                            onClick={() => iniciarEdicao(item)}
+                            className="h-5 w-5 text-gray-500 cursor-pointer hover:text-gray-700"
+                          />
                           <Trash2
-                            onClick={() => removePatrimonio(item.id)}
+                            onClick={() => setIdParaRemover(item.id)}
                             className="h-5 w-5 text-red-500 hover:text-red-600 cursor-pointer transition"
                           />
                         </div>
@@ -99,6 +141,15 @@ export default function PatrimonioPage() {
           )}
         </Card>
       </div>
+
+      {idParaRemover && (
+        <ModalRemoverHistorico
+          onConfirmar={confirmarRemocao}
+          onCancelar={() => setIdParaRemover(null)}
+          titulo="Remover Propriedade"
+          paragrafo="registro de patrimônio"
+        />
+      )}
     </main>
   );
 }
