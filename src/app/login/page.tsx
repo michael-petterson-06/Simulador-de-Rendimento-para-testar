@@ -52,9 +52,15 @@ export default function LoginPage() {
                 Você já está logado como <strong>{nomeSalvo}</strong>.<br />
                 Para acessar outra conta, deslogue primeiro.
               </p>
-              <Button onClick={() => router.back()} className="bg-indigo-500 hover:bg-indigo-600 text-white">
-                Voltar para tela anterior
+              <Button
+                onClick={() => {
+                  router.push('/renda-familiar');
+                }}
+                className="bg-indigo-500 hover:bg-indigo-600 text-white"
+              >
+                Voltar para aplicação
               </Button>
+
             </div>
           ) : (
             <div className="space-y-4">

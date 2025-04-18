@@ -132,14 +132,14 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
             setNomes(novosNomesFinal);
             setFormularioPreenchido(true);
             fecharFormulario?.(false);
-            onFechar?.();
+        // onFechar?.();
         }
         if (nomesRepetidos.length > 0) {
             setErro(`Os seguintes nomes já existem e foram ignorados: ${nomesRepetidos.join(', ')}`);
         } else {
             setErro('');
         }
-        return true;
+        router.push('/renda-familiar');
     };
     // if (!mostrarFormulario) return null;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -152,7 +152,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                 onChange: (e)=>setQuantidadeEntradas(e.target.value)
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 99,
+                lineNumber: 100,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -162,7 +162,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                 onChange: (e)=>setNomesEntradas(e.target.value)
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 106,
+                lineNumber: 107,
                 columnNumber: 7
             }, this),
             erro && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -170,24 +170,19 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                 children: erro
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 113,
+                lineNumber: 114,
                 columnNumber: 16
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex flex-col md:flex-row gap-4",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                        onClick: ()=>{
-                            const sucesso = handleFinalizar();
-                            if (sucesso) {
-                                router.push('/renda-familiar');
-                            }
-                        },
+                        onClick: handleFinalizar,
                         className: "w-full text-lg bg-indigo-600 text-white",
                         children: login === 'Login' ? 'Entrar na aplicação' : 'Salvar'
                     }, void 0, false, {
                         fileName: "[project]/src/components/FormularioEntradas.tsx",
-                        lineNumber: 116,
+                        lineNumber: 117,
                         columnNumber: 7
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -204,19 +199,19 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                         children: "Voltar"
                     }, void 0, false, {
                         fileName: "[project]/src/components/FormularioEntradas.tsx",
-                        lineNumber: 128,
+                        lineNumber: 124,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 115,
+                lineNumber: 116,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/FormularioEntradas.tsx",
-        lineNumber: 98,
+        lineNumber: 99,
         columnNumber: 5
     }, this);
 };
@@ -331,9 +326,11 @@ function LoginPage() {
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                onClick: ()=>router.back(),
+                                onClick: ()=>{
+                                    router.push('/renda-familiar');
+                                },
                                 className: "bg-indigo-500 hover:bg-indigo-600 text-white",
-                                children: "Voltar para tela anterior"
+                                children: "Voltar para aplicação"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/login/page.tsx",
                                 lineNumber: 55,
@@ -354,7 +351,7 @@ function LoginPage() {
                                 onChange: (e)=>setNome(e.target.value)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/login/page.tsx",
-                                lineNumber: 61,
+                                lineNumber: 67,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -363,7 +360,7 @@ function LoginPage() {
                                 onChange: (e)=>setDataNascimento(e.target.value)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/login/page.tsx",
-                                lineNumber: 67,
+                                lineNumber: 73,
                                 columnNumber: 15
                             }, this),
                             erro && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -371,7 +368,7 @@ function LoginPage() {
                                 children: erro
                             }, void 0, false, {
                                 fileName: "[project]/src/app/login/page.tsx",
-                                lineNumber: 72,
+                                lineNumber: 78,
                                 columnNumber: 24
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -380,13 +377,13 @@ function LoginPage() {
                                 children: "Avançar"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/login/page.tsx",
-                                lineNumber: 74,
+                                lineNumber: 80,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/login/page.tsx",
-                        lineNumber: 60,
+                        lineNumber: 66,
                         columnNumber: 13
                     }, this)
                 ]
