@@ -79,7 +79,7 @@ export const FormularioEntradas = ({onFechar, login,  fecharFormulario,   }: For
       setNomes(novosNomesFinal);
       setFormularioPreenchido(true);
       fecharFormulario?.(false);
-      onFechar?.();
+      // onFechar?.();
     }
   
     if (nomesRepetidos.length > 0) {
@@ -88,7 +88,8 @@ export const FormularioEntradas = ({onFechar, login,  fecharFormulario,   }: For
       setErro('');
     }
   
-    return true;
+
+    router.push('/renda-familiar');
   };
   
 
@@ -114,12 +115,7 @@ export const FormularioEntradas = ({onFechar, login,  fecharFormulario,   }: For
 
       <div className="flex flex-col md:flex-row gap-4">
       <Button
-          onClick={() => {
-            const sucesso = handleFinalizar();
-            if (sucesso) {
-              router.push('/renda-familiar');
-            }
-          }}
+          onClick={handleFinalizar}
           className="w-full text-lg bg-indigo-600 text-white"
         >
           {login === 'Login' ? 'Entrar na aplicação' : 'Salvar'}
