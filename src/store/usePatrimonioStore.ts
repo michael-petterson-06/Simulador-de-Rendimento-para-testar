@@ -22,7 +22,11 @@ export const usePatrimonioStore = create<PatrimonioState>()(
             p.id === novoPatrimonio.id ? novoPatrimonio : p
           ),
         }),
-    }),
+     
+      resetAll: () => set({ patrimonios: [] }),
+    
+      }),
+
     { name: 'patrimonio-store' }
   )
 );
