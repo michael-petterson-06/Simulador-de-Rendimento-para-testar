@@ -128,10 +128,31 @@ var _s = __turbopack_context__.k.signature();
 const ExportarHistorico = ()=>{
     _s();
     const [gerandoPDF, setGerandoPDF] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [progresso, setProgresso] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "ExportarHistorico.useEffect": ()=>{
+            let interval;
+            if (gerandoPDF) {
+                setProgresso(0);
+                interval = setInterval({
+                    "ExportarHistorico.useEffect": ()=>{
+                        setProgresso({
+                            "ExportarHistorico.useEffect": (prev)=>prev < 90 ? prev + 1 : prev
+                        }["ExportarHistorico.useEffect"]); // Para em 90%
+                    }
+                }["ExportarHistorico.useEffect"], 30);
+            }
+            return ({
+                "ExportarHistorico.useEffect": ()=>clearInterval(interval)
+            })["ExportarHistorico.useEffect"];
+        }
+    }["ExportarHistorico.useEffect"], [
+        gerandoPDF
+    ]);
     const exportarParaPDF = async ()=>{
         const container = document.getElementById('historico-container');
         if (!container) return;
-        setGerandoPDF(true); // Inicia o carregamento
+        setGerandoPDF(true);
         const cards = Array.from(container.querySelectorAll('.historico-card'));
         const pdf = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jspdf$2f$dist$2f$jspdf$2e$es$2e$min$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"]('p', 'pt', 'a4');
         const margin = 30;
@@ -142,7 +163,6 @@ const ExportarHistorico = ()=>{
         let y = margin;
         for(let i = 0; i < cards.length; i++){
             cards[i].classList.add('pdf-export');
-            // Aguarda um pouco para garantir renderização correta (ajuda com efeitos visuais)
             await new Promise((resolve)=>setTimeout(resolve, 100));
             const canvas = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$html2canvas$2f$dist$2f$html2canvas$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])(cards[i], {
                 scale: 2,
@@ -161,9 +181,14 @@ const ExportarHistorico = ()=>{
             pdf.addImage(imgData, 'PNG', x, y, cardWidth, finalHeight);
             x += cardWidth + spacing;
             cards[i].classList.remove('pdf-export');
+            // Progresso baseado em índice
+            setProgresso(Math.min(90, Math.round((i + 1) / cards.length * 90)));
         }
-        pdf.save('historico.pdf');
-        setGerandoPDF(false); // Finaliza o carregamento
+        setProgresso(100);
+        setTimeout(()=>{
+            pdf.save('historico.pdf');
+            setGerandoPDF(false);
+        }, 500);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "text-center my-6",
@@ -174,29 +199,36 @@ const ExportarHistorico = ()=>{
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "w-full h-2 bg-gray-300 rounded-full overflow-hidden",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "h-full bg-indigo-600 animate-pulse w-full"
+                            className: "h-full bg-indigo-600 transition-all duration-200",
+                            style: {
+                                width: `${progresso}%`
+                            }
                         }, void 0, false, {
                             fileName: "[project]/src/components/ExportarHistorico.tsx",
-                            lineNumber: 65,
+                            lineNumber: 83,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/ExportarHistorico.tsx",
-                        lineNumber: 64,
+                        lineNumber: 82,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "text-sm text-gray-600 mt-2",
-                        children: "Gerando PDF, aguarde..."
-                    }, void 0, false, {
+                        children: [
+                            "Gerando PDF... ",
+                            progresso,
+                            "%"
+                        ]
+                    }, void 0, true, {
                         fileName: "[project]/src/components/ExportarHistorico.tsx",
-                        lineNumber: 67,
+                        lineNumber: 88,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/ExportarHistorico.tsx",
-                lineNumber: 63,
+                lineNumber: 81,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -206,17 +238,17 @@ const ExportarHistorico = ()=>{
                 children: "📄 Exportar Histórico em PDF"
             }, void 0, false, {
                 fileName: "[project]/src/components/ExportarHistorico.tsx",
-                lineNumber: 71,
+                lineNumber: 92,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/ExportarHistorico.tsx",
-        lineNumber: 61,
+        lineNumber: 79,
         columnNumber: 5
     }, this);
 };
-_s(ExportarHistorico, "3L5l3u5IjWZSdrriCX/pYkGtfP8=");
+_s(ExportarHistorico, "jPumVQt6in6zBWdUU6yOuU2DCgs=");
 _c = ExportarHistorico;
 var _c;
 __turbopack_context__.k.register(_c, "ExportarHistorico");

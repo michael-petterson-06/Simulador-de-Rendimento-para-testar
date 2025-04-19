@@ -1,18 +1,32 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from './ui/Button';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
 export const ExportarHistorico = () => {
   const [gerandoPDF, setGerandoPDF] = useState(false);
+  const [progresso, setProgresso] = useState(0);
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+
+    if (gerandoPDF) {
+      setProgresso(0);
+      interval = setInterval(() => {
+        setProgresso((prev) => (prev < 90 ? prev + 1 : prev)); // Para em 90%
+      }, 30);
+    }
+
+    return () => clearInterval(interval);
+  }, [gerandoPDF]);
 
   const exportarParaPDF = async () => {
     const container = document.getElementById('historico-container');
     if (!container) return;
 
-    setGerandoPDF(true); // Inicia o carregamento
+    setGerandoPDF(true);
 
     const cards = Array.from(container.querySelectorAll('.historico-card'));
     const pdf = new jsPDF('p', 'pt', 'a4');
@@ -26,8 +40,6 @@ export const ExportarHistorico = () => {
 
     for (let i = 0; i < cards.length; i++) {
       cards[i].classList.add('pdf-export');
-
-      // Aguarda um pouco para garantir renderização correta (ajuda com efeitos visuais)
       await new Promise((resolve) => setTimeout(resolve, 100));
 
       const canvas = await html2canvas(cards[i] as HTMLElement, {
@@ -51,10 +63,16 @@ export const ExportarHistorico = () => {
       x += cardWidth + spacing;
 
       cards[i].classList.remove('pdf-export');
+
+      // Progresso baseado em índice
+      setProgresso(Math.min(90, Math.round(((i + 1) / cards.length) * 90)));
     }
 
-    pdf.save('historico.pdf');
-    setGerandoPDF(false); // Finaliza o carregamento
+    setProgresso(100);
+    setTimeout(() => {
+      pdf.save('historico.pdf');
+      setGerandoPDF(false);
+    }, 500);
   };
 
   return (
@@ -62,9 +80,12 @@ export const ExportarHistorico = () => {
       {gerandoPDF && (
         <div className="w-full max-w-sm mx-auto mb-4">
           <div className="w-full h-2 bg-gray-300 rounded-full overflow-hidden">
-            <div className="h-full bg-indigo-600 animate-pulse w-full" />
+            <div
+              className="h-full bg-indigo-600 transition-all duration-200"
+              style={{ width: `${progresso}%` }}
+            />
           </div>
-          <p className="text-sm text-gray-600 mt-2">Gerando PDF, aguarde...</p>
+          <p className="text-sm text-gray-600 mt-2">Gerando PDF... {progresso}%</p>
         </div>
       )}
 
