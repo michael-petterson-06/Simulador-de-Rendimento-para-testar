@@ -114,66 +114,109 @@ __turbopack_context__.s({
     "ExportarHistorico": (()=>ExportarHistorico)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/Button.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$html2canvas$2f$dist$2f$html2canvas$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/html2canvas/dist/html2canvas.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jspdf$2f$dist$2f$jspdf$2e$es$2e$min$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/jspdf/dist/jspdf.es.min.js [app-client] (ecmascript)");
+;
+var _s = __turbopack_context__.k.signature();
 'use client';
 ;
 ;
 ;
 ;
 const ExportarHistorico = ()=>{
+    _s();
+    const [gerandoPDF, setGerandoPDF] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const exportarParaPDF = async ()=>{
         const container = document.getElementById('historico-container');
         if (!container) return;
+        setGerandoPDF(true); // Inicia o carregamento
         const cards = Array.from(container.querySelectorAll('.historico-card'));
         const pdf = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jspdf$2f$dist$2f$jspdf$2e$es$2e$min$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"]('p', 'pt', 'a4');
-        const pageHeight = pdf.internal.pageSize.height;
-        const pageWidth = pdf.internal.pageSize.width;
         const margin = 30;
-        const cardsPorPagina = 1;
-        const espacoEntreCards = 20;
-        const larguraCanvasForcada = 1000; // <- Reduzir largura para caber bem no A4
-        let yOffset = margin;
-        let cardsNaPagina = 0;
+        const spacing = 20;
+        const cardWidth = 240;
+        const cardsPerRow = 2;
+        let x = margin;
+        let y = margin;
         for(let i = 0; i < cards.length; i++){
+            cards[i].classList.add('pdf-export');
+            // Aguarda um pouco para garantir renderização correta (ajuda com efeitos visuais)
+            await new Promise((resolve)=>setTimeout(resolve, 100));
             const canvas = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$html2canvas$2f$dist$2f$html2canvas$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])(cards[i], {
-                scale: 1.9,
-                width: larguraCanvasForcada,
-                windowWidth: larguraCanvasForcada
+                scale: 2,
+                backgroundColor: '#ffffff',
+                useCORS: true
             });
             const imgData = canvas.toDataURL('image/png');
             const imgProps = pdf.getImageProperties(imgData);
-            const pdfWidth = pageWidth - margin * 2;
-            const pdfHeight = imgProps.height * pdfWidth / imgProps.width;
-            if (yOffset + pdfHeight > pageHeight - margin || cardsNaPagina >= cardsPorPagina) {
+            const ratio = cardWidth / imgProps.width;
+            const finalHeight = imgProps.height * ratio;
+            if (i > 0 && i % cardsPerRow === 0) {
                 pdf.addPage();
-                yOffset = margin;
-                cardsNaPagina = 0;
+                x = margin;
+                y = margin;
             }
-            pdf.addImage(imgData, 'PNG', margin, yOffset, pdfWidth, pdfHeight);
-            yOffset += pdfHeight + espacoEntreCards;
-            cardsNaPagina++;
+            pdf.addImage(imgData, 'PNG', x, y, cardWidth, finalHeight);
+            x += cardWidth + spacing;
+            cards[i].classList.remove('pdf-export');
         }
         pdf.save('historico.pdf');
+        setGerandoPDF(false); // Finaliza o carregamento
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "text-center my-6",
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-            onClick: exportarParaPDF,
-            className: "bg-indigo-600 text-white hover:bg-indigo-700",
-            children: "📄 Exportar Histórico em PDF"
-        }, void 0, false, {
-            fileName: "[project]/src/components/ExportarHistorico.tsx",
-            lineNumber: 54,
-            columnNumber: 7
-        }, this)
-    }, void 0, false, {
+        children: [
+            gerandoPDF && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "w-full max-w-sm mx-auto mb-4",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "w-full h-2 bg-gray-300 rounded-full overflow-hidden",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "h-full bg-indigo-600 animate-pulse w-full"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/ExportarHistorico.tsx",
+                            lineNumber: 65,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/ExportarHistorico.tsx",
+                        lineNumber: 64,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "text-sm text-gray-600 mt-2",
+                        children: "Gerando PDF, aguarde..."
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/ExportarHistorico.tsx",
+                        lineNumber: 67,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/components/ExportarHistorico.tsx",
+                lineNumber: 63,
+                columnNumber: 9
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                onClick: exportarParaPDF,
+                disabled: gerandoPDF,
+                className: `bg-indigo-600 text-white hover:bg-indigo-700 ${gerandoPDF ? 'opacity-50 cursor-not-allowed' : ''}`,
+                children: "📄 Exportar Histórico em PDF"
+            }, void 0, false, {
+                fileName: "[project]/src/components/ExportarHistorico.tsx",
+                lineNumber: 71,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "[project]/src/components/ExportarHistorico.tsx",
-        lineNumber: 53,
+        lineNumber: 61,
         columnNumber: 5
     }, this);
 };
+_s(ExportarHistorico, "3L5l3u5IjWZSdrriCX/pYkGtfP8=");
 _c = ExportarHistorico;
 var _c;
 __turbopack_context__.k.register(_c, "ExportarHistorico");

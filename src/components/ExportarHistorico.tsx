@@ -1,57 +1,80 @@
 'use client';
 
+import { useState } from 'react';
 import { Button } from './ui/Button';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
 export const ExportarHistorico = () => {
+  const [gerandoPDF, setGerandoPDF] = useState(false);
+
   const exportarParaPDF = async () => {
     const container = document.getElementById('historico-container');
-
     if (!container) return;
 
+    setGerandoPDF(true); // Inicia o carregamento
+
     const cards = Array.from(container.querySelectorAll('.historico-card'));
-
     const pdf = new jsPDF('p', 'pt', 'a4');
-    const pageHeight = pdf.internal.pageSize.height;
-    const pageWidth = pdf.internal.pageSize.width;
     const margin = 30;
-    const cardsPorPagina = 1;
-    const espacoEntreCards = 20;
-    const larguraCanvasForcada = 1000; // <- Reduzir largura para caber bem no A4
+    const spacing = 20;
+    const cardWidth = 240;
+    const cardsPerRow = 2;
 
-    let yOffset = margin;
-    let cardsNaPagina = 0;
+    let x = margin;
+    let y = margin;
 
     for (let i = 0; i < cards.length; i++) {
+      cards[i].classList.add('pdf-export');
+
+      // Aguarda um pouco para garantir renderização correta (ajuda com efeitos visuais)
+      await new Promise((resolve) => setTimeout(resolve, 100));
+
       const canvas = await html2canvas(cards[i] as HTMLElement, {
-        scale: 1.9, // ← reduz escala para caber no PDF
-        width: larguraCanvasForcada,
-        windowWidth: larguraCanvasForcada,
+        scale: 2,
+        backgroundColor: '#ffffff',
+        useCORS: true,
       });
 
       const imgData = canvas.toDataURL('image/png');
       const imgProps = pdf.getImageProperties(imgData);
-      const pdfWidth = pageWidth - margin * 2;
-      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      const ratio = cardWidth / imgProps.width;
+      const finalHeight = imgProps.height * ratio;
 
-      if (yOffset + pdfHeight > pageHeight - margin || cardsNaPagina >= cardsPorPagina) {
+      if (i > 0 && i % cardsPerRow === 0) {
         pdf.addPage();
-        yOffset = margin;
-        cardsNaPagina = 0;
+        x = margin;
+        y = margin;
       }
 
-      pdf.addImage(imgData, 'PNG', margin, yOffset, pdfWidth, pdfHeight);
-      yOffset += pdfHeight + espacoEntreCards;
-      cardsNaPagina++;
+      pdf.addImage(imgData, 'PNG', x, y, cardWidth, finalHeight);
+      x += cardWidth + spacing;
+
+      cards[i].classList.remove('pdf-export');
     }
 
     pdf.save('historico.pdf');
+    setGerandoPDF(false); // Finaliza o carregamento
   };
 
   return (
     <div className="text-center my-6">
-      <Button onClick={exportarParaPDF} className="bg-indigo-600 text-white hover:bg-indigo-700">
+      {gerandoPDF && (
+        <div className="w-full max-w-sm mx-auto mb-4">
+          <div className="w-full h-2 bg-gray-300 rounded-full overflow-hidden">
+            <div className="h-full bg-indigo-600 animate-pulse w-full" />
+          </div>
+          <p className="text-sm text-gray-600 mt-2">Gerando PDF, aguarde...</p>
+        </div>
+      )}
+
+      <Button
+        onClick={exportarParaPDF}
+        disabled={gerandoPDF}
+        className={`bg-indigo-600 text-white hover:bg-indigo-700 ${
+          gerandoPDF ? 'opacity-50 cursor-not-allowed' : ''
+        }`}
+      >
         📄 Exportar Histórico em PDF
       </Button>
     </div>

@@ -11,3 +11,9 @@
 .animate-fade-in-out {
   animation: fadeInOut 10s ease-in-out forwards;
 }
+
+
+.pdf-export {
+  box-shadow: none !important;
+  background-color: #f9f9f9 !important;
+}
