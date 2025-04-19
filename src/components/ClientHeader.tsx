@@ -9,6 +9,7 @@ import { Button } from './ui/Button';
 import { useRetiradaStore } from '@/store/useRetiradaStore';
 import { useEntradasStore } from '@/store/useEntradasStore';
 import { useHistoricoStore } from '@/store/useHistoricoStore';
+import { usePatrimonioStore } from '@/store/usePatrimonioStore';
 
 export const ClientHeader = () => {
 
@@ -66,6 +67,7 @@ export const ClientHeader = () => {
       useRetiradaStore.getState().resetAll();
       useEntradasStore.getState().resetAll();
       useHistoricoStore.getState().resetAll();
+      usePatrimonioStore.getState().resetAll();
       router.push('/login');
     }
   };

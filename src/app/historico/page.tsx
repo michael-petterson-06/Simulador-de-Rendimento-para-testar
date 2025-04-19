@@ -5,6 +5,8 @@ import { useHistoricoStore } from '@/store/useHistoricoStore';
 import { formatarReal } from '@/utils/formatarReal';
 import { Trash2 } from 'lucide-react';
 import { ModalRemoverHistorico } from '@/components/ModalRemoverHistorico';
+import { ExportarHistorico } from '@/components/ExportarHistorico';
+
 
 export default function HistoricoPage() {
   const { historico, removerHistorico } = useHistoricoStore();
@@ -30,11 +32,13 @@ export default function HistoricoPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-purple-100 to-white p-6">
-      <div className="flex flex-wrap justify-center gap-4">
+      <ExportarHistorico />
+
+      <div id="historico-container" className="flex flex-wrap justify-center gap-4">
         {historico.map((registro, idx) => (
           <div
             key={idx}
-            className="w-full sm:w-[340px] bg-white rounded-xl shadow-xl p-4 space-y-4 relative"
+            className="historico-card w-full sm:w-[340px] bg-white rounded-xl shadow-xl p-4 space-y-4 relative"
           >
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-bold text-indigo-700 flex items-center gap-2">
@@ -95,10 +99,10 @@ export default function HistoricoPage() {
             </div>
 
             <div className="bg-yellow-100 p-3 rounded-xl text-sm">
-                <p>
-                  🏆 <strong>Valor Poupado:</strong> {formatarReal(registro.valorPoupado)}
-                </p>
-              </div>
+              <p>
+                🏆 <strong>Valor Poupado:</strong> {formatarReal(registro.valorPoupado)}
+              </p>
+            </div>
           </div>
         ))}
       </div>
@@ -107,8 +111,8 @@ export default function HistoricoPage() {
         <ModalRemoverHistorico
           onConfirmar={confirmarRemocao}
           onCancelar={() => setIndiceParaRemover(null)}
-          titulo= 'Remover Histórico'
-          paragrafo='histórico'
+          titulo="Remover Histórico"
+          paragrafo="histórico"
         />
       )}
 

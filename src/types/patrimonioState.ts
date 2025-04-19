@@ -11,4 +11,5 @@ export type PatrimonioState = {
   addPatrimonio: (patrimonio: Patrimonio) => void;
   removePatrimonio: (id: string) => void;
   updatePatrimonio: (patrimonio: Patrimonio) => void;
+  resetAll: () => void;
 };
