@@ -21,16 +21,14 @@ export default function RetiradasPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-purple-100 to-white p-4 flex items-center justify-center">
+    <main className="min-h-screen bg-black p-4 flex items-center justify-center text-yellow-400">
       <div className="w-full max-w-4xl">
-        <Card>
+        <Card className="bg-black border border-yellow-500 text-yellow-400">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-4">
-            <h1 className="text-3xl font-bold text-center md:text-left">
-              Histórico de Retiradas
-            </h1>
+            <h1 className="text-3xl font-bold text-center md:text-left">Histórico de Retiradas</h1>
             <Button
               onClick={() => setMostrarFormulario(true)}
-              className="bg-rose-500 hover:bg-rose-600 text-white w-full md:w-auto"
+              className="bg-yellow-400 text-black border border-yellow-500 hover:bg-black hover:text-yellow-400 transition-all duration-500 w-full md:w-auto"
             >
               Nova Retirada
             </Button>
@@ -52,11 +50,11 @@ export default function RetiradasPage() {
           )}
 
           {retiradas.length === 0 && !mostrarFormulario ? (
-            <p className="text-center text-gray-500">Nenhuma retirada registrada até o momento.</p>
+            <p className="text-center text-yellow-500">Nenhuma retirada registrada até o momento.</p>
           ) : retiradas.length > 0 ? (
             <div className="overflow-x-auto">
-              <table className="w-full border border-gray-300 rounded-xl overflow-hidden text-left">
-                <thead className="bg-purple-200 text-purple-900">
+              <table className="w-full border border-yellow-500 rounded-xl overflow-hidden text-left text-sm">
+                <thead className="bg-yellow-300 text-black">
                   <tr>
                     <th className="px-4 py-2">#</th>
                     <th className="px-4 py-2">Nome</th>
@@ -69,22 +67,27 @@ export default function RetiradasPage() {
                 </thead>
                 <tbody>
                   {retiradas.map((r, i) => (
-                    <tr key={i} className="odd:bg-white even:bg-purple-50">
-                      <td className="px-4 py-2 font-medium text-sm">{i + 1}</td>
-                      <td className="px-4 py-2 text-sm">{r.nome}</td>
-                      <td className={`px-4 py-2 text-sm font-semibold ${r.titulo === 'Novo Depósito' ? 'text-green-600' : 'text-rose-600'}`}>
-                        {r.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                    <tr
+                      key={i}
+                      className="odd:bg-black even:bg-[#111111] text-yellow-300"
+                    >
+                      <td className="px-4 py-2">{i + 1}</td>
+                      <td className="px-4 py-2">{r.nome}</td>
+                      <td className={`px-4 py-2 font-semibold ${r.titulo === 'Novo Depósito' ? 'text-green-400' : 'text-rose-400'}`}>
+                        {r.valor.toLocaleString('pt-BR', {
+                          style: 'currency',
+                          currency: 'BRL',
+                        })}
                       </td>
-                      <td className="px-4 py-2 text-sm">{r.ano}</td>
-                      <td className="px-4 py-2 text-sm">{r.idade}</td>
-                      <td className="px-4 py-2 text-sm">{r.pagamento ?? 'À Vista'}</td>
+                      <td className="px-4 py-2">{r.ano}</td>
+                      <td className="px-4 py-2">{r.idade}</td>
+                      <td className="px-4 py-2">{r.pagamento ?? 'À Vista'}</td>
                       <td className="px-4 py-2 text-center">
                         <Trash2
                           onClick={() => setIndiceParaRemover(i)}
-                          className="h-5 w-5 text-red-500 hover:text-red-600 cursor-pointer transition"
-                        >
-                          <title>Remover retirada</title>
-                        </Trash2>
+                          className="h-5 w-5 text-yellow-400 hover:text-white cursor-pointer transition"
+                        />
+
                       </td>
                     </tr>
                   ))}
@@ -98,8 +101,8 @@ export default function RetiradasPage() {
           <ModalRemoverHistorico
             onConfirmar={confirmarRemocao}
             onCancelar={() => setIndiceParaRemover(null)}
-            titulo= 'Remover Registro'
-            paragrafo='registro'
+            titulo="Remover Registro"
+            paragrafo="registro"
           />
         )}
       </div>

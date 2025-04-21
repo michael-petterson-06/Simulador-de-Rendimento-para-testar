@@ -35,20 +35,19 @@ export default function LoginPage() {
   if (!hydrated) return null;
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-100 to-white p-4 flex items-center justify-center">
+    <main className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 p-4 flex items-center justify-center text-white">
       <div className="w-full max-w-md">
-        <Card>
-          <h1 className="text-2xl font-bold text-center mb-6">Bem-vindo! 🧑‍💻</h1>
+        <Card className="bg-gray-900 text-white">
+          <h1 className="text-2xl font-bold text-center mb-6">Bem-vindo! </h1>
 
           {mostrarEntradas ? (
-            <FormularioEntradas onFechar={() =>
-               setMostrarEntradas(false)}
-                login='Login'
+            <FormularioEntradas
+              onFechar={() => setMostrarEntradas(false)}
+              login="Login"
             />
-       
           ) : nomeSalvo ? (
             <div className="text-center space-y-4">
-              <p className="text-green-600 font-medium">
+              <p className="text-green-400 font-medium">
                 Você já está logado como <strong>{nomeSalvo}</strong>.<br />
                 Para acessar outra conta, deslogue primeiro.
               </p>
@@ -56,11 +55,10 @@ export default function LoginPage() {
                 onClick={() => {
                   router.push('/renda-familiar');
                 }}
-                className="bg-indigo-500 hover:bg-indigo-600 text-white"
+                className="bg-yellow-500 hover:bg-yellow-600 text-black"
               >
                 Voltar para aplicação
               </Button>
-
             </div>
           ) : (
             <div className="space-y-4">
@@ -69,15 +67,20 @@ export default function LoginPage() {
                 placeholder="Seu nome"
                 value={nome}
                 onChange={(e) => setNome(e.target.value)}
+                className="bg-gray-800 text-white placeholder-gray-400"
               />
               <Input
                 type="date"
                 value={dataNascimento}
                 onChange={(e) => setDataNascimento(e.target.value)}
+                className="bg-gray-800 text-white placeholder-gray-400"
               />
-              {erro && <p className="text-red-600 text-sm font-medium">{erro}</p>}
+              {erro && <p className="text-red-400 text-sm font-medium">{erro}</p>}
 
-              <Button onClick={handleAvancar} className="w-full text-lg bg-indigo-500 hover:bg-indigo-600 text-white">
+              <Button
+                onClick={handleAvancar}
+                className="w-full text-lg bg-yellow-500 hover:bg-yellow-600 text-black"
+              >
                 Avançar
               </Button>
             </div>

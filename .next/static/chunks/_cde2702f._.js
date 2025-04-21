@@ -183,65 +183,61 @@ var _s = __turbopack_context__.k.signature();
 const Nav = ()=>{
     _s();
     const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"])();
+    const linkBaseStyle = 'text-sm md:text-base font-medium px-4 py-1 rounded-xl transition-all duration-300';
+    const linkAtivo = 'bg-yellow-400 text-black';
+    const linkInativo = 'text-yellow-400 hover:text-yellow-300 hover:border-yellow-400 border border-transparent hover:border';
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-        className: "flex flex-col md:flex-row items-center justify-center gap-4 md:gap-10",
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "flex flex-col md:flex-row items-center gap-4 md:gap-6",
-            children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                    href: "/renda-familiar",
-                    className: `text-lg font-medium transition-colors duration-300 ${pathname === '/renda-familiar' ? 'text-indigo-700 underline underline-offset-4' : 'text-indigo-500 hover:text-indigo-700 hover:underline'}`,
-                    children: "Renda"
-                }, void 0, false, {
-                    fileName: "[project]/src/components/ui/Nav.tsx",
-                    lineNumber: 16,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                    href: "/",
-                    className: `text-lg font-medium transition-colors duration-300 ${pathname === '/' ? 'text-indigo-700 underline underline-offset-4' : 'text-indigo-500 hover:text-indigo-700 hover:underline'}`,
-                    children: "Rendimento"
-                }, void 0, false, {
-                    fileName: "[project]/src/components/ui/Nav.tsx",
-                    lineNumber: 28,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                    href: "/retiradas",
-                    className: `text-lg font-medium transition-colors duration-300 ${pathname === '/retiradas' ? 'text-indigo-700 underline underline-offset-4' : 'text-indigo-500 hover:text-indigo-700 hover:underline'}`,
-                    children: "Retiradas"
-                }, void 0, false, {
-                    fileName: "[project]/src/components/ui/Nav.tsx",
-                    lineNumber: 39,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                    href: "/historico",
-                    className: `text-lg font-medium transition-colors duration-300 ${pathname === '/historico' ? 'text-indigo-700 underline underline-offset-4' : 'text-indigo-500 hover:text-indigo-700 hover:underline'}`,
-                    children: "Histórico"
-                }, void 0, false, {
-                    fileName: "[project]/src/components/ui/Nav.tsx",
-                    lineNumber: 49,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                    href: "/patrimonio",
-                    className: `text-lg font-medium transition-colors duration-300 ${pathname === '/patrimonio' ? 'text-indigo-700 underline underline-offset-4' : 'text-indigo-500 hover:text-indigo-700 hover:underline'}`,
-                    children: "Patrimônio"
-                }, void 0, false, {
-                    fileName: "[project]/src/components/ui/Nav.tsx",
-                    lineNumber: 60,
-                    columnNumber: 9
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "[project]/src/components/ui/Nav.tsx",
-            lineNumber: 13,
-            columnNumber: 5
-        }, this)
-    }, void 0, false, {
+        className: "flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                href: "/renda-familiar",
+                className: `${linkBaseStyle} ${pathname === '/renda-familiar' ? linkAtivo : linkInativo}`,
+                children: "Renda"
+            }, void 0, false, {
+                fileName: "[project]/src/components/ui/Nav.tsx",
+                lineNumber: 18,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                href: "/",
+                className: `${linkBaseStyle} ${pathname === '/' ? linkAtivo : linkInativo}`,
+                children: "Rendimento"
+            }, void 0, false, {
+                fileName: "[project]/src/components/ui/Nav.tsx",
+                lineNumber: 27,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                href: "/retiradas",
+                className: `${linkBaseStyle} ${pathname === '/retiradas' ? linkAtivo : linkInativo}`,
+                children: "Retiradas"
+            }, void 0, false, {
+                fileName: "[project]/src/components/ui/Nav.tsx",
+                lineNumber: 36,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                href: "/historico",
+                className: `${linkBaseStyle} ${pathname === '/historico' ? linkAtivo : linkInativo}`,
+                children: "Histórico"
+            }, void 0, false, {
+                fileName: "[project]/src/components/ui/Nav.tsx",
+                lineNumber: 45,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                href: "/patrimonio",
+                className: `${linkBaseStyle} ${pathname === '/patrimonio' ? linkAtivo : linkInativo}`,
+                children: "Patrimônio"
+            }, void 0, false, {
+                fileName: "[project]/src/components/ui/Nav.tsx",
+                lineNumber: 54,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "[project]/src/components/ui/Nav.tsx",
-        lineNumber: 10,
+        lineNumber: 17,
         columnNumber: 5
     }, this);
 };
@@ -262,6 +258,17 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 
 var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
+// type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+// export const Button = ({ children, className = '', ...props }: ButtonProps) => {
+//   return (
+//     <button
+//       {...props}
+//       className={`font-semibold py-2 px-4 rounded-xl transition ${className}`}
+//     >
+//       {children}
+//     </button>
+//   );
+// };
 __turbopack_context__.s({
     "Button": (()=>Button)
 });
@@ -270,11 +277,17 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 const Button = ({ children, className = '', ...props })=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
         ...props,
-        className: `font-semibold py-2 px-4 rounded-xl transition ${className}`,
+        className: `
+        font-semibold py-2 px-4 rounded-md
+        bg-yellow-400 text-gray-800 border border-yellow-400
+        hover:bg-black hover:text-yellow-400 hover:border-yellow-400
+        transition-all duration-700 ease-in-out
+        ${className}
+      `,
         children: children
     }, void 0, false, {
         fileName: "[project]/src/components/ui/Button.tsx",
-        lineNumber: 5,
+        lineNumber: 19,
         columnNumber: 5
     }, this);
 };
@@ -584,26 +597,27 @@ const ClientHeader = ()=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
         className: "w-full px-4 pt-4 mb-6",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 md:gap-4",
+            className: "max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-4",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "flex justify-center md:justify-start w-full md:w-auto",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Nav$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Nav"], {}, void 0, false, {
                         fileName: "[project]/src/components/ClientHeader.tsx",
-                        lineNumber: 77,
+                        lineNumber: 78,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/ClientHeader.tsx",
-                    lineNumber: 76,
+                    lineNumber: 77,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "flex flex-wrap justify-center md:justify-end items-center gap-2 text-sm text-gray-600 whitespace-nowrap",
+                    className: "flex flex-wrap justify-center md:justify-end items-center gap-2 text-sm text-yellow-400 font-medium whitespace-nowrap",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            className: "text-yellow-400",
                             children: [
-                                "👤 ",
+                                " ",
                                 nome,
                                 " — ",
                                 idade,
@@ -613,7 +627,7 @@ const ClientHeader = ()=>{
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/ClientHeader.tsx",
-                            lineNumber: 81,
+                            lineNumber: 82,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -621,48 +635,48 @@ const ClientHeader = ()=>{
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                                     onClick: decrementarAnoEIdade,
-                                    className: "bg-yellow-300 hover:bg-yellow-400 text-black px-2 py-1 text-xs",
+                                    className: "bg-yellow-400 hover:bg-yellow-500 text-black px-2 py-1 text-xs border border-yellow-500 transition duration-300",
                                     children: "-1"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/ClientHeader.tsx",
-                                    lineNumber: 84,
+                                    lineNumber: 85,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                                     onClick: incrementarAnoEIdade,
-                                    className: "bg-green-400 hover:bg-green-500 text-white px-2 py-1 text-xs",
+                                    className: "bg-yellow-400 hover:bg-yellow-500 text-black px-2 py-1 text-xs border border-yellow-500 transition duration-300",
                                     children: "+1"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/ClientHeader.tsx",
-                                    lineNumber: 90,
+                                    lineNumber: 91,
                                     columnNumber: 13
+                                }, this),
+                                saindo ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "text-rose-600 animate-pulse",
+                                    children: "Saindo..."
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/ClientHeader.tsx",
+                                    lineNumber: 99,
+                                    columnNumber: 15
+                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                    onClick: handleLogout,
+                                    className: "bg-black hover:bg-red-600 border border-yellow-400 px-3 py-1 text-sm transition duration-300",
+                                    children: "Sair"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/ClientHeader.tsx",
+                                    lineNumber: 101,
+                                    columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/ClientHeader.tsx",
-                            lineNumber: 83,
+                            lineNumber: 84,
                             columnNumber: 11
-                        }, this),
-                        saindo ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "text-rose-600 animate-pulse",
-                            children: "Saindo..."
-                        }, void 0, false, {
-                            fileName: "[project]/src/components/ClientHeader.tsx",
-                            lineNumber: 99,
-                            columnNumber: 13
-                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                            onClick: handleLogout,
-                            className: "bg-red-500 hover:bg-red-600 text-white px-3 py-1 text-sm",
-                            children: "Sair"
-                        }, void 0, false, {
-                            fileName: "[project]/src/components/ClientHeader.tsx",
-                            lineNumber: 101,
-                            columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/ClientHeader.tsx",
-                    lineNumber: 80,
+                    lineNumber: 81,
                     columnNumber: 9
                 }, this)
             ]

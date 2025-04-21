@@ -5,6 +5,15 @@
 
 var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
+// type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
+// export const Input = ({ className = '', ...props }: InputProps) => {
+//   return (
+//     <input
+//       {...props}
+//       className={`px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 ${className}`}
+//     />
+//   );
+// };
 __turbopack_context__.s({
     "Input": (()=>Input)
 });
@@ -13,10 +22,17 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 const Input = ({ className = '', ...props })=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
         ...props,
-        className: `px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 ${className}`
+        className: `
+        px-4 py-2 w-full rounded-md
+        bg-black text-yellow-400 placeholder-gray-400
+        border border-yellow-400
+        focus:outline-none focus:ring-2 focus:ring-yellow-400
+        transition-all duration-300 ease-in-out
+        ${className}
+      `
     }, void 0, false, {
         fileName: "[project]/src/components/ui/Input.tsx",
-        lineNumber: 5,
+        lineNumber: 16,
         columnNumber: 5
     }, this);
 };
@@ -178,7 +194,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                         onClick: handleFinalizar,
-                        className: "w-full text-lg bg-indigo-600 text-white",
+                        className: "w-full text-lg",
                         children: login === 'Login' ? 'Entrar na aplicação' : 'Salvar'
                     }, void 0, false, {
                         fileName: "[project]/src/components/FormularioEntradas.tsx",
@@ -195,7 +211,6 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                                 onFechar?.();
                             }
                         },
-                        className: "bg-indigo-500 hover:bg-indigo-600 text-white",
                         children: "Voltar"
                     }, void 0, false, {
                         fileName: "[project]/src/components/FormularioEntradas.tsx",
@@ -278,14 +293,15 @@ function LoginPage() {
     };
     if (!hydrated) return null;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
-        className: "min-h-screen bg-gradient-to-br from-blue-100 to-white p-4 flex items-center justify-center",
+        className: "min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 p-4 flex items-center justify-center text-white",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "w-full max-w-md",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
+                className: "bg-gray-900 text-white",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                         className: "text-2xl font-bold text-center mb-6",
-                        children: "Bem-vindo! 🧑‍💻"
+                        children: "Bem-vindo! "
                     }, void 0, false, {
                         fileName: "[project]/src/app/login/page.tsx",
                         lineNumber: 41,
@@ -302,44 +318,44 @@ function LoginPage() {
                         className: "text-center space-y-4",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-green-600 font-medium",
+                                className: "text-green-400 font-medium",
                                 children: [
                                     "Você já está logado como ",
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
                                         children: nomeSalvo
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/login/page.tsx",
-                                        lineNumber: 52,
+                                        lineNumber: 51,
                                         columnNumber: 42
                                     }, this),
                                     ".",
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                         fileName: "[project]/src/app/login/page.tsx",
-                                        lineNumber: 52,
+                                        lineNumber: 51,
                                         columnNumber: 71
                                     }, this),
                                     "Para acessar outra conta, deslogue primeiro."
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/login/page.tsx",
-                                lineNumber: 51,
+                                lineNumber: 50,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                                 onClick: ()=>{
                                     router.push('/renda-familiar');
                                 },
-                                className: "bg-indigo-500 hover:bg-indigo-600 text-white",
+                                className: "bg-yellow-500 hover:bg-yellow-600 text-black",
                                 children: "Voltar para aplicação"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/login/page.tsx",
-                                lineNumber: 55,
+                                lineNumber: 54,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/login/page.tsx",
-                        lineNumber: 50,
+                        lineNumber: 49,
                         columnNumber: 13
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "space-y-4",
@@ -348,23 +364,25 @@ function LoginPage() {
                                 type: "text",
                                 placeholder: "Seu nome",
                                 value: nome,
-                                onChange: (e)=>setNome(e.target.value)
+                                onChange: (e)=>setNome(e.target.value),
+                                className: "bg-gray-800 text-white placeholder-gray-400"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/login/page.tsx",
-                                lineNumber: 67,
+                                lineNumber: 65,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
                                 type: "date",
                                 value: dataNascimento,
-                                onChange: (e)=>setDataNascimento(e.target.value)
+                                onChange: (e)=>setDataNascimento(e.target.value),
+                                className: "bg-gray-800 text-white placeholder-gray-400"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/login/page.tsx",
-                                lineNumber: 73,
+                                lineNumber: 72,
                                 columnNumber: 15
                             }, this),
                             erro && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-red-600 text-sm font-medium",
+                                className: "text-red-400 text-sm font-medium",
                                 children: erro
                             }, void 0, false, {
                                 fileName: "[project]/src/app/login/page.tsx",
@@ -373,7 +391,7 @@ function LoginPage() {
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                                 onClick: handleAvancar,
-                                className: "w-full text-lg bg-indigo-500 hover:bg-indigo-600 text-white",
+                                className: "w-full text-lg bg-yellow-500 hover:bg-yellow-600 text-black",
                                 children: "Avançar"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/login/page.tsx",
@@ -383,7 +401,7 @@ function LoginPage() {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/login/page.tsx",
-                        lineNumber: 66,
+                        lineNumber: 64,
                         columnNumber: 13
                     }, this)
                 ]

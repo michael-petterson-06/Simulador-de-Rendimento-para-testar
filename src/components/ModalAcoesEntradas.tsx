@@ -19,7 +19,7 @@ export const ModalAcoesEntradas = ({ onFechar, onExcluir }: ModalAcoesEntradasPr
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-xl shadow-xl max-w-sm w-full space-y-4 text-center animate-fade-in">
+      <div className="bg-black border border-yellow-500 p-6 rounded-xl shadow-xl max-w-sm w-full space-y-4 text-center animate-fade-in text-yellow-400">
         {mostrarFormularioEntradas ? (
           <FormularioEntradas
             onFechar={onFechar}
@@ -40,22 +40,20 @@ export const ModalAcoesEntradas = ({ onFechar, onExcluir }: ModalAcoesEntradasPr
           />
         ) : (
           <>
-            <h2 className="text-lg font-semibold text-indigo-700">O que deseja fazer?</h2>
+            <h2 className="text-lg font-semibold text-yellow-400">O que deseja fazer?</h2>
             <div className="flex flex-col gap-4">
               <Button
                 onClick={() => setMostrarFormularioEntradas(true)}
-                className="bg-green-500 hover:bg-green-600 text-white flex items-center justify-center gap-2"
+              
               >
-                <span>➕</span>
-                <span>Inserir Entradas</span>
+                ➕ Inserir Entradas
               </Button>
 
               <Button
                 onClick={() => setModoEdicao(true)}
-                className="bg-yellow-400 hover:bg-yellow-500 text-white flex items-center justify-center gap-2"
+              
               >
-                <span>✏️</span>
-                <span>Editar Entrada</span>
+                ✏️ Editar Entrada
               </Button>
 
               <Button
@@ -63,15 +61,14 @@ export const ModalAcoesEntradas = ({ onFechar, onExcluir }: ModalAcoesEntradasPr
                   onFechar();
                   onExcluir();
                 }}
-                className="bg-rose-500 hover:bg-rose-600 text-white flex items-center justify-center gap-2"
+              
               >
-                <span>➖</span>
-                <span>Excluir entradas</span>
+                ➖ Excluir Entradas
               </Button>
 
               <Button
                 onClick={onFechar}
-                className="bg-gray-300 text-gray-800 hover:bg-gray-400"
+              
               >
                 Cancelar
               </Button>

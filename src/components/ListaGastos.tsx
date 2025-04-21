@@ -39,20 +39,24 @@ export const ListaGastos = () => {
   if (!listaGastos || listaGastos.length === 0) return null;
 
   return (
-    <div className="mt-8 mb-4 space-y-2">
-      <h2 className="text-md font-semibold text-gray-700">Gastos:</h2>
-      <ul className="divide-y divide-gray-200">
+    <div className="mt-8 mb-4 space-y-4">
+      <h2 className="text-md font-semibold text-yellow-500">💸 Gastos:</h2>
+
+      <ul className="divide-y divide-yellow-200 border border-yellow-500 rounded-xl overflow-hidden">
         {listaGastos.map((gasto, i) => (
-          <li key={i} className="flex justify-between items-center text-sm py-2">
+          <li
+            key={i}
+            className="flex justify-between items-center text-sm py-3 px-4 bg-black text-yellow-300"
+          >
             <div className="flex flex-col">
-              <span className="text-gray-800">{gasto.nome}</span>
-              <span className="text-rose-600 font-medium">{formatarReal(gasto.valor)}</span>
+              <span className="font-semibold">{gasto.nome}</span>
+              <span className="text-yellow-500">{formatarReal(gasto.valor)}</span>
             </div>
 
             <div className="flex items-center gap-2">
               <Button
                 title="Editar gasto"
-                className="hover:text-blue-700 transition bg-indigo-500 text-white hover:bg-indigo-600"
+                
                 onClick={() => abrirEdicao(i)}
               >
                 <Pencil size={16} />
@@ -60,7 +64,7 @@ export const ListaGastos = () => {
 
               <Button
                 title="Remover gasto"
-                className="hover:text-rose-700 transition bg-rose-500 text-white hover:bg-rose-600 "
+                
                 onClick={() => removerGasto(i)}
               >
                 <Trash2 size={16} />

@@ -1,7 +1,7 @@
 'use client';
 
-import { useSimuladorStore } from '@/store/useSimuladorStore';
 import { useState } from 'react';
+import { useSimuladorStore } from '@/store/useSimuladorStore';
 import { Button } from '@/components/ui/Button';
 import { formatarReal } from '@/utils/formatarReal';
 import { ResultadoProps } from '@/types/props';
@@ -39,18 +39,20 @@ export const ResultadoHome = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
   };
 
   return (
-    <div className="mt-8 space-y-4 text-center">
-      <div className="bg-green-100 p-4 rounded-xl">
+    <div className="mt-8 space-y-4 text-center text-yellow-400">
+      <div className="bg-black border border-yellow-500 p-4 rounded-xl">
         <p className="text-lg font-medium">
           💰 Valor Depositado: <strong>{formatarReal(resultadoHome.totalDepositado)}</strong>
         </p>
       </div>
-      <div className="bg-blue-100 p-4 rounded-xl">
+
+      <div className="bg-black border border-yellow-500 p-4 rounded-xl">
         <p className="text-lg font-medium">
           📈 Valor dos Juros: <strong>{formatarReal(resultadoHome.totalJuros)}</strong>
         </p>
       </div>
-      <div className="bg-yellow-100 p-4 rounded-xl">
+
+      <div className="bg-black border border-yellow-500 p-4 rounded-xl">
         <p className="text-lg font-medium">
           🏆 Valor Total: <strong>{formatarReal(resultadoHome.valorFinal)}</strong>
         </p>
@@ -60,12 +62,12 @@ export const ResultadoHome = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
         <div className="mt-4">
           <Button
             onClick={onCopiar}
-            className="bg-indigo-500 hover:bg-indigo-600 text-white"
+           
           >
             Usar Valor Total como Novo Valor Inicial
           </Button>
           {avisoCopiado && (
-            <p className="mt-2 text-sm text-green-600 font-medium animate-fade-in-out">
+            <p className="mt-2 text-sm text-green-400 font-medium animate-fade-in-out">
               ✅ Valor copiado para Valor Inicial!
             </p>
           )}
@@ -73,24 +75,23 @@ export const ResultadoHome = ({ onCopiar, avisoCopiado }: ResultadoProps) => {
       )}
 
       {mensagemSucesso && (
-        <p className="text-green-600 font-medium text-sm animate-fade-in-out">
+        <p className="text-green-400 font-medium text-sm animate-fade-in-out">
           {mensagemSucesso}
         </p>
       )}
 
       <div className="mt-10 flex flex-col md:flex-row justify-center items-center gap-4">
-
         {!mostrarRetirada && !mostrarDeposito && (
           <>
             <Button
               onClick={() => setMostrarRetirada(true)}
-              className="bg-rose-500 hover:bg-rose-600 text-white"
+            
             >
               Retirada
             </Button>
             <Button
               onClick={() => setMostrarDeposito(true)}
-              className="bg-green-500 hover:bg-green-600 text-white"
+            
             >
               Depósito
             </Button>

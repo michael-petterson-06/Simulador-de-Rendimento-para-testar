@@ -4,7 +4,6 @@ import { useEntradasStore } from '@/store/useEntradasStore';
 import { Button } from './ui/Button';
 import { SelecionarEntradaParaEdicaoProps } from '@/types/selecionarEntradaParaEdicaoProps';
 
-
 export const SelecionarEntradaParaEdicao = ({
   onSelecionarEntrada,
   onCancelar,
@@ -12,20 +11,25 @@ export const SelecionarEntradaParaEdicao = ({
   const { nomes } = useEntradasStore();
 
   return (
-    <div className="space-y-4 text-center">
-      <h2 className="text-lg font-semibold text-indigo-700">Selecione uma entrada</h2>
-      <div className="flex flex-col gap-2">
+    <div className="space-y-4 text-center text-yellow-400">
+      <h2 className="text-lg font-semibold">Selecione uma entrada</h2>
+
+      <ul className="flex flex-col gap-2 text-left">
         {nomes.map((nome, index) => (
-          <Button
+          <li
             key={index}
-            className="bg-indigo-500 text-white hover:bg-indigo-600"
             onClick={() => onSelecionarEntrada({ nome, index })}
+            className="cursor-pointer px-4 py-2 rounded-xl border border-yellow-400 bg-yellow-300 text-black hover:border-yellow-500 hover:underline underline-offset-4 hover:bg-yellow-400 transition-all duration-300"
           >
             {nome}
-          </Button>
+          </li>
         ))}
-      </div>
-      <Button onClick={onCancelar} className="mt-4 bg-gray-300 hover:bg-gray-400 text-gray-800">
+      </ul>
+
+      <Button
+        onClick={onCancelar}
+       
+      >
         Cancelar
       </Button>
     </div>

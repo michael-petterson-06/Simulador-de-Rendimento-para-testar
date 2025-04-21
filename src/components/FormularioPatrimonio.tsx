@@ -34,8 +34,8 @@ export const FormularioPatrimonio = ({
   const modoEdicao = !!propriedadeInicial;
 
   return (
-    <div className="mt-6 p-4 bg-white border rounded-xl shadow space-y-4 animate-fade-in">
-      <h2 className="text-lg font-bold text-indigo-600">
+    <div className="mt-6 p-4 bg-black border border-yellow-500 rounded-xl text-yellow-400 shadow space-y-4 animate-fade-in">
+      <h2 className="text-lg font-bold">
         {modoEdicao ? 'Editar Propriedade' : 'Nova Propriedade'}
       </h2>
 
@@ -55,11 +55,11 @@ export const FormularioPatrimonio = ({
         fixedDecimalScale
         onValueChange={(values) => setValor(values.value)}
         placeholder="Valor"
-        className="px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        className="px-4 py-2 border border-yellow-500 bg-black text-yellow-400 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-yellow-500"
       />
 
-      <div className="flex justify-end gap-4">
-        <Button onClick={handleSalvar} className="bg-green-500 hover:bg-green-600 text-white">
+      <div className="flex justify-end gap-4 pt-2">
+        <Button onClick={handleSalvar}>
           {modoEdicao ? 'Salvar Alterações' : 'Salvar'}
         </Button>
         <Button onClick={onCancelar} className="bg-gray-300 text-gray-800 hover:bg-gray-400">

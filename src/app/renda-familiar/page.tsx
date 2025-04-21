@@ -45,13 +45,9 @@ export default function RendaFamiliar() {
   const [mostrarModalAcoes, setMostrarModalAcoes] = useState(false);
   const [mostrarModalExcluirEntradas, setMostrarModalExcluirEntradas] = useState(false);
 
-
-
   const handleValorEntrada = (index: number, valor: string) => {
-   
     const novosValores = [...valoresEntradas];
     novosValores[index] = valor;
-   
     setValoresEntradas(novosValores);
   };
 
@@ -92,61 +88,63 @@ export default function RendaFamiliar() {
 
   const adicionarGastoPercentual = () => {
     const perc = parseFloat(percentual);
-  
+
     if (!nomePercentual.trim() || isNaN(perc) || perc <= 0) {
       alert('Preencha corretamente o nome e percentual.');
       return;
     }
-  
+
     const entradasNumericas = valoresEntradas.map(Number);
     const totalEntradas = entradasNumericas.reduce((acc, val) => acc + val, 0);
-  
-    let valorCalculado = 0;
-  
-    if (tipoEntrada === 'Todas as Entradas') {
-     
-      valorCalculado = (perc / 100) * totalEntradas;
 
+    let valorCalculado = 0;
+
+    if (tipoEntrada === 'Todas as Entradas') {
+      valorCalculado = (perc / 100) * totalEntradas;
     } else {
-     
       const index = nomesEntradas.findIndex((n) => n === tipoEntrada);
       const valorEntrada = entradasNumericas[index];
-  
+
       if (index === -1 || isNaN(valorEntrada)) {
         alert('Entrada específica não encontrada ou inválida.');
         return;
       }
-  
+
       valorCalculado = (perc / 100) * valorEntrada;
     }
-  
+
     addGasto({ nome: nomePercentual, valor: valorCalculado });
 
     setNomePercentual('');
     setPercentual('');
-    // setTipoEntrada('');
     setMostrarModalPercentual(false);
   };
-  
+
   return (
-    <main className="min-h-screen bg-gradient-to-br from-pink-100 to-white p-4 flex items-center justify-center">
+    <main className="min-h-screen bg-black text-yellow-400 p-4 flex items-center justify-center">
       <div className="w-full max-w-xl">
-        <Card>
+        <Card className="bg-zinc-900 border border-yellow-500 text-yellow-400">
           <div className="flex justify-between items-center mb-4">
-            <h1 className="text-3xl font-bold text-center w-full">Renda Familiar</h1>
+            <h1 className="text-3xl font-bold text-yellow-300 text-center w-full">
+              Renda Familiar
+            </h1>
             <button
               onClick={() => setMostrarModalAcoes(true)}
-              className="text-3xl font-bold text-indigo-500 hover:text-indigo-700"
+              className="text-3xl font-bold text-yellow-400 hover:text-yellow-300 transition"
               title="Mais opções"
             >
               ⋯
             </button>
           </div>
-          <SelectMeses/>
+
+          <SelectMeses />
+
           <div className="grid gap-4 md:grid-cols-2">
             {nomesEntradas.map((nome, index) => (
               <div key={index} className="flex flex-col">
-               <label className="mb-1 pl-2 text-sm font-medium text-gray-700">{nome}</label>
+                <label className="mb-1 pl-2 text-sm font-medium text-yellow-300">
+                  {nome}
+                </label>
                 <NumericFormat
                   value={valoresEntradas[index]}
                   thousandSeparator="."
@@ -156,19 +154,18 @@ export default function RendaFamiliar() {
                   fixedDecimalScale
                   onValueChange={(values) => handleValorEntrada(index, values.value)}
                   placeholder={`Valor de ${nome}`}
-                  className="px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="px-4 py-2 w-full rounded-md bg-black text-yellow-400 placeholder-gray-400 border border-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all duration-300 ease-in-out"
                 />
               </div>
             ))}
           </div>
 
-
           <div className="mt-8">
             <ListaGastos />
           </div>
 
-          <div className="md:col-span-2 text-left text-sm font-medium text-gray-700 mt-4">
-            <span className="inline-block text-lg text-rose-600 font-bold">
+          <div className="md:col-span-2 text-left text-sm font-medium text-yellow-300 mt-4">
+            <span className="inline-block text-lg font-bold">
               {formatarReal(gastos)}
             </span>
           </div>
@@ -176,28 +173,27 @@ export default function RendaFamiliar() {
           <div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-4">
             <Button
               onClick={calcular}
-              className="w-full md:w-auto text-base px-4 py-2 bg-green-500  text-white hover:bg-green-600"
-                                                                
+              className="w-full md:w-auto text-base"
             >
               Calcular
             </Button>
             <Button
               onClick={limpar}
-              className="w-full md:w-auto text-base px-4 py-2 bg-gray-300 text-gray-800 hover:bg-gray-400"
+              className="w-full md:w-auto text-base"
             >
               Limpar
             </Button>
             <Button
               onClick={() => setMostrarModal(true)}
-              className="w-full md:w-auto text-base px-4 py-2 bg-rose-500 text-white hover:bg-rose-600"
+              className="w-full md:w-auto text-base "
             >
               Gasto 💸
             </Button>
             <Button
               onClick={() => setMostrarModalPercentual(true)}
-              className="w-full md:w-auto text-base px-4 py-2 bg-indigo-500 text-white hover:bg-indigo-600"
+              className="w-full md:w-auto text-base "
             >
-            Gasto %
+              Gasto %
             </Button>
           </div>
 
@@ -216,7 +212,7 @@ export default function RendaFamiliar() {
             <ModalGastoPercentual
               nome={nomePercentual}
               percentual={percentual}
-              tipoEntrada={tipoEntrada} 
+              tipoEntrada={tipoEntrada}
               setNome={setNomePercentual}
               setPercentual={setPercentual}
               setTipoEntrada={setTipoEntrada}
@@ -244,7 +240,9 @@ export default function RendaFamiliar() {
           )}
 
           {mostrarModalExcluirEntradas && (
-            <ModalExcluirEntradas onCancelar={() => setMostrarModalExcluirEntradas(false)} />
+            <ModalExcluirEntradas
+              onCancelar={() => setMostrarModalExcluirEntradas(false)}
+            />
           )}
         </Card>
       </div>

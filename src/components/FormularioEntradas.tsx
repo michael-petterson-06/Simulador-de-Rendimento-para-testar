@@ -116,7 +116,7 @@ export const FormularioEntradas = ({onFechar, login,  fecharFormulario,   }: For
       <div className="flex flex-col md:flex-row gap-4">
       <Button
           onClick={handleFinalizar}
-          className="w-full text-lg bg-indigo-600 text-white"
+          className="w-full text-lg"
         >
           {login === 'Login' ? 'Entrar na aplicação' : 'Salvar'}
         </Button>
@@ -131,7 +131,7 @@ export const FormularioEntradas = ({onFechar, login,  fecharFormulario,   }: For
                 onFechar?.()
               }
             }}
-            className="bg-indigo-500 hover:bg-indigo-600 text-white"
+            
           >
             Voltar
           </Button>

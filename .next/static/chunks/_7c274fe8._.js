@@ -5,6 +5,11 @@
 
 var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
+// // src/components/ui/Card.tsx
+// import { ReactNode } from 'react';
+// export const Card = ({ children, className = '' }: { children: ReactNode; className?: string }) => (
+//   <div className={`bg-white rounded-xl shadow-xl p-6 ${className}`}>{children}</div>
+// );
 // src/components/ui/Card.tsx
 __turbopack_context__.s({
     "Card": (()=>Card)
@@ -12,11 +17,11 @@ __turbopack_context__.s({
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 ;
 const Card = ({ children, className = '' })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: `bg-white rounded-xl shadow-xl p-6 ${className}`,
+        className: `bg-black text-yellow-400 rounded-xl shadow-xl p-6 border border-yellow-500 ${className}`,
         children: children
     }, void 0, false, {
         fileName: "[project]/src/components/ui/Card.tsx",
-        lineNumber: 5,
+        lineNumber: 13,
         columnNumber: 3
     }, this);
 _c = Card;
@@ -59,30 +64,30 @@ const ModalRemoverHistorico = ({ onConfirmar, onCancelar, titulo, paragrafo })=>
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "bg-white p-6 rounded-xl shadow-xl max-w-sm w-full space-y-4 text-center animate-fade-in",
+            className: "bg-black border border-yellow-500 p-6 rounded-xl shadow-xl max-w-sm w-full space-y-4 text-center animate-fade-in",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "flex justify-center text-4xl text-red-600",
+                    className: "flex justify-center text-4xl text-yellow-400",
                     children: "🗑️"
                 }, void 0, false, {
                     fileName: "[project]/src/components/ModalRemoverHistorico.tsx",
-                    lineNumber: 10,
+                    lineNumber: 15,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                    className: "text-lg font-semibold text-rose-600",
+                    className: "text-lg font-semibold text-yellow-400",
                     children: titulo
                 }, void 0, false, {
                     fileName: "[project]/src/components/ModalRemoverHistorico.tsx",
-                    lineNumber: 11,
+                    lineNumber: 16,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                    className: "text-gray-700 text-sm",
+                    className: "text-yellow-300 text-sm",
                     children: `Tem certeza que deseja apagar este ${paragrafo}?`
                 }, void 0, false, {
                     fileName: "[project]/src/components/ModalRemoverHistorico.tsx",
-                    lineNumber: 12,
+                    lineNumber: 17,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -90,11 +95,11 @@ const ModalRemoverHistorico = ({ onConfirmar, onCancelar, titulo, paragrafo })=>
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                             onClick: onConfirmar,
-                            className: "bg-red-500 hover:bg-red-600 text-white",
+                            className: "bg-yellow-400 hover:bg-white text-black hover:text-yellow-500 border border-yellow-400 transition-all duration-500",
                             children: "Apagar"
                         }, void 0, false, {
                             fileName: "[project]/src/components/ModalRemoverHistorico.tsx",
-                            lineNumber: 16,
+                            lineNumber: 21,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -103,24 +108,24 @@ const ModalRemoverHistorico = ({ onConfirmar, onCancelar, titulo, paragrafo })=>
                             children: "Cancelar"
                         }, void 0, false, {
                             fileName: "[project]/src/components/ModalRemoverHistorico.tsx",
-                            lineNumber: 22,
+                            lineNumber: 27,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/ModalRemoverHistorico.tsx",
-                    lineNumber: 15,
+                    lineNumber: 20,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/ModalRemoverHistorico.tsx",
-            lineNumber: 9,
+            lineNumber: 14,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/ModalRemoverHistorico.tsx",
-        lineNumber: 8,
+        lineNumber: 13,
         columnNumber: 5
     }, this);
 };
@@ -136,6 +141,15 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 
 var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
+// type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
+// export const Input = ({ className = '', ...props }: InputProps) => {
+//   return (
+//     <input
+//       {...props}
+//       className={`px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 ${className}`}
+//     />
+//   );
+// };
 __turbopack_context__.s({
     "Input": (()=>Input)
 });
@@ -144,10 +158,17 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 const Input = ({ className = '', ...props })=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
         ...props,
-        className: `px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 ${className}`
+        className: `
+        px-4 py-2 w-full rounded-md
+        bg-black text-yellow-400 placeholder-gray-400
+        border border-yellow-400
+        focus:outline-none focus:ring-2 focus:ring-yellow-400
+        transition-all duration-300 ease-in-out
+        ${className}
+      `
     }, void 0, false, {
         fileName: "[project]/src/components/ui/Input.tsx",
-        lineNumber: 5,
+        lineNumber: 16,
         columnNumber: 5
     }, this);
 };
@@ -202,10 +223,10 @@ const FormularioPatrimonio = ({ onSalvar, onCancelar, propriedadeInicial = '', v
     };
     const modoEdicao = !!propriedadeInicial;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "mt-6 p-4 bg-white border rounded-xl shadow space-y-4 animate-fade-in",
+        className: "mt-6 p-4 bg-black border border-yellow-500 rounded-xl text-yellow-400 shadow space-y-4 animate-fade-in",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                className: "text-lg font-bold text-indigo-600",
+                className: "text-lg font-bold",
                 children: modoEdicao ? 'Editar Propriedade' : 'Nova Propriedade'
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioPatrimonio.tsx",
@@ -231,18 +252,17 @@ const FormularioPatrimonio = ({ onSalvar, onCancelar, propriedadeInicial = '', v
                 fixedDecimalScale: true,
                 onValueChange: (values)=>setValor(values.value),
                 placeholder: "Valor",
-                className: "px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className: "px-4 py-2 border border-yellow-500 bg-black text-yellow-400 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-yellow-500"
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioPatrimonio.tsx",
                 lineNumber: 49,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex justify-end gap-4",
+                className: "flex justify-end gap-4 pt-2",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                         onClick: handleSalvar,
-                        className: "bg-green-500 hover:bg-green-600 text-white",
                         children: modoEdicao ? 'Salvar Alterações' : 'Salvar'
                     }, void 0, false, {
                         fileName: "[project]/src/components/FormularioPatrimonio.tsx",
@@ -353,7 +373,7 @@ function PatrimonioPage() {
         setPatrimonioEmEdicao(null);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
-        className: "min-h-screen bg-gradient-to-br from-blue-100 to-white p-4 flex items-center justify-center",
+        className: "min-h-screen bg-black text-yellow-400 p-4 flex items-center justify-center",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "w-full max-w-4xl",
@@ -375,7 +395,6 @@ function PatrimonioPage() {
                                         setMostrarFormulario(true);
                                         setPatrimonioEmEdicao(null);
                                     },
-                                    className: "bg-indigo-500 hover:bg-indigo-600 text-white",
                                     children: "Novo Cadastro"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/patrimonio/page.tsx",
@@ -398,23 +417,23 @@ function PatrimonioPage() {
                             valorInicial: patrimonioEmEdicao?.valor
                         }, void 0, false, {
                             fileName: "[project]/src/app/patrimonio/page.tsx",
-                            lineNumber: 83,
+                            lineNumber: 82,
                             columnNumber: 13
                         }, this),
                         patrimonios.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-center text-gray-500",
+                            className: "text-center text-yellow-300",
                             children: "Nenhum bem cadastrado ainda."
                         }, void 0, false, {
                             fileName: "[project]/src/app/patrimonio/page.tsx",
-                            lineNumber: 95,
+                            lineNumber: 94,
                             columnNumber: 13
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "overflow-x-auto",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
-                                className: "w-full border border-gray-300 rounded-xl overflow-hidden text-left",
+                                className: "w-full border border-yellow-500 rounded-xl overflow-hidden text-left",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("thead", {
-                                        className: "bg-blue-200 text-blue-900",
+                                        className: "bg-yellow-500 text-black",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -422,7 +441,7 @@ function PatrimonioPage() {
                                                     children: "Ano"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                    lineNumber: 101,
+                                                    lineNumber: 100,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -430,7 +449,7 @@ function PatrimonioPage() {
                                                     children: "Idade"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                    lineNumber: 102,
+                                                    lineNumber: 101,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -438,7 +457,7 @@ function PatrimonioPage() {
                                                     children: "Propriedade"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                    lineNumber: 103,
+                                                    lineNumber: 102,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -446,7 +465,7 @@ function PatrimonioPage() {
                                                     children: "Valor"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                    lineNumber: 104,
+                                                    lineNumber: 103,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -454,31 +473,31 @@ function PatrimonioPage() {
                                                     children: "Ações"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                    lineNumber: 105,
+                                                    lineNumber: 104,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/patrimonio/page.tsx",
-                                            lineNumber: 100,
+                                            lineNumber: 99,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/patrimonio/page.tsx",
-                                        lineNumber: 99,
+                                        lineNumber: 98,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
                                         children: [
                                             patrimonios.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
-                                                    className: "odd:bg-white even:bg-blue-50",
+                                                    className: "odd:bg-black even:bg-gray-900",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                             className: "px-4 py-2 text-sm",
                                                             children: item.ano
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                            lineNumber: 111,
+                                                            lineNumber: 110,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -486,7 +505,7 @@ function PatrimonioPage() {
                                                             children: item.idade
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                            lineNumber: 112,
+                                                            lineNumber: 111,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -494,15 +513,15 @@ function PatrimonioPage() {
                                                             children: item.propriedade
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                            lineNumber: 113,
+                                                            lineNumber: 112,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                            className: "px-4 py-2 text-sm font-semibold text-blue-600",
+                                                            className: "px-4 py-2 text-sm font-semibold text-yellow-400",
                                                             children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$formatarReal$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["formatarReal"])(item.valor)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                            lineNumber: 114,
+                                                            lineNumber: 113,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -512,39 +531,39 @@ function PatrimonioPage() {
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$pencil$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Pencil$3e$__["Pencil"], {
                                                                         onClick: ()=>iniciarEdicao(item),
-                                                                        className: "h-5 w-5 text-gray-500 cursor-pointer hover:text-gray-700"
+                                                                        className: "h-5 w-5 text-yellow-400 hover:text-white cursor-pointer transition"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                                        lineNumber: 119,
+                                                                        lineNumber: 118,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__["Trash2"], {
                                                                         onClick: ()=>setIdParaRemover(item.id),
-                                                                        className: "h-5 w-5 text-red-500 hover:text-red-600 cursor-pointer transition"
+                                                                        className: "h-5 w-5 text-yellow-400 hover:text-white cursor-pointer transition"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                                        lineNumber: 123,
+                                                                        lineNumber: 122,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                                lineNumber: 118,
+                                                                lineNumber: 117,
                                                                 columnNumber: 25
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                            lineNumber: 117,
+                                                            lineNumber: 116,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, item.id, true, {
                                                     fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                    lineNumber: 110,
+                                                    lineNumber: 109,
                                                     columnNumber: 21
                                                 }, this)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
-                                                className: "bg-blue-100 font-semibold",
+                                                className: "bg-yellow-700 text-black font-bold",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                         colSpan: 3,
@@ -552,43 +571,43 @@ function PatrimonioPage() {
                                                         children: "Total:"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                        lineNumber: 132,
+                                                        lineNumber: 131,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                        className: "px-4 py-2 text-blue-700",
+                                                        className: "px-4 py-2",
                                                         children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$formatarReal$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["formatarReal"])(total)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                        lineNumber: 135,
+                                                        lineNumber: 134,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {}, void 0, false, {
                                                         fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                        lineNumber: 136,
+                                                        lineNumber: 135,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/patrimonio/page.tsx",
-                                                lineNumber: 131,
+                                                lineNumber: 130,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/patrimonio/page.tsx",
-                                        lineNumber: 108,
+                                        lineNumber: 107,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/patrimonio/page.tsx",
-                                lineNumber: 98,
+                                lineNumber: 97,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/patrimonio/page.tsx",
-                            lineNumber: 97,
+                            lineNumber: 96,
                             columnNumber: 13
                         }, this)
                     ]
@@ -609,7 +628,7 @@ function PatrimonioPage() {
                 paragrafo: "registro de patrimônio"
             }, void 0, false, {
                 fileName: "[project]/src/app/patrimonio/page.tsx",
-                lineNumber: 146,
+                lineNumber: 145,
                 columnNumber: 9
             }, this)
         ]
