@@ -35,10 +35,6 @@ Este é um projeto completo de simulação de renda familiar, desenvolvido com *
 
 ## 🖥️ Pré-visualização
 
-![preview](https://user-images.githubusercontent.com/your-screenshot.png)
-
-## 🖥️ Pré-visualização
-
 Acesse a versão em produção aqui: [👉 Acessar Sistema](https://simulador-de-rendimento-para-testar.vercel.app)
 
 ---
