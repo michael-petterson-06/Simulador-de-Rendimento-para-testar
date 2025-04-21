@@ -35,8 +35,11 @@ Este é um projeto completo de simulação de renda familiar, desenvolvido com *
 
 ## 🖥️ Pré-visualização
 
-![preview](https://user-images.githubusercontent.com/your-screenshot.png)  
-_Simulação de renda com entradas, gastos e visual limpo_
+![preview](https://user-images.githubusercontent.com/your-screenshot.png)
+
+## 🖥️ Pré-visualização
+
+Acesse a versão em produção aqui: [👉 Acessar Sistema](https://simulador-de-rendimento-para-testar.vercel.app)
 
 ---
 
@@ -59,7 +62,7 @@ _Simulação de renda com entradas, gastos e visual limpo_
 ### 1. Clone o projeto
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/michael-petterson-06/Simulador-de-Rendimento-para-testar.git
 cd seu-repositorio
 ```
 
