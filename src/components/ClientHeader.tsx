@@ -73,9 +73,7 @@ export const ClientHeader = () => {
   return (
     <header className="w-full px-4 pt-4 mb-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 md:gap-4">
-        <div className="flex justify-center md:justify-start w-full md:w-auto">
-          <Nav />
-        </div>
+   
 
         <div className="flex flex-wrap justify-center md:justify-end items-center gap-2 text-sm text-gray-600 whitespace-nowrap">
           <span>👤 {nome} — {idade} anos ({ano})</span>
@@ -105,6 +103,10 @@ export const ClientHeader = () => {
               Sair
             </Button>
           )}
+        </div>
+
+        <div className="flex justify-center md:justify-start w-full md:w-auto">
+          <Nav />
         </div>
       </div>
     </header>
