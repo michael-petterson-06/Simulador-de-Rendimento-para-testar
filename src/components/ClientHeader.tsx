@@ -12,15 +12,13 @@ import { useHistoricoStore } from '@/store/useHistoricoStore';
 import { usePatrimonioStore } from '@/store/usePatrimonioStore';
 
 export const ClientHeader = () => {
-
   const { formularioPreenchido } = useEntradasStore();
-
   const [hydrated, setHydrated] = useState(false);
   const [saindo, setSaindo] = useState(false);
+
   const { nome, idade, logout, setIdade } = useUserStore();
   const { ano, setAno } = useSimuladorStore();
   const router = useRouter();
- 
 
   useEffect(() => {
     setHydrated(true);
@@ -73,19 +71,15 @@ export const ClientHeader = () => {
   };
 
   return (
-    <header className="w-full px-6 pt-4 mb-6">
-      <div className="w-full flex flex-col md:flex-row items-center justify-center md:justify-between gap-4">
-     
-        <div className="flex justify-center w-full md:justify-start">
+    <header className="w-full px-4 pt-4 mb-6">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 md:gap-4">
+        <div className="flex justify-center md:justify-start w-full md:w-auto">
           <Nav />
         </div>
 
-          
-        <div className="flex items-center gap-2 text-sm text-gray-600 whitespace-nowrap self-end md:self-auto">
-          <span>
-            👤 {nome} — {idade} anos ({ano})
-          </span>
-    
+        <div className="flex flex-wrap justify-center md:justify-end items-center gap-2 text-sm text-gray-600 whitespace-nowrap">
+          <span>👤 {nome} — {idade} anos ({ano})</span>
+
           <div className="flex gap-2">
             <Button
               onClick={decrementarAnoEIdade}
@@ -100,7 +94,7 @@ export const ClientHeader = () => {
               +1
             </Button>
           </div>
-    
+
           {saindo ? (
             <span className="text-rose-600 animate-pulse">Saindo...</span>
           ) : (
@@ -114,6 +108,5 @@ export const ClientHeader = () => {
         </div>
       </div>
     </header>
-  
   );
 };

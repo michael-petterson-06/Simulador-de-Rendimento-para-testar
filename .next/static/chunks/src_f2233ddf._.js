@@ -1213,16 +1213,10 @@ var _s = __turbopack_context__.k.signature();
 const EditarEntrada = ({ entrada, onCancelar })=>{
     _s();
     const [novoNome, setNovoNome] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(entrada.nome);
-    const { nomes, setNomes } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEntradasStore"])();
-    // const router = useRouter();
+    const { updateNomeEntrada } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEntradasStore"])();
     const salvarEdicao = ()=>{
-        const novosNomes = [
-            ...nomes
-        ];
-        novosNomes[entrada.index] = novoNome;
-        setNomes(novosNomes);
+        updateNomeEntrada(entrada.index, novoNome);
         onCancelar();
-    // router.push('/renda-familiar');
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "space-y-4 text-center",
@@ -1232,7 +1226,7 @@ const EditarEntrada = ({ entrada, onCancelar })=>{
                 children: "Editar Entrada"
             }, void 0, false, {
                 fileName: "[project]/src/components/EditarEntrada.tsx",
-                lineNumber: 25,
+                lineNumber: 20,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1242,7 +1236,7 @@ const EditarEntrada = ({ entrada, onCancelar })=>{
                 placeholder: "Novo nome da entrada"
             }, void 0, false, {
                 fileName: "[project]/src/components/EditarEntrada.tsx",
-                lineNumber: 26,
+                lineNumber: 21,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1254,7 +1248,7 @@ const EditarEntrada = ({ entrada, onCancelar })=>{
                         children: "Salvar"
                     }, void 0, false, {
                         fileName: "[project]/src/components/EditarEntrada.tsx",
-                        lineNumber: 33,
+                        lineNumber: 28,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1263,23 +1257,23 @@ const EditarEntrada = ({ entrada, onCancelar })=>{
                         children: "Cancelar"
                     }, void 0, false, {
                         fileName: "[project]/src/components/EditarEntrada.tsx",
-                        lineNumber: 36,
+                        lineNumber: 31,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/EditarEntrada.tsx",
-                lineNumber: 32,
+                lineNumber: 27,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/EditarEntrada.tsx",
-        lineNumber: 24,
+        lineNumber: 19,
         columnNumber: 5
     }, this);
 };
-_s(EditarEntrada, "vxZFdMT0Jo7LphvnjYThrgYoFxc=", false, function() {
+_s(EditarEntrada, "Gkz8PMxp7rt8LuYnbDcF+k/Bv2Y=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEntradasStore"]
     ];

@@ -186,7 +186,7 @@ const Nav = ()=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
         className: "flex flex-col md:flex-row items-center justify-center gap-4 md:gap-10",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "flex items-center gap-6",
+            className: "flex flex-col md:flex-row items-center gap-4 md:gap-6",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                     href: "/renda-familiar",
@@ -194,7 +194,7 @@ const Nav = ()=>{
                     children: "Renda"
                 }, void 0, false, {
                     fileName: "[project]/src/components/ui/Nav.tsx",
-                    lineNumber: 15,
+                    lineNumber: 16,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -203,7 +203,7 @@ const Nav = ()=>{
                     children: "Rendimento"
                 }, void 0, false, {
                     fileName: "[project]/src/components/ui/Nav.tsx",
-                    lineNumber: 27,
+                    lineNumber: 28,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -212,7 +212,7 @@ const Nav = ()=>{
                     children: "Retiradas"
                 }, void 0, false, {
                     fileName: "[project]/src/components/ui/Nav.tsx",
-                    lineNumber: 38,
+                    lineNumber: 39,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -221,7 +221,7 @@ const Nav = ()=>{
                     children: "Histórico"
                 }, void 0, false, {
                     fileName: "[project]/src/components/ui/Nav.tsx",
-                    lineNumber: 48,
+                    lineNumber: 49,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -230,14 +230,14 @@ const Nav = ()=>{
                     children: "Patrimônio"
                 }, void 0, false, {
                     fileName: "[project]/src/components/ui/Nav.tsx",
-                    lineNumber: 59,
+                    lineNumber: 60,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/ui/Nav.tsx",
             lineNumber: 13,
-            columnNumber: 7
+            columnNumber: 5
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/ui/Nav.tsx",
@@ -390,6 +390,16 @@ const useEntradasStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$nod
         setFormularioPreenchido: (preenchido)=>set({
                 formularioPreenchido: preenchido
             }),
+        updateNomeEntrada: (index, novoNome)=>{
+            const { nomes } = get();
+            const novosNomes = [
+                ...nomes
+            ];
+            novosNomes[index] = novoNome;
+            set({
+                nomes: novosNomes
+            });
+        },
         resetAll: ()=>set({
                 quantidade: 0,
                 nomes: [],
@@ -572,24 +582,24 @@ const ClientHeader = ()=>{
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
-        className: "w-full px-6 pt-4 mb-6",
+        className: "w-full px-4 pt-4 mb-6",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "w-full flex flex-col md:flex-row items-center justify-center md:justify-between gap-4",
+            className: "max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 md:gap-4",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "flex justify-center w-full md:justify-start",
+                    className: "flex justify-center md:justify-start w-full md:w-auto",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Nav$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Nav"], {}, void 0, false, {
                         fileName: "[project]/src/components/ClientHeader.tsx",
-                        lineNumber: 80,
+                        lineNumber: 77,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/ClientHeader.tsx",
-                    lineNumber: 79,
+                    lineNumber: 76,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "flex items-center gap-2 text-sm text-gray-600 whitespace-nowrap self-end md:self-auto",
+                    className: "flex flex-wrap justify-center md:justify-end items-center gap-2 text-sm text-gray-600 whitespace-nowrap",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                             children: [
@@ -603,7 +613,7 @@ const ClientHeader = ()=>{
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/ClientHeader.tsx",
-                            lineNumber: 85,
+                            lineNumber: 81,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -615,7 +625,7 @@ const ClientHeader = ()=>{
                                     children: "-1"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/ClientHeader.tsx",
-                                    lineNumber: 90,
+                                    lineNumber: 84,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -624,13 +634,13 @@ const ClientHeader = ()=>{
                                     children: "+1"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/ClientHeader.tsx",
-                                    lineNumber: 96,
+                                    lineNumber: 90,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/ClientHeader.tsx",
-                            lineNumber: 89,
+                            lineNumber: 83,
                             columnNumber: 11
                         }, this),
                         saindo ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -638,7 +648,7 @@ const ClientHeader = ()=>{
                             children: "Saindo..."
                         }, void 0, false, {
                             fileName: "[project]/src/components/ClientHeader.tsx",
-                            lineNumber: 105,
+                            lineNumber: 99,
                             columnNumber: 13
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                             onClick: handleLogout,
@@ -646,24 +656,24 @@ const ClientHeader = ()=>{
                             children: "Sair"
                         }, void 0, false, {
                             fileName: "[project]/src/components/ClientHeader.tsx",
-                            lineNumber: 107,
+                            lineNumber: 101,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/ClientHeader.tsx",
-                    lineNumber: 84,
+                    lineNumber: 80,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/ClientHeader.tsx",
-            lineNumber: 77,
+            lineNumber: 75,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/ClientHeader.tsx",
-        lineNumber: 76,
+        lineNumber: 74,
         columnNumber: 5
     }, this);
 };

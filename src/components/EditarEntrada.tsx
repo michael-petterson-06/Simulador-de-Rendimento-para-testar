@@ -4,20 +4,15 @@ import { useState } from 'react';
 import { useEntradasStore } from '@/store/useEntradasStore';
 import { Input } from './ui/Input';
 import { Button } from './ui/Button';
-// import { useRouter } from 'next/navigation';
 import { EditarEntradaProps } from '@/types/editarEntradaProps';
 
 export const EditarEntrada = ({ entrada, onCancelar }: EditarEntradaProps) => {
   const [novoNome, setNovoNome] = useState(entrada.nome);
-  const { nomes, setNomes } = useEntradasStore();
-  // const router = useRouter();
+  const { updateNomeEntrada } = useEntradasStore();
 
   const salvarEdicao = () => {
-    const novosNomes = [...nomes];
-    novosNomes[entrada.index] = novoNome;
-    setNomes(novosNomes);
+    updateNomeEntrada(entrada.index, novoNome);
     onCancelar();
-    // router.push('/renda-familiar');
   };
 
   return (

@@ -7,6 +7,7 @@ export interface EntradasState {
   setNomes: (nomes: string[]) => void;
   setValores: (valores: string[]) => void;
   setFormularioPreenchido: (preenchido: boolean) => void;
+  updateNomeEntrada: (index: number, novoNome: string) => void
   resetAll: () => void;
 }
 
