@@ -1302,12 +1302,12 @@ img, video {
   transition-duration: .1s;
 }
 
-.duration-300 {
-  transition-duration: .3s;
-}
-
 .duration-200 {
   transition-duration: .2s;
+}
+
+.duration-300 {
+  transition-duration: .3s;
 }
 
 .ease-in {
