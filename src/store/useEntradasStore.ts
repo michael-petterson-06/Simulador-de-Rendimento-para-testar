@@ -36,6 +36,13 @@ export const useEntradasStore = create<EntradasState>()(
 
       setFormularioPreenchido: (preenchido) => set({ formularioPreenchido: preenchido }),
 
+      updateNomeEntrada: (index: number, novoNome: string) => {
+        const { nomes } = get();
+        const novosNomes = [...nomes];
+        novosNomes[index] = novoNome;
+        set({ nomes: novosNomes });
+      },
+      
       resetAll: () =>
         set({
           quantidade: 0,
