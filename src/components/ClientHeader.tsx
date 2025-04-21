@@ -72,41 +72,40 @@ export const ClientHeader = () => {
 
   return (
     <header className="w-full px-4 pt-4 mb-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 md:gap-4">
-   
+      <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-4">
+ 
+        <div className="flex justify-center md:justify-start w-full md:w-auto">
+          <Nav />
+        </div>
 
-        <div className="flex flex-wrap justify-center md:justify-end items-center gap-2 text-sm text-gray-600 whitespace-nowrap">
-          <span>👤 {nome} — {idade} anos ({ano})</span>
+        <div className="flex flex-wrap justify-center md:justify-end items-center gap-2 text-sm text-yellow-400 font-medium whitespace-nowrap">
+          <span className="text-yellow-400"> {nome} — {idade} anos ({ano})</span>
 
           <div className="flex gap-2">
             <Button
               onClick={decrementarAnoEIdade}
-              className="bg-yellow-300 hover:bg-yellow-400 text-black px-2 py-1 text-xs"
+              className="bg-yellow-400 hover:bg-yellow-500 text-black px-2 py-1 text-xs border border-yellow-500 transition duration-300"
             >
               -1
             </Button>
             <Button
               onClick={incrementarAnoEIdade}
-              className="bg-green-400 hover:bg-green-500 text-white px-2 py-1 text-xs"
+              className="bg-yellow-400 hover:bg-yellow-500 text-black px-2 py-1 text-xs border border-yellow-500 transition duration-300"
             >
               +1
             </Button>
+
+            {saindo ? (
+              <span className="text-rose-600 animate-pulse">Saindo...</span>
+            ) : (
+              <Button
+                onClick={handleLogout}
+                className="bg-black hover:bg-red-600 border border-yellow-400 px-3 py-1 text-sm transition duration-300"
+              >
+                Sair
+              </Button>
+            )}
           </div>
-
-          {saindo ? (
-            <span className="text-rose-600 animate-pulse">Saindo...</span>
-          ) : (
-            <Button
-              onClick={handleLogout}
-              className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 text-sm"
-            >
-              Sair
-            </Button>
-          )}
-        </div>
-
-        <div className="flex justify-center md:justify-start w-full md:w-auto">
-          <Nav />
         </div>
       </div>
     </header>

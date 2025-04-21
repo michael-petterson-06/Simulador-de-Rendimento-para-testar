@@ -15,7 +15,7 @@ export const ExportarHistorico = () => {
     if (gerandoPDF) {
       setProgresso(0);
       interval = setInterval(() => {
-        setProgresso((prev) => (prev < 90 ? prev + 1 : prev)); // Para em 90%
+        setProgresso((prev) => (prev < 90 ? prev + 1 : prev));
       }, 30);
     }
 
@@ -64,7 +64,6 @@ export const ExportarHistorico = () => {
 
       cards[i].classList.remove('pdf-export');
 
-      // Progresso baseado em índice
       setProgresso(Math.min(90, Math.round(((i + 1) / cards.length) * 90)));
     }
 
@@ -79,20 +78,20 @@ export const ExportarHistorico = () => {
     <div className="text-center my-6">
       {gerandoPDF && (
         <div className="w-full max-w-sm mx-auto mb-4">
-          <div className="w-full h-2 bg-gray-300 rounded-full overflow-hidden">
+          <div className="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
             <div
-              className="h-full bg-indigo-600 transition-all duration-200"
+              className="h-full bg-yellow-400 transition-all duration-300"
               style={{ width: `${progresso}%` }}
             />
           </div>
-          <p className="text-sm text-gray-600 mt-2">Gerando PDF... {progresso}%</p>
+          <p className="text-sm text-yellow-400 mt-2">Gerando PDF... {progresso}%</p>
         </div>
       )}
 
       <Button
         onClick={exportarParaPDF}
         disabled={gerandoPDF}
-        className={`bg-indigo-600 text-white hover:bg-indigo-700 ${
+        className={`bg-yellow-400 text-black border border-yellow-400 hover:bg-black hover:text-yellow-400 transition-all duration-500 ${
           gerandoPDF ? 'opacity-50 cursor-not-allowed' : ''
         }`}
       >

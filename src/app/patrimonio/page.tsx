@@ -63,7 +63,7 @@ export default function PatrimonioPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-100 to-white p-4 flex items-center justify-center">
+    <main className="min-h-screen bg-black text-yellow-400 p-4 flex items-center justify-center">
       <div className="w-full max-w-4xl">
         <Card>
           <div className="flex items-center justify-between mb-6">
@@ -73,7 +73,6 @@ export default function PatrimonioPage() {
                 setMostrarFormulario(true);
                 setPatrimonioEmEdicao(null);
               }}
-              className="bg-indigo-500 hover:bg-indigo-600 text-white"
             >
               Novo Cadastro
             </Button>
@@ -92,11 +91,11 @@ export default function PatrimonioPage() {
           )}
 
           {patrimonios.length === 0 ? (
-            <p className="text-center text-gray-500">Nenhum bem cadastrado ainda.</p>
+            <p className="text-center text-yellow-300">Nenhum bem cadastrado ainda.</p>
           ) : (
             <div className="overflow-x-auto">
-              <table className="w-full border border-gray-300 rounded-xl overflow-hidden text-left">
-                <thead className="bg-blue-200 text-blue-900">
+              <table className="w-full border border-yellow-500 rounded-xl overflow-hidden text-left">
+                <thead className="bg-yellow-500 text-black">
                   <tr>
                     <th className="px-4 py-2">Ano</th>
                     <th className="px-4 py-2">Idade</th>
@@ -107,32 +106,32 @@ export default function PatrimonioPage() {
                 </thead>
                 <tbody>
                   {patrimonios.map((item) => (
-                    <tr key={item.id} className="odd:bg-white even:bg-blue-50">
+                    <tr key={item.id} className="odd:bg-black even:bg-gray-900">
                       <td className="px-4 py-2 text-sm">{item.ano}</td>
                       <td className="px-4 py-2 text-sm">{item.idade}</td>
                       <td className="px-4 py-2 text-sm">{item.propriedade}</td>
-                      <td className="px-4 py-2 text-sm font-semibold text-blue-600">
+                      <td className="px-4 py-2 text-sm font-semibold text-yellow-400">
                         {formatarReal(item.valor)}
                       </td>
                       <td className="px-4 py-2 text-center">
                         <div className="flex justify-center gap-3">
                           <Pencil
                             onClick={() => iniciarEdicao(item)}
-                            className="h-5 w-5 text-gray-500 cursor-pointer hover:text-gray-700"
+                            className="h-5 w-5 text-yellow-400 hover:text-white cursor-pointer transition"
                           />
                           <Trash2
                             onClick={() => setIdParaRemover(item.id)}
-                            className="h-5 w-5 text-red-500 hover:text-red-600 cursor-pointer transition"
+                            className="h-5 w-5 text-yellow-400 hover:text-white cursor-pointer transition"
                           />
                         </div>
                       </td>
                     </tr>
                   ))}
-                  <tr className="bg-blue-100 font-semibold">
+                  <tr className="bg-yellow-700 text-black font-bold">
                     <td colSpan={3} className="px-4 py-2 text-right">
                       Total:
                     </td>
-                    <td className="px-4 py-2 text-blue-700">{formatarReal(total)}</td>
+                    <td className="px-4 py-2">{formatarReal(total)}</td>
                     <td></td>
                   </tr>
                 </tbody>

@@ -16,19 +16,28 @@ export const EditarEntrada = ({ entrada, onCancelar }: EditarEntradaProps) => {
   };
 
   return (
-    <div className="space-y-4 text-center">
-      <h2 className="text-lg font-bold text-indigo-700">Editar Entrada</h2>
+    <div className="space-y-4 text-center text-yellow-400">
+      <h2 className="text-lg font-bold">Editar Entrada</h2>
+
       <Input
         type="text"
         value={novoNome}
         onChange={(e) => setNovoNome(e.target.value)}
         placeholder="Novo nome da entrada"
+        className="bg-black text-yellow-400 border-yellow-500 focus:ring-yellow-500 placeholder-yellow-300"
       />
+
       <div className="flex justify-center gap-4">
-        <Button onClick={salvarEdicao} className="bg-green-500 text-white hover:bg-green-600">
+        <Button
+          onClick={salvarEdicao}
+          className="bg-yellow-400 text-black hover:bg-black hover:text-yellow-400 border border-yellow-400 transition-all duration-500"
+        >
           Salvar
         </Button>
-        <Button onClick={onCancelar} className="bg-gray-300 text-gray-800 hover:bg-gray-400">
+        <Button
+          onClick={onCancelar}
+          className="bg-gray-300 text-black hover:bg-gray-400 transition-all duration-300"
+        >
           Cancelar
         </Button>
       </div>

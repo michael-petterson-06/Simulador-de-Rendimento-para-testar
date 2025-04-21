@@ -27,38 +27,43 @@ export const ModalExcluirEntradas = ({ onCancelar }: ModalExcluirEntradasProps) 
     setNomes(novosNomes);
     setValores(novosValores);
     setQuantidade(novosNomes.length);
-    onCancelar(); // Fecha o modal
+    onCancelar();
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-xl shadow-xl max-w-sm w-full space-y-4 text-center animate-fade-in">
-        <h2 className="text-lg font-semibold text-rose-600">Excluir Entradas</h2>
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div className="bg-zinc-900 p-6 rounded-xl shadow-xl max-w-sm w-full space-y-4 text-center text-white animate-fade-in">
+        <h2 className="text-lg font-semibold text-yellow-400">Excluir Entradas</h2>
 
-        <div className="text-left max-h-48 overflow-y-auto space-y-2">
+        <div className="text-left max-h-48 overflow-y-auto space-y-2 pr-2 custom-scrollbar">
           {nomes.map((nome, index) => (
-            <label key={index} className="flex items-center gap-2 text-sm">
+            <label
+              key={index}
+              className="flex items-center gap-2 text-sm cursor-pointer text-yellow-400 hover:text-white transition-all duration-300"
+            >
               <input
                 type="checkbox"
                 checked={selecionados.includes(nome)}
                 onChange={() => toggleSelecionado(nome)}
+                className="accent-yellow-400"
               />
               {nome}
             </label>
           ))}
+
         </div>
 
         <div className="flex justify-center gap-4 pt-4">
           <Button
             onClick={handleExcluir}
-            className="bg-rose-500 hover:bg-rose-600 text-white"
             disabled={selecionados.length === 0}
+       
           >
             Excluir selecionados
           </Button>
           <Button
             onClick={onCancelar}
-            className="bg-gray-300 text-gray-800 hover:bg-gray-400"
+         
           >
             Cancelar
           </Button>

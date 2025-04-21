@@ -7,7 +7,6 @@ import { Trash2 } from 'lucide-react';
 import { ModalRemoverHistorico } from '@/components/ModalRemoverHistorico';
 import { ExportarHistorico } from '@/components/ExportarHistorico';
 
-
 export default function HistoricoPage() {
   const { historico, removerHistorico } = useHistoricoStore();
   const [indiceParaRemover, setIndiceParaRemover] = useState<number | null>(null);
@@ -24,28 +23,28 @@ export default function HistoricoPage() {
 
   if (historico.length === 0) {
     return (
-      <main className="min-h-screen p-8 flex items-center justify-center text-gray-600">
+      <main className="min-h-screen p-8 flex items-center justify-center text-gray-500">
         Nenhum histórico salvo ainda.
       </main>
     );
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-purple-100 to-white p-6">
+    <main className="min-h-screen bg-black text-yellow-400 p-6">
       <ExportarHistorico />
 
       <div id="historico-container" className="flex flex-wrap justify-center gap-4">
         {historico.map((registro, idx) => (
           <div
             key={idx}
-            className="historico-card w-full sm:w-[340px] bg-white rounded-xl shadow-xl p-4 space-y-4 relative"
+            className="historico-card w-full sm:w-[340px] bg-black border border-yellow-500 rounded-xl shadow-xl p-4 space-y-4 relative"
           >
             <div className="flex items-center justify-between">
-              <h2 className="text-lg font-bold text-indigo-700 flex items-center gap-2">
+              <h2 className="text-lg font-bold flex items-center gap-2">
                 Histórico de Renda Familiar
                 <Trash2
                   onClick={() => setIndiceParaRemover(idx)}
-                  className="h-5 w-5 text-red-500 hover:text-red-600 cursor-pointer transition"
+                  className="h-5 w-5 text-yellow-400 hover:text-white cursor-pointer transition-all duration-300"
                 />
               </h2>
             </div>
@@ -55,50 +54,50 @@ export default function HistoricoPage() {
               <p><strong>Idade:</strong> {registro.usuario.idade}</p>
               <p>
                 <strong>Ano:</strong> {registro.ano}
-                <span className="ml-2 text-gray-500">
+                <span className="ml-2 text-yellow-300">
                   ({registro.mesInicial} – {registro.mesFinal})
                 </span>
               </p>
             </div>
 
-            <div className="bg-yellow-50 p-3 rounded-xl text-sm">
+            <div className="border border-yellow-500 p-3 rounded-xl text-sm">
               <p className="font-semibold mb-2">💼 Entradas:</p>
               <ul className="list-disc list-inside space-y-1">
                 {registro.entradas.map((entrada, eIdx) => (
                   <li key={eIdx}>
-                    {entrada.nome} — <strong className="text-yellow-700">{formatarReal(Number(entrada.valor))}</strong>
+                    {entrada.nome} — <strong>{formatarReal(Number(entrada.valor))}</strong>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="bg-blue-50 p-3 rounded-xl text-sm">
+            <div className="border border-blue-400 p-3 rounded-xl text-sm text-blue-300">
               <p>
                 📥 <strong>Total de Entradas:</strong> {formatarReal(registro.totalEntradas)}
               </p>
             </div>
 
-            <div className="bg-green-50 p-3 rounded-xl text-sm">
+            <div className="border border-green-400 p-3 rounded-xl text-sm text-green-300">
               <p>
                 🧾 <strong>Saldo Final:</strong> {formatarReal(registro.saldoFinal)}
               </p>
             </div>
 
-            <div className="bg-red-50 p-3 rounded-xl text-sm">
+            <div className="border border-rose-500 p-3 rounded-xl text-sm text-rose-300">
               <p className="font-semibold mb-2">📉 Gastos:</p>
               <ul className="list-disc list-inside space-y-1">
                 {registro.gastos.map((gasto, gIdx) => (
                   <li key={gIdx}>
-                    {gasto.nome} — <strong className="text-rose-600">{formatarReal(gasto.valor)}</strong>
+                    {gasto.nome} — <strong>{formatarReal(gasto.valor)}</strong>
                   </li>
                 ))}
               </ul>
-              <p className="mt-2 font-bold text-rose-600 text-left">
+              <p className="mt-2 font-bold text-left">
                 Total: {formatarReal(registro.totalGastos)}
               </p>
             </div>
 
-            <div className="bg-yellow-100 p-3 rounded-xl text-sm">
+            <div className="border border-yellow-500 p-3 rounded-xl text-sm">
               <p>
                 🏆 <strong>Valor Poupado:</strong> {formatarReal(registro.valorPoupado)}
               </p>

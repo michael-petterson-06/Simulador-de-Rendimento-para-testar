@@ -47,7 +47,7 @@ export default function Home() {
       montante += am;
       totalDepositado += am;
     }
-    
+
     const valorFinal = montante;
     const totalJuros = valorFinal - totalDepositado;
 
@@ -60,13 +60,12 @@ export default function Home() {
     setJuros('');
     setAnos('');
     setResultadoHome(null);
-   };
-
+  };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-indigo-100 to-white p-4 flex items-center justify-center">
+    <main className="min-h-screen bg-black text-yellow-400 p-4 flex items-center justify-center">
       <div className="w-full max-w-xl">
-        <Card>
+        <Card className="bg-black text-yellow-400 border border-yellow-500">
           <h1 className="text-3xl font-bold text-center mb-6">Simulador de Rendimento Mike</h1>
 
           <div className="grid gap-4 md:grid-cols-2">
@@ -79,7 +78,7 @@ export default function Home() {
               fixedDecimalScale
               onValueChange={(values) => setValorInicial(values.value)}
               placeholder="Valor Inicial (R$)"
-              className="px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="bg-black border border-yellow-500 text-yellow-400 rounded-xl px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-yellow-500"
             />
 
             <NumericFormat
@@ -91,14 +90,14 @@ export default function Home() {
               fixedDecimalScale
               onValueChange={(values) => setAporteMensal(values.value)}
               placeholder="Aporte Mensal (R$)"
-              className="px-4 py-2 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="bg-black border border-yellow-500 text-yellow-400 rounded-xl px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-yellow-500"
             />
 
             <div className="flex gap-2 items-center md:col-span-2">
               <select
                 value={tempoPoupancaTipo}
                 onChange={(e) => setTempoPoupancaTipo(e.target.value as 'anos' | 'meses')}
-                className="border border-gray-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="bg-black border border-yellow-500 text-yellow-400 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500 cursor-pointer"
               >
                 <option value="anos">Anos</option>
                 <option value="meses">Meses</option>
@@ -109,7 +108,7 @@ export default function Home() {
                 placeholder={tempoPoupancaTipo === 'anos' ? 'Anos Poupando' : 'Meses Poupando'}
                 value={anos}
                 onChange={(e) => setAnos(e.target.value)}
-                className="w-full"
+                className="w-full text-yellow-400 bg-black border-yellow-500"
               />
             </div>
 
@@ -118,12 +117,12 @@ export default function Home() {
               placeholder="Rendimento Mensal (%)"
               value={juros}
               onChange={(e) => setJuros(e.target.value)}
-              className="w-full md:col-span-2"
+              className="w-full md:col-span-2 text-yellow-400 bg-black border-yellow-500"
             />
           </div>
 
           <div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-4">
-            <Button onClick={calcular} className="w-full md:w-auto text-lg px-6 py-2 bg-indigo-500 hover:bg-indigo-600 text-white">
+            <Button onClick={calcular} className="w-full md:w-auto text-lg px-6 py-2 bg-yellow-400 text-black hover:bg-black hover:text-yellow-400 border border-yellow-400 transition-all duration-500">
               Calcular
             </Button>
             <Button
