@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Button } from './ui/Button';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { FileSpreadsheet } from 'lucide-react';
 
 export const ExportarHistorico = () => {
   const [gerandoPDF, setGerandoPDF] = useState(false);
@@ -88,15 +89,22 @@ export const ExportarHistorico = () => {
         </div>
       )}
 
-      <Button
-        onClick={exportarParaPDF}
-        disabled={gerandoPDF}
-        className={`bg-yellow-400 text-black border border-yellow-400 hover:bg-black hover:text-yellow-400 transition-all duration-500 ${
-          gerandoPDF ? 'opacity-50 cursor-not-allowed' : ''
-        }`}
-      >
-        📄 Exportar Histórico em PDF
-      </Button>
+      <div className="my-6 text-center">
+        <Button
+          onClick={exportarParaPDF}
+          disabled={gerandoPDF}
+          className={`inline-flex items-center justify-center gap-2
+            bg-yellow-400 text-black border border-yellow-400 
+            hover:bg-black hover:text-yellow-400 
+            transition-all duration-500 ${
+              gerandoPDF ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
+        >
+          <FileSpreadsheet className="w-4 h-4" />
+          <span>Exportar Histórico em PDF</span>
+        </Button>
+      </div>
+
     </div>
   );
 };
