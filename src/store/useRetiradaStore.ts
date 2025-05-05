@@ -45,7 +45,25 @@ export const useRetiradaStore = create<RetiradaState>()(
         });
       },
       
-      resetRetiradas: () => set({ retiradas: [] }),
+      resetRetiradas: () => {
+        const state = get();
+        const { resultadoHome, setResultadoHome } = useSimuladorStore.getState();
+      
+        if (resultadoHome) {
+          const novoValor = state.retiradas.reduce((acc, retirada) => {
+            if (retirada.pagamento !== 'À Vista') return acc;
+      
+            return retirada.titulo === 'Novo Depósito'
+              ? acc - retirada.valor
+              : acc + retirada.valor;
+          }, resultadoHome.valorFinal);
+      
+          setResultadoHome({ ...resultadoHome, valorFinal: novoValor });
+        }
+      
+        set({ retiradas: [] });
+      },
+      
 
       resetAll: () =>
         set({

@@ -14,6 +14,8 @@ type Historico = {
 export type HistoricoState = {
   historico: Historico[];
   adicionarHistorico: (dados: Historico) => void;
-  removerHistorico: (index: number) => void
+  removerHistorico: (index: number) => void;
+  limparTodos: () => void;
+  limparPorAno: (ano: number) => void;
   resetAll: () => void;
 };

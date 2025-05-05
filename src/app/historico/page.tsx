@@ -6,13 +6,17 @@ import { formatarReal } from '@/utils/formatarReal';
 import { Trash2 } from 'lucide-react';
 import { ModalRemoverHistorico } from '@/components/ModalRemoverHistorico';
 import { ExportarHistorico } from '@/components/ExportarHistorico';
-import { Button } from '@headlessui/react';
+import { Button } from '@/components/ui/Button';
 
 export default function HistoricoPage() {
-  const { historico, removerHistorico } = useHistoricoStore();
+  const { historico, removerHistorico, limparTodos, limparPorAno } = useHistoricoStore();
+
   const [indiceParaRemover, setIndiceParaRemover] = useState<number | null>(null);
   const [mensagemRemovido, setMensagemRemovido] = useState(false);
   const [anoSelecionado, setAnoSelecionado] = useState<number | 'todos'>('todos');
+  const [limparTodosAtivo, setLimparTodosAtivo] = useState(false);
+  const [anoParaLimpar, setAnoParaLimpar] = useState<number | null>(null);
+
   const anosDisponiveis = Array.from(new Set(historico.map(h => h.ano))).sort((a, b) => b - a);
 
   const historicoFiltrado = anoSelecionado === 'todos'
@@ -39,29 +43,49 @@ export default function HistoricoPage() {
   return (
     <main className="min-h-screen bg-black text-yellow-400 p-6">
       <ExportarHistorico />
-      
-      <div id="inicio-tabela" className="flex flex-wrap justify-center gap-2 mb-6">
-        <Button
-          onClick={() => setAnoSelecionado('todos')}
-          className={`px-4 py-2 border ${anoSelecionado === 'todos' ? 'bg-yellow-400 text-black' : 'bg-black text-yellow-400 border-yellow-500'}`}
-        >
-          Todos os Anos
-        </Button>
-        {anosDisponiveis.map(ano => (
+
+      <div id="inicio-tabela" className="mb-6 space-y-4">
+        <div className="flex flex-wrap justify-center gap-2">
           <Button
-            key={ano}
-            onClick={() => setAnoSelecionado(ano)}
-            className={`px-4 py-2 border ${anoSelecionado === ano ? 'bg-yellow-400 text-black' : 'bg-black text-yellow-400 border-yellow-500'}`}
+            onClick={() => setAnoSelecionado('todos')}
+            
           >
-            {ano}
+            Todos os Anos
           </Button>
-        ))}
+          {anosDisponiveis.map(ano => (
+            <Button
+              key={ano}
+              onClick={() => setAnoSelecionado(ano)}
+            >
+              {ano}
+            </Button>
+          ))}
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-2">
+          {historico.length > 0 && (
+            <Button
+              onClick={() => setLimparTodosAtivo(true)}
+              // className="bg-yellow-400 text-black hover:bg-red-700 border border-red-600"
+               className="hover:bg-red-700 border border-red-600"
+            >
+              Limpar Todos os Históricos
+            </Button>
+          )}
+
+          {anoSelecionado !== 'todos' && (
+            <Button
+              onClick={() => setAnoParaLimpar(anoSelecionado)}
+              className="bg-yellow-400 text-black hover:bg-rose-700 border border-rose-600"
+            >
+              Limpar Ano {anoSelecionado}
+            </Button>
+          )}
+        </div>
       </div>
 
-
       <div id="historico-container" className="flex flex-wrap justify-center gap-4">
-
-       {historicoFiltrado.map((registro, idx) => (
+        {historicoFiltrado.map((registro, idx) => (
           <div
             key={idx}
             className="historico-card w-full sm:w-[340px] bg-black border border-yellow-500 rounded-xl shadow-xl p-4 space-y-4 relative"
@@ -135,15 +159,14 @@ export default function HistoricoPage() {
 
       <div className="mt-8 text-center">
         <button
-          onClick={() => {
-            document.getElementById('inicio-tabela')?.scrollIntoView({ behavior: 'smooth' });
-          }}
+          onClick={() =>
+            document.getElementById('inicio-tabela')?.scrollIntoView({ behavior: 'smooth' })
+          }
           className="text-sm text-yellow-400 underline hover:text-white transition"
         >
-         Voltar ao início
+          🔝 Voltar ao início
         </button>
       </div>
-
 
       {indiceParaRemover !== null && (
         <ModalRemoverHistorico
@@ -151,6 +174,30 @@ export default function HistoricoPage() {
           onCancelar={() => setIndiceParaRemover(null)}
           titulo="Remover Histórico"
           paragrafo="histórico"
+        />
+      )}
+
+      {limparTodosAtivo && (
+        <ModalRemoverHistorico
+          onConfirmar={() => {
+            limparTodos();
+            setLimparTodosAtivo(false);
+          }}
+          onCancelar={() => setLimparTodosAtivo(false)}
+          titulo="Limpar Todos os Históricos"
+          paragrafo="todos os históricos"
+        />
+      )}
+
+      {anoParaLimpar !== null && (
+        <ModalRemoverHistorico
+          onConfirmar={() => {
+            limparPorAno(anoParaLimpar);
+            setAnoParaLimpar(null);
+          }}
+          onCancelar={() => setAnoParaLimpar(null)}
+          titulo={`Limpar Histórico do Ano ${anoParaLimpar}`}
+          paragrafo={`todos os históricos do ano ${anoParaLimpar}`}
         />
       )}
 
