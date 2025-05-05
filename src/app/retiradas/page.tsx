@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/Button';
 import { RetiradaPanel } from '@/components/RetiradaPanel';
 import { Trash2 } from 'lucide-react';
 import { ModalRemoverHistorico } from '@/components/ModalRemoverHistorico';
+import { ExportarRetiradasExcel } from '@/components/ExportarRetiradasExcel';
 
 export default function RetiradasPage() {
   const { retiradas, removerHistorico, resetRetiradas } = useRetiradaStore();
@@ -65,6 +66,9 @@ export default function RetiradasPage() {
               }}
             />
           )}
+
+        <ExportarRetiradasExcel />
+
 
           {retiradas.length === 0 && !mostrarFormulario ? (
             <p className="text-center text-yellow-500">Nenhuma retirada registrada até o momento.</p>
