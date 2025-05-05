@@ -9,9 +9,10 @@ import { Trash2 } from 'lucide-react';
 import { ModalRemoverHistorico } from '@/components/ModalRemoverHistorico';
 
 export default function RetiradasPage() {
-  const { retiradas, removerHistorico } = useRetiradaStore();
+  const { retiradas, removerHistorico, resetRetiradas } = useRetiradaStore();
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [indiceParaRemover, setIndiceParaRemover] = useState<number | null>(null);
+  const [limparTodas, setLimparTodas] = useState(false); // novo estado
 
   const confirmarRemocao = () => {
     if (indiceParaRemover !== null) {
@@ -20,11 +21,16 @@ export default function RetiradasPage() {
     }
   };
 
+  const confirmarLimpezaTotal = () => {
+    resetRetiradas();
+    setLimparTodas(false);
+  };
+
   return (
     <main className="min-h-screen bg-black p-4 flex items-center justify-center text-yellow-400">
       <div className="w-full max-w-4xl">
         <Card className="bg-black border border-yellow-500 text-yellow-400">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-4">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2 gap-4">
             <h1 className="text-3xl font-bold text-center md:text-left">Histórico de Retiradas</h1>
             <Button
               onClick={() => setMostrarFormulario(true)}
@@ -33,6 +39,17 @@ export default function RetiradasPage() {
               Nova Retirada
             </Button>
           </div>
+
+          {retiradas.length > 0 && (
+            <div className="flex justify-center md:justify-start mt-2 mb-4">
+              <Button
+                onClick={() => setLimparTodas(true)}
+                className=""
+              >
+                Limpar Todas as Retiradas
+              </Button>
+            </div>
+          )}
 
           {mostrarFormulario && (
             <RetiradaPanel
@@ -87,7 +104,6 @@ export default function RetiradasPage() {
                           onClick={() => setIndiceParaRemover(i)}
                           className="h-5 w-5 text-yellow-400 hover:text-white cursor-pointer transition"
                         />
-
                       </td>
                     </tr>
                   ))}
@@ -102,7 +118,16 @@ export default function RetiradasPage() {
             onConfirmar={confirmarRemocao}
             onCancelar={() => setIndiceParaRemover(null)}
             titulo="Remover Registro"
-            paragrafo="registro"
+            paragrafo="este registro"
+          />
+        )}
+
+        {limparTodas && (
+          <ModalRemoverHistorico
+            onConfirmar={confirmarLimpezaTotal}
+            onCancelar={() => setLimparTodas(false)}
+            titulo="Limpar Todas as Retiradas"
+            paragrafo="todas as retiradas"
           />
         )}
       </div>

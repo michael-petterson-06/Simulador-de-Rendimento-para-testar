@@ -15,7 +15,7 @@ export const ModalRemoverHistorico = ({
         <div className="flex justify-center text-4xl text-yellow-400">🗑️</div>
         <h2 className="text-lg font-semibold text-yellow-400">{titulo}</h2>
         <p className="text-yellow-300 text-sm">
-          {`Tem certeza que deseja apagar este ${paragrafo}?`}
+          {`Tem certeza que deseja apagar ${paragrafo}?`}
         </p>
         <div className="flex justify-center gap-4 pt-2">
           <Button

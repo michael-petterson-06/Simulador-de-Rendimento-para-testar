@@ -13,6 +13,7 @@ export type RetiradaState = {
   setAnoAtual: (ano: number) => void;
   addRetirada: (retirada: Omit<Retirada, 'ano' | 'idade'>) => void;
   removerHistorico: (index: number) => void;
+  resetRetiradas: () => void;
   resetAll: () => void;
 };
 

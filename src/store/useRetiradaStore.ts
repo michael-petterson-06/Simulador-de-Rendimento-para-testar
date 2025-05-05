@@ -45,6 +45,7 @@ export const useRetiradaStore = create<RetiradaState>()(
         });
       },
       
+      resetRetiradas: () => set({ retiradas: [] }),
 
       resetAll: () =>
         set({
