@@ -1,0 +1,11 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/favicon.ico/route": "/favicon.ico",
+  "/historico/page": "/historico",
+  "/importar/page": "/importar",
+  "/login/page": "/login",
+  "/page": "/",
+  "/patrimonio/page": "/patrimonio",
+  "/renda-familiar/page": "/renda-familiar",
+  "/retiradas/page": "/retiradas"
+}

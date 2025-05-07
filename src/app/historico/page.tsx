@@ -1,8 +1,8 @@
 'use client';
 
 import { useHistoricoStore } from '@/store/useHistoricoStore';
-import { formatarReal } from '@/utils/formatarReal';
-import { Trash2 } from 'lucide-react';
+// import { formatarReal } from '@/utils/formatarReal';
+// import { Trash2 } from 'lucide-react';
 import { ModalRemoverHistorico } from '@/components/ModalRemoverHistorico';
 import { ExportarHistorico } from '@/components/ExportarHistorico';
 import { ListaHistoricoCards } from '@/components/ListaHistoricoCards';

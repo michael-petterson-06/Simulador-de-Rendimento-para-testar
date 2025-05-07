@@ -59,14 +59,14 @@ export const Nav = () => {
       >
         Patrimônio
       </Link>
-      {/* <Link
+      <Link
         href="/importar"
         className={`${linkBaseStyle} ${
           pathname === '/importar' ? linkAtivo : linkInativo
         }`}
       >
         Importar
-      </Link> */}
+      </Link>
     </nav>
   );
 };

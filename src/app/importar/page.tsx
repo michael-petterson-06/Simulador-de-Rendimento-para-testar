@@ -3,9 +3,11 @@
 import * as XLSX from 'xlsx';
 import { useState } from 'react';
 import { Card } from '@/components/ui/Card';
+import { DadoImportado } from '@/types/importTypes';
 
 export default function ImportarPage() {
-  const [dados, setDados] = useState<any[]>([]);
+
+  const [dados, setDados] = useState<DadoImportado[]>([]);
 
   const handleImportar = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -20,7 +22,19 @@ export default function ImportarPage() {
       const planilha = workbook.Sheets[primeiraPlanilha];
 
       const json = XLSX.utils.sheet_to_json(planilha, { defval: '' });
-      setDados(json);
+
+      const dadosValidados = (json as Record<string, unknown>[]).map((item) => ({
+        nome: item['Nome'] as string,
+        valor: Number(item['Valor']),
+        ano: Number(item['Ano']),
+        idade: Number(item['Idade']),
+        pagamento: item['Pagamento'] as 'À Vista' | 'Parcelado',
+        tipo: item['Tipo'] as 'Nova Retirada' | 'Novo Depósito',
+      }));
+      
+
+      
+      setDados(dadosValidados);
     };
 
     reader.readAsArrayBuffer(file);
