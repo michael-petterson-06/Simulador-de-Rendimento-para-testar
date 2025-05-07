@@ -1,19 +1,26 @@
 'use client';
 
-import { useState } from 'react';
 import { useHistoricoStore } from '@/store/useHistoricoStore';
-import { formatarReal } from '@/utils/formatarReal';
-import { Trash2 } from 'lucide-react';
+// import { formatarReal } from '@/utils/formatarReal';
+// import { Trash2 } from 'lucide-react';
 import { ModalRemoverHistorico } from '@/components/ModalRemoverHistorico';
 import { ExportarHistorico } from '@/components/ExportarHistorico';
+import { ListaHistoricoCards } from '@/components/ListaHistoricoCards';
 import { Button } from '@/components/ui/Button';
+import { useState } from 'react';
 
 export default function HistoricoPage() {
-  const { historico, removerHistorico, limparTodos, limparPorAno } = useHistoricoStore();
+  const {
+    historico,
+    removerHistorico,
+    limparTodos,
+    limparPorAno,
+    anoSelecionado,
+    setAnoSelecionado,
+  } = useHistoricoStore();
 
   const [indiceParaRemover, setIndiceParaRemover] = useState<number | null>(null);
   const [mensagemRemovido, setMensagemRemovido] = useState(false);
-  const [anoSelecionado, setAnoSelecionado] = useState<number | 'todos'>('todos');
   const [limparTodosAtivo, setLimparTodosAtivo] = useState(false);
   const [anoParaLimpar, setAnoParaLimpar] = useState<number | null>(null);
 
@@ -46,19 +53,21 @@ export default function HistoricoPage() {
 
       <div id="inicio-tabela" className="mb-6 space-y-4">
         <div className="flex flex-wrap justify-center gap-2">
-          <Button
+        <Button
             onClick={() => setAnoSelecionado('todos')}
-            
+            className={anoSelecionado === 'todos' ? 'underline' : ''}
           >
             Todos os Anos
           </Button>
+
           {anosDisponiveis.map(ano => (
             <Button
               key={ano}
               onClick={() => setAnoSelecionado(ano)}
+              className={anoSelecionado === ano ? 'underline' : ''}
             >
               {ano}
-            </Button>
+          </Button>
           ))}
         </div>
 
@@ -66,8 +75,7 @@ export default function HistoricoPage() {
           {historico.length > 0 && (
             <Button
               onClick={() => setLimparTodosAtivo(true)}
-              // className="bg-yellow-400 text-black hover:bg-red-700 border border-red-600"
-               className="hover:bg-red-700 border border-red-600"
+              className="hover:bg-red-700 border border-red-600"
             >
               Limpar Todos os Históricos
             </Button>
@@ -84,78 +92,10 @@ export default function HistoricoPage() {
         </div>
       </div>
 
-      <div id="historico-container" className="flex flex-wrap justify-center gap-4">
-        {historicoFiltrado.map((registro, idx) => (
-          <div
-            key={idx}
-            className="historico-card w-full sm:w-[340px] bg-black border border-yellow-500 rounded-xl shadow-xl p-4 space-y-4 relative"
-          >
-            <div className="flex items-center justify-between">
-              <h2 className="text-lg font-bold flex items-center gap-2">
-                Histórico de Renda Familiar
-                <Trash2
-                  onClick={() => setIndiceParaRemover(idx)}
-                  className="h-5 w-5 text-yellow-400 hover:text-white cursor-pointer transition-all duration-300"
-                />
-              </h2>
-            </div>
-
-            <div className="space-y-1 text-sm">
-              <p><strong>Nome:</strong> {registro.usuario.nome}</p>
-              <p><strong>Idade:</strong> {registro.usuario.idade}</p>
-              <p>
-                <strong>Ano:</strong> {registro.ano}
-                <span className="ml-2 text-yellow-300">
-                  ({registro.mesInicial} – {registro.mesFinal})
-                </span>
-              </p>
-            </div>
-
-            <div className="border border-yellow-500 p-3 rounded-xl text-sm">
-              <p className="font-semibold mb-2">💼 Entradas:</p>
-              <ul className="list-disc list-inside space-y-1">
-                {registro.entradas.map((entrada, eIdx) => (
-                  <li key={eIdx}>
-                    {entrada.nome} — <strong>{formatarReal(Number(entrada.valor))}</strong>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="border border-blue-400 p-3 rounded-xl text-sm text-blue-300">
-              <p>
-                📥 <strong>Total de Entradas:</strong> {formatarReal(registro.totalEntradas)}
-              </p>
-            </div>
-
-            <div className="border border-green-400 p-3 rounded-xl text-sm text-green-300">
-              <p>
-                🧾 <strong>Saldo Final:</strong> {formatarReal(registro.saldoFinal)}
-              </p>
-            </div>
-
-            <div className="border border-rose-500 p-3 rounded-xl text-sm text-rose-300">
-              <p className="font-semibold mb-2">📉 Gastos:</p>
-              <ul className="list-disc list-inside space-y-1">
-                {registro.gastos.map((gasto, gIdx) => (
-                  <li key={gIdx}>
-                    {gasto.nome} — <strong>{formatarReal(gasto.valor)}</strong>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-2 font-bold text-left">
-                Total: {formatarReal(registro.totalGastos)}
-              </p>
-            </div>
-
-            <div className="border border-yellow-500 p-3 rounded-xl text-sm">
-              <p>
-                🏆 <strong>Valor Poupado:</strong> {formatarReal(registro.valorPoupado)}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
+      <ListaHistoricoCards
+        historicoFiltrado={historicoFiltrado}
+        setIndiceParaRemover={setIndiceParaRemover}
+      />
 
       <div className="mt-8 text-center">
         <button

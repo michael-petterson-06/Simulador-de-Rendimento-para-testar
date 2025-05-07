@@ -1,4 +1,4 @@
-// File: /home/michael/desenvolvedor/projetos-gitHub/24 Simulador de Rendimento para testar/Simulador-de-Rendimento-para-testar/src/app/renda-familiar/page.tsx
+// File: /home/michael/desenvolvedor/Simulador-de-Rendimento-para-testar/src/app/renda-familiar/page.tsx
 import * as entry from '../../../../src/app/renda-familiar/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

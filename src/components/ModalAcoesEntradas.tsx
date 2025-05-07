@@ -6,11 +6,23 @@ import { FormularioEntradas } from './FormularioEntradas';
 import { ModalAcoesEntradasProps } from '@/types';
 import { SelecionarEntradaParaEdicao } from './SelecionarEntradaParaEdicao';
 import { EditarEntrada } from './EditarEntrada';
+import { useEntradasStore } from '@/store/useEntradasStore';
+import { useEffect } from 'react';
 
 export const ModalAcoesEntradas = ({ onFechar, onExcluir }: ModalAcoesEntradasProps) => {
   const [mostrarFormularioEntradas, setMostrarFormularioEntradas] = useState(false);
   const [modoEdicao, setModoEdicao] = useState(false);
   const [entradaSelecionada, setEntradaSelecionada] = useState<{ nome: string; index: number } | null>(null);
+  const formularioPreenchido = useEntradasStore((state) => state.formularioPreenchido);
+  const setFormularioPreenchido = useEntradasStore((state) => state.setFormularioPreenchido);
+
+  useEffect(() => {
+  if (formularioPreenchido) {
+    onFechar();
+    setFormularioPreenchido(false);
+  }
+}, [formularioPreenchido, onFechar, setFormularioPreenchido]);
+
 
   const resetar = () => {
     setModoEdicao(false);
@@ -43,8 +55,7 @@ export const ModalAcoesEntradas = ({ onFechar, onExcluir }: ModalAcoesEntradasPr
             <h2 className="text-lg font-semibold text-yellow-400">O que deseja fazer?</h2>
             <div className="flex flex-col gap-4">
               <Button
-                onClick={() => setMostrarFormularioEntradas(true)}
-              
+               onClick={() => {setMostrarFormularioEntradas(true);}}
               >
                 ➕ Inserir Entradas
               </Button>
