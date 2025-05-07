@@ -273,13 +273,13 @@ __turbopack_context__.s({
     "default": (()=>HistoricoPage)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useHistoricoStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/store/useHistoricoStore.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$formatarReal$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/utils/formatarReal.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/trash-2.js [app-ssr] (ecmascript) <export default as Trash2>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ModalRemoverHistorico$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ModalRemoverHistorico.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ExportarHistorico$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ExportarHistorico.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/Button.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 'use client';
 ;
 ;
@@ -290,10 +290,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$B
 ;
 ;
 function HistoricoPage() {
-    const { historico, removerHistorico, limparTodos, limparPorAno } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useHistoricoStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useHistoricoStore"])();
+    const { historico, removerHistorico, limparTodos, limparPorAno, anoSelecionado, setAnoSelecionado } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useHistoricoStore$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useHistoricoStore"])();
     const [indiceParaRemover, setIndiceParaRemover] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [mensagemRemovido, setMensagemRemovido] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [anoSelecionado, setAnoSelecionado] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('todos');
     const [limparTodosAtivo, setLimparTodosAtivo] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [anoParaLimpar, setAnoParaLimpar] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const anosDisponiveis = Array.from(new Set(historico.map((h)=>h.ano))).sort((a, b)=>b - a);
@@ -312,7 +311,7 @@ function HistoricoPage() {
             children: "Nenhum histórico salvo ainda."
         }, void 0, false, {
             fileName: "[project]/src/app/historico/page.tsx",
-            lineNumber: 37,
+            lineNumber: 43,
             columnNumber: 7
         }, this);
     }
@@ -321,7 +320,7 @@ function HistoricoPage() {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ExportarHistorico$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ExportarHistorico"], {}, void 0, false, {
                 fileName: "[project]/src/app/historico/page.tsx",
-                lineNumber: 45,
+                lineNumber: 51,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -333,24 +332,26 @@ function HistoricoPage() {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                                 onClick: ()=>setAnoSelecionado('todos'),
+                                className: anoSelecionado === 'todos' ? 'underline' : '',
                                 children: "Todos os Anos"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/historico/page.tsx",
-                                lineNumber: 49,
-                                columnNumber: 11
+                                lineNumber: 55,
+                                columnNumber: 9
                             }, this),
                             anosDisponiveis.map((ano)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                                     onClick: ()=>setAnoSelecionado(ano),
+                                    className: anoSelecionado === ano ? 'underline' : '',
                                     children: ano
                                 }, ano, false, {
                                     fileName: "[project]/src/app/historico/page.tsx",
-                                    lineNumber: 56,
+                                    lineNumber: 63,
                                     columnNumber: 13
                                 }, this))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/historico/page.tsx",
-                        lineNumber: 48,
+                        lineNumber: 54,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -358,12 +359,11 @@ function HistoricoPage() {
                         children: [
                             historico.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                                 onClick: ()=>setLimparTodosAtivo(true),
-                                // className="bg-yellow-400 text-black hover:bg-red-700 border border-red-600"
                                 className: "hover:bg-red-700 border border-red-600",
                                 children: "Limpar Todos os Históricos"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/historico/page.tsx",
-                                lineNumber: 67,
+                                lineNumber: 75,
                                 columnNumber: 13
                             }, this),
                             anoSelecionado !== 'todos' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -375,25 +375,27 @@ function HistoricoPage() {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/historico/page.tsx",
-                                lineNumber: 77,
+                                lineNumber: 84,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/historico/page.tsx",
-                        lineNumber: 65,
+                        lineNumber: 73,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/historico/page.tsx",
-                lineNumber: 47,
+                lineNumber: 53,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 id: "historico-container",
                 className: "flex flex-wrap justify-center gap-4",
-                children: historicoFiltrado.map((registro, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                children: historicoFiltrado.map((registro, idx)=>{
+                    const indiceReal = historico.findIndex((h)=>h.ano === registro.ano && h.usuario.nome === registro.usuario.nome && h.usuario.idade === registro.usuario.idade && h.valorPoupado === registro.valorPoupado);
+                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "historico-card w-full sm:w-[340px] bg-black border border-yellow-500 rounded-xl shadow-xl p-4 space-y-4 relative",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -403,23 +405,23 @@ function HistoricoPage() {
                                     children: [
                                         "Histórico de Renda Familiar",
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__["Trash2"], {
-                                            onClick: ()=>setIndiceParaRemover(idx),
+                                            onClick: ()=>setIndiceParaRemover(indiceReal),
                                             className: "h-5 w-5 text-yellow-400 hover:text-white cursor-pointer transition-all duration-300"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/historico/page.tsx",
-                                            lineNumber: 96,
-                                            columnNumber: 17
+                                            lineNumber: 112,
+                                            columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/historico/page.tsx",
-                                    lineNumber: 94,
-                                    columnNumber: 15
+                                    lineNumber: 110,
+                                    columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/historico/page.tsx",
-                                lineNumber: 93,
-                                columnNumber: 13
+                                lineNumber: 109,
+                                columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "space-y-1 text-sm",
@@ -430,16 +432,16 @@ function HistoricoPage() {
                                                 children: "Nome:"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/historico/page.tsx",
-                                                lineNumber: 104,
-                                                columnNumber: 18
+                                                lineNumber: 120,
+                                                columnNumber: 20
                                             }, this),
                                             " ",
                                             registro.usuario.nome
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/historico/page.tsx",
-                                        lineNumber: 104,
-                                        columnNumber: 15
+                                        lineNumber: 120,
+                                        columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         children: [
@@ -447,16 +449,16 @@ function HistoricoPage() {
                                                 children: "Idade:"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/historico/page.tsx",
-                                                lineNumber: 105,
-                                                columnNumber: 18
+                                                lineNumber: 121,
+                                                columnNumber: 20
                                             }, this),
                                             " ",
                                             registro.usuario.idade
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/historico/page.tsx",
-                                        lineNumber: 105,
-                                        columnNumber: 15
+                                        lineNumber: 121,
+                                        columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         children: [
@@ -464,8 +466,8 @@ function HistoricoPage() {
                                                 children: "Ano:"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/historico/page.tsx",
-                                                lineNumber: 107,
-                                                columnNumber: 17
+                                                lineNumber: 123,
+                                                columnNumber: 19
                                             }, this),
                                             " ",
                                             registro.ano,
@@ -480,20 +482,20 @@ function HistoricoPage() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/historico/page.tsx",
-                                                lineNumber: 108,
-                                                columnNumber: 17
+                                                lineNumber: 124,
+                                                columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/historico/page.tsx",
-                                        lineNumber: 106,
-                                        columnNumber: 15
+                                        lineNumber: 122,
+                                        columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/historico/page.tsx",
-                                lineNumber: 103,
-                                columnNumber: 13
+                                lineNumber: 119,
+                                columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "border border-yellow-500 p-3 rounded-xl text-sm",
@@ -503,8 +505,8 @@ function HistoricoPage() {
                                         children: "💼 Entradas:"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/historico/page.tsx",
-                                        lineNumber: 115,
-                                        columnNumber: 15
+                                        lineNumber: 131,
+                                        columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                                         className: "list-disc list-inside space-y-1",
@@ -516,50 +518,50 @@ function HistoricoPage() {
                                                         children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$formatarReal$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatarReal"])(Number(entrada.valor))
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/historico/page.tsx",
-                                                        lineNumber: 119,
-                                                        columnNumber: 38
+                                                        lineNumber: 135,
+                                                        columnNumber: 40
                                                     }, this)
                                                 ]
                                             }, eIdx, true, {
                                                 fileName: "[project]/src/app/historico/page.tsx",
-                                                lineNumber: 118,
-                                                columnNumber: 19
+                                                lineNumber: 134,
+                                                columnNumber: 21
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/historico/page.tsx",
-                                        lineNumber: 116,
-                                        columnNumber: 15
+                                        lineNumber: 132,
+                                        columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/historico/page.tsx",
-                                lineNumber: 114,
-                                columnNumber: 13
+                                lineNumber: 130,
+                                columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "border border-blue-400 p-3 rounded-xl text-sm text-blue-300",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     children: [
-                                        "📥 ",
+                                        "📅 ",
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
                                             children: "Total de Entradas:"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/historico/page.tsx",
-                                            lineNumber: 127,
-                                            columnNumber: 20
+                                            lineNumber: 143,
+                                            columnNumber: 22
                                         }, this),
                                         " ",
                                         (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$formatarReal$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatarReal"])(registro.totalEntradas)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/historico/page.tsx",
-                                    lineNumber: 126,
-                                    columnNumber: 15
+                                    lineNumber: 142,
+                                    columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/historico/page.tsx",
-                                lineNumber: 125,
-                                columnNumber: 13
+                                lineNumber: 141,
+                                columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "border border-green-400 p-3 rounded-xl text-sm text-green-300",
@@ -570,21 +572,21 @@ function HistoricoPage() {
                                             children: "Saldo Final:"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/historico/page.tsx",
-                                            lineNumber: 133,
-                                            columnNumber: 20
+                                            lineNumber: 149,
+                                            columnNumber: 22
                                         }, this),
                                         " ",
                                         (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$formatarReal$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatarReal"])(registro.saldoFinal)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/historico/page.tsx",
-                                    lineNumber: 132,
-                                    columnNumber: 15
+                                    lineNumber: 148,
+                                    columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/historico/page.tsx",
-                                lineNumber: 131,
-                                columnNumber: 13
+                                lineNumber: 147,
+                                columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "border border-rose-500 p-3 rounded-xl text-sm text-rose-300",
@@ -594,8 +596,8 @@ function HistoricoPage() {
                                         children: "📉 Gastos:"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/historico/page.tsx",
-                                        lineNumber: 138,
-                                        columnNumber: 15
+                                        lineNumber: 154,
+                                        columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                                         className: "list-disc list-inside space-y-1",
@@ -607,19 +609,19 @@ function HistoricoPage() {
                                                         children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$formatarReal$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatarReal"])(gasto.valor)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/historico/page.tsx",
-                                                        lineNumber: 142,
-                                                        columnNumber: 36
+                                                        lineNumber: 158,
+                                                        columnNumber: 38
                                                     }, this)
                                                 ]
                                             }, gIdx, true, {
                                                 fileName: "[project]/src/app/historico/page.tsx",
-                                                lineNumber: 141,
-                                                columnNumber: 19
+                                                lineNumber: 157,
+                                                columnNumber: 21
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/historico/page.tsx",
-                                        lineNumber: 139,
-                                        columnNumber: 15
+                                        lineNumber: 155,
+                                        columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         className: "mt-2 font-bold text-left",
@@ -629,14 +631,14 @@ function HistoricoPage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/historico/page.tsx",
-                                        lineNumber: 146,
-                                        columnNumber: 15
+                                        lineNumber: 162,
+                                        columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/historico/page.tsx",
-                                lineNumber: 137,
-                                columnNumber: 13
+                                lineNumber: 153,
+                                columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "border border-yellow-500 p-3 rounded-xl text-sm",
@@ -647,31 +649,32 @@ function HistoricoPage() {
                                             children: "Valor Poupado:"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/historico/page.tsx",
-                                            lineNumber: 153,
-                                            columnNumber: 20
+                                            lineNumber: 169,
+                                            columnNumber: 22
                                         }, this),
                                         " ",
                                         (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$formatarReal$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatarReal"])(registro.valorPoupado)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/historico/page.tsx",
-                                    lineNumber: 152,
-                                    columnNumber: 15
+                                    lineNumber: 168,
+                                    columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/historico/page.tsx",
-                                lineNumber: 151,
-                                columnNumber: 13
+                                lineNumber: 167,
+                                columnNumber: 15
                             }, this)
                         ]
                     }, idx, true, {
                         fileName: "[project]/src/app/historico/page.tsx",
-                        lineNumber: 89,
-                        columnNumber: 11
-                    }, this))
+                        lineNumber: 105,
+                        columnNumber: 13
+                    }, this);
+                })
             }, void 0, false, {
                 fileName: "[project]/src/app/historico/page.tsx",
-                lineNumber: 87,
+                lineNumber: 94,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -684,12 +687,12 @@ function HistoricoPage() {
                     children: "🔝 Voltar ao início"
                 }, void 0, false, {
                     fileName: "[project]/src/app/historico/page.tsx",
-                    lineNumber: 161,
+                    lineNumber: 178,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/historico/page.tsx",
-                lineNumber: 160,
+                lineNumber: 177,
                 columnNumber: 7
             }, this),
             indiceParaRemover !== null && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ModalRemoverHistorico$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ModalRemoverHistorico"], {
@@ -699,7 +702,7 @@ function HistoricoPage() {
                 paragrafo: "histórico"
             }, void 0, false, {
                 fileName: "[project]/src/app/historico/page.tsx",
-                lineNumber: 172,
+                lineNumber: 189,
                 columnNumber: 9
             }, this),
             limparTodosAtivo && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ModalRemoverHistorico$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ModalRemoverHistorico"], {
@@ -712,7 +715,7 @@ function HistoricoPage() {
                 paragrafo: "todos os históricos"
             }, void 0, false, {
                 fileName: "[project]/src/app/historico/page.tsx",
-                lineNumber: 181,
+                lineNumber: 198,
                 columnNumber: 9
             }, this),
             anoParaLimpar !== null && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ModalRemoverHistorico$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ModalRemoverHistorico"], {
@@ -725,7 +728,7 @@ function HistoricoPage() {
                 paragrafo: `todos os históricos do ano ${anoParaLimpar}`
             }, void 0, false, {
                 fileName: "[project]/src/app/historico/page.tsx",
-                lineNumber: 193,
+                lineNumber: 210,
                 columnNumber: 9
             }, this),
             mensagemRemovido && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -733,13 +736,13 @@ function HistoricoPage() {
                 children: "✅ Histórico removido com sucesso!"
             }, void 0, false, {
                 fileName: "[project]/src/app/historico/page.tsx",
-                lineNumber: 205,
+                lineNumber: 222,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/historico/page.tsx",
-        lineNumber: 44,
+        lineNumber: 50,
         columnNumber: 5
     }, this);
 }

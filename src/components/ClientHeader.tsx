@@ -12,7 +12,6 @@ import { useHistoricoStore } from '@/store/useHistoricoStore';
 import { usePatrimonioStore } from '@/store/usePatrimonioStore';
 
 export const ClientHeader = () => {
-  const { formularioPreenchido } = useEntradasStore();
   const [hydrated, setHydrated] = useState(false);
   const [saindo, setSaindo] = useState(false);
 
@@ -36,8 +35,9 @@ export const ClientHeader = () => {
     }
   }, [nome, hydrated]);
 
-  if (!formularioPreenchido) return null;
-  if (!hydrated || !nome) return null;
+  const podeMostrarNav = nome && idade > 0 && hydrated;
+
+  if (!podeMostrarNav) return null;
 
   const handleLogout = () => {
     setSaindo(true);
@@ -73,7 +73,7 @@ export const ClientHeader = () => {
   return (
     <header className="w-full px-4 pt-4 mb-6">
       <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-4">
- 
+
         <div className="flex justify-center md:justify-start w-full md:w-auto">
           <Nav />
         </div>

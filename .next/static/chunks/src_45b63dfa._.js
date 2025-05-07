@@ -109,14 +109,11 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
             setErro('Insira uma quantidade válida.');
             return;
         }
-        // Processar os novos nomes (limpar espaços e remover vazios)
-        const novosNomesBrutos = nomesEntradas.split(',').map((n)=>n.trim()) // agora só remove espaços extras do início/fim
-        .filter(Boolean);
+        const novosNomesBrutos = nomesEntradas.split(',').map((n)=>n.trim()).filter(Boolean);
         if (novosNomesBrutos.length !== qtd) {
             setErro(`Você informou ${qtd} entradas, mas digitou ${novosNomesBrutos.length} nome(s).`);
             return;
         }
-        // Verificar duplicados internos nos novos nomes
         const nomesUnicosSet = new Set();
         const nomesDuplicadosInternos = [];
         novosNomesBrutos.forEach((nome)=>{
@@ -131,10 +128,8 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
             return;
         }
         const novosNomes = Array.from(nomesUnicosSet);
-        // Obter os nomes já existentes do store (normalizados)
         const nomesExistentesOriginais = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEntradasStore"].getState().nomes;
         const nomesExistentesNormalizados = nomesExistentesOriginais.map((n)=>n.trim());
-        // Separar nomes novos e já cadastrados
         const nomesNaoCadastrados = [];
         const nomesRepetidos = [];
         novosNomes.forEach((nome)=>{
@@ -173,7 +168,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                 onChange: (e)=>setQuantidadeEntradas(e.target.value)
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 100,
+                lineNumber: 94,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -183,7 +178,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                 onChange: (e)=>setNomesEntradas(e.target.value)
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 107,
+                lineNumber: 101,
                 columnNumber: 7
             }, this),
             erro && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -191,7 +186,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                 children: erro
             }, void 0, false, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 114,
+                lineNumber: 108,
                 columnNumber: 16
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -203,7 +198,7 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                         children: login === 'Login' ? 'Entrar na aplicação' : 'Salvar'
                     }, void 0, false, {
                         fileName: "[project]/src/components/FormularioEntradas.tsx",
-                        lineNumber: 117,
+                        lineNumber: 111,
                         columnNumber: 7
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -219,19 +214,19 @@ const FormularioEntradas = ({ onFechar, login, fecharFormulario })=>{
                         children: "Voltar"
                     }, void 0, false, {
                         fileName: "[project]/src/components/FormularioEntradas.tsx",
-                        lineNumber: 124,
+                        lineNumber: 118,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/FormularioEntradas.tsx",
-                lineNumber: 116,
+                lineNumber: 110,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/FormularioEntradas.tsx",
-        lineNumber: 99,
+        lineNumber: 93,
         columnNumber: 5
     }, this);
 };

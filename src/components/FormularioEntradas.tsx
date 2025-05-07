@@ -7,9 +7,6 @@ import { Button } from './ui/Button';
 import { useEntradasStore } from '@/store/useEntradasStore';
 import { FormularioEntradasProps } from '@/types';
 
-
-
-
 export const FormularioEntradas = ({onFechar, login,  fecharFormulario,   }: FormularioEntradasProps) => {
 
   const [quantidadeEntradas, setQuantidadeEntradas] = useState('');
@@ -25,11 +22,10 @@ export const FormularioEntradas = ({onFechar, login,  fecharFormulario,   }: For
       setErro('Insira uma quantidade válida.');
       return;
     }
-  
-    // Processar os novos nomes (limpar espaços e remover vazios)
+    
     const novosNomesBrutos = nomesEntradas
       .split(',')
-      .map((n) => n.trim()) // agora só remove espaços extras do início/fim
+      .map((n) => n.trim())
       .filter(Boolean);
 
     if (novosNomesBrutos.length !== qtd) {
@@ -37,8 +33,7 @@ export const FormularioEntradas = ({onFechar, login,  fecharFormulario,   }: For
       return;
     }
     
-  
-    // Verificar duplicados internos nos novos nomes
+      
     const nomesUnicosSet = new Set<string>();
     const nomesDuplicadosInternos: string[] = [];
   
@@ -57,11 +52,10 @@ export const FormularioEntradas = ({onFechar, login,  fecharFormulario,   }: For
   
     const novosNomes = Array.from(nomesUnicosSet);
   
-    // Obter os nomes já existentes do store (normalizados)
     const nomesExistentesOriginais = useEntradasStore.getState().nomes;
     const nomesExistentesNormalizados = nomesExistentesOriginais.map((n) => n.trim());
   
-    // Separar nomes novos e já cadastrados
+   
     const nomesNaoCadastrados: string[] = [];
     const nomesRepetidos: string[] = [];
   

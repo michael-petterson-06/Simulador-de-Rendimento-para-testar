@@ -66,25 +66,25 @@ export function ExportarRetiradasExcel() {
               className="h-full bg-yellow-400 transition-all duration-300"
               style={{ width: `${progresso}%` }}
             />
-          </div>
+           </div>
           <p className="text-sm text-yellow-400 mt-2">Gerando Excel... {progresso}%</p>
         </div>
       )}
 
         <div className="my-6 text-center">
-        <Button
-            onClick={exportar}
-            disabled={gerandoExcel}
-            className={`inline-flex items-center justify-center gap-2
-            bg-yellow-400 text-black border border-yellow-400 
-            hover:bg-black hover:text-yellow-400 
-            transition-all duration-500 ${
-                gerandoExcel ? 'opacity-50 cursor-not-allowed' : ''
-            }`}
-        >
-            <FileSpreadsheet className="w-4 h-4" />
-            <span>Exportar Retiradas para Excel</span>
-        </Button>
+          <Button
+              onClick={exportar}
+              disabled={gerandoExcel}
+              className={`inline-flex items-center justify-center gap-2
+              bg-yellow-400 text-black border border-yellow-400 
+              hover:bg-black hover:text-yellow-400 
+              transition-all duration-500 ${
+                  gerandoExcel ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
+          >
+              <FileSpreadsheet className="w-4 h-4" />
+              <span>Exportar Retiradas para Excel</span>
+          </Button>
         </div>
 
     </div>

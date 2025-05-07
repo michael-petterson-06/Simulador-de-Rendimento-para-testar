@@ -457,6 +457,10 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$e
 ;
 const useHistoricoStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["create"])()((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zustand$2f$esm$2f$middleware$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["persist"])((set, get)=>({
         historico: [],
+        anoSelecionado: 'todos',
+        setAnoSelecionado: (ano)=>set({
+                anoSelecionado: ano
+            }),
         adicionarHistorico: (dados)=>set({
                 historico: [
                     ...get().historico,
@@ -556,7 +560,6 @@ var _s = __turbopack_context__.k.signature();
 ;
 const ClientHeader = ()=>{
     _s();
-    const { formularioPreenchido } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEntradasStore"])();
     const [hydrated, setHydrated] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [saindo, setSaindo] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const { nome, idade, logout, setIdade } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useUserStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useUserStore"])();
@@ -588,8 +591,8 @@ const ClientHeader = ()=>{
         nome,
         hydrated
     ]);
-    if (!formularioPreenchido) return null;
-    if (!hydrated || !nome) return null;
+    const podeMostrarNav = nome && idade > 0 && hydrated;
+    if (!podeMostrarNav) return null;
     const handleLogout = ()=>{
         setSaindo(true);
         limparTudo();
@@ -714,9 +717,8 @@ const ClientHeader = ()=>{
         columnNumber: 5
     }, this);
 };
-_s(ClientHeader, "zzl/SPi8xx4KuFk73LziLsmyfWM=", false, function() {
+_s(ClientHeader, "rXm7mJsa5izN+mzSauwhC+Z5EZM=", false, function() {
     return [
-        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useEntradasStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEntradasStore"],
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useUserStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useUserStore"],
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$store$2f$useSimuladorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSimuladorStore"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
